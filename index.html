@@ -1,0 +1,2236 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      Sen Đá Succulent Garden - Mang Thiên Nhiên Vào Không Gian Sống
+    </title>
+    <meta
+      name="description"
+      content="Chuyên cung cấp các loại sen đá, xương rồng, cây thảo mộc, cây để bàn và phụ kiện trang trí tiểu cảnh."
+    />
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Uicons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <!-- GSAP Animation Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#264332",
+              "primary-dark": "#1A3224",
+              "primary-bg": "#15271C",
+              secondary: "#8C7B5D",
+              "cream-bg": "#F7F6F2",
+              "cream-card": "#F3F2ED",
+              "text-main": "#1F2E27",
+              "text-muted": "#6E7A72",
+            },
+            fontFamily: {
+              serif: ["MuseoModerno", "Cormorant Garamond", "sans-serif"],
+              script: ["Alex Brush", "cursive"],
+              handwriting: ["Caveat", "cursive"],
+              museo: ["MuseoModerno", "sans-serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #ffffff;
+        color: #1f2e27;
+      }
+      .font-serif-title {
+        font-family: "MuseoModerno", "Cormorant Garamond", sans-serif;
+      }
+      .font-museo {
+        font-family: "MuseoModerno", sans-serif;
+      }
+      .font-script-title {
+        font-family: "Alex Brush", cursive;
+      }
+      .font-handwriting {
+        font-family: "Caveat", cursive;
+      }
+      /* Hide scrollbar for Chrome, Safari, Opera, Edge, Firefox */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-text-main antialiased">
+    <!-- TOP HEADER -->
+    <header class="w-full bg-white border-b border-stone-200 sticky top-0 z-50">
+      <!-- Upper Header Row -->
+      <div
+        class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6"
+      >
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="assets/image/logo.png"
+            alt="Vườn Sen Đá Châu Châu Garden"
+            class="h-14 w-auto object-contain transition-transform group-hover:scale-105"
+          />
+        </a>
+
+        <!-- Search Bar -->
+        <div
+          class="flex-1 max-w-xl hidden md:flex items-center bg-[#F3F4F0] px-5 py-2.5 rounded-full border border-transparent focus-within:border-primary/30 transition-all"
+        >
+          <input
+            data-catalog-search
+            class="bg-transparent border-none focus:outline-none text-xs sm:text-sm w-full text-text-main placeholder:text-stone-400 font-normal"
+            placeholder="Tìm kiếm cây cảnh, sen đá, xương rồng. . ."
+            type="text"
+          />
+          <span
+            class="material-symbols-outlined text-stone-500 text-xl cursor-pointer hover:text-primary transition-colors"
+            >search</span
+          >
+        </div>
+
+        <!-- Right Header Actions (Inline Icon + Text Style with Wishlist Heart, Account & Cart) -->
+        <div class="flex items-center gap-4 sm:gap-6 text-xs text-primary font-semibold">
+          <!-- 1. Yêu thích (Wishlist Heart - Icon Only) -->
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full hover:bg-stone-100 flex items-center justify-center transition-colors group relative shrink-0"
+            title="Yêu thích"
+          >
+            <div class="relative flex items-center justify-center">
+              <i
+                class="fi fi-rr-heart text-lg text-stone-700 group-hover:text-rose-500 transition-colors leading-none"
+              ></i>
+              <span
+                class="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs"
+                >0</span
+              >
+            </div>
+          </a>
+
+          <!-- 2. Tài khoản (Account) -->
+          <a
+            href="#"
+            class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group"
+          >
+            <i
+              class="fi fi-rr-user text-base text-stone-700 group-hover:text-primary transition-colors leading-none"
+            ></i>
+            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Tài khoản</span>
+          </a>
+
+          <!-- 3. Giỏ hàng (Cart) -->
+          <a
+            href="#"
+            class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group relative"
+          >
+            <div class="relative flex items-center justify-center">
+              <i
+                class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-primary transition-colors leading-none"
+              ></i>
+              <span
+                class="absolute -top-2 -right-2.5 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs"
+                >0</span
+              >
+            </div>
+            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Giỏ hàng</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lower Sub-Navigation Bar -->
+      <div class="border-t border-stone-200/80 bg-white shadow-xs relative z-30">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between py-2 gap-6 relative">
+            <!-- 1. Start Button: Danh Mục Sản Phẩm with Dropdown Menu -->
+            <div class="relative shrink-0 z-50">
+              <button
+                id="btn-danh-muc"
+                class="bg-[#244332] hover:bg-[#1A3224] text-white px-6 py-3 rounded-full flex items-center gap-4 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-sm group cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-xl">menu</span>
+                <span>DANH MỤC SẢN PHẨM</span>
+                <span
+                  id="danh-muc-arrow"
+                  class="material-symbols-outlined text-base transition-transform duration-300 inline-block"
+                  >expand_more</span
+                >
+              </button>
+
+              <!-- Dropdown Menu Box (Matching reference image 100%) -->
+              <div
+                id="dropdown-danh-muc"
+                class="hidden absolute top-full left-0 mt-3 w-80 bg-white rounded-[24px] shadow-2xl border border-stone-200/60 p-3 transition-all duration-200 origin-top-left z-[9999]"
+              >
+                <div class="space-y-1 text-stone-800 font-sans">
+                  <!-- 1. Sen đá (Active state matching reference image) -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl bg-[#F8F7EE] text-[#244332] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >filter_vintage</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Sen đá</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">32 sp</span>
+                  </a>
+
+                  <!-- 2. Xương rồng -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >potted_plant</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Xương rồng</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">18 sp</span>
+                  </a>
+
+                  <!-- 3. Cây để bàn -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >desk</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Cây để bàn</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">28 sp</span>
+                  </a>
+
+                  <!-- 4. Chậu trồng cây -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >local_mall</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Chậu trồng cây</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">36 sp</span>
+                  </a>
+
+                  <!-- 5. Cây thảo mộc -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >local_florist</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Cây thảo mộc</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">14 sp</span>
+                  </a>
+
+                  <!-- 6. Nguyên liệu trộn đất -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >landscape</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Nguyên liệu trộn đất</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">12 sp</span>
+                  </a>
+
+                  <!-- 7. Phụ kiện tiểu cảnh -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F8EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-[#244332]"
+                        >park</span
+                      >
+                      <span class="text-sm font-semibold text-stone-800"
+                        >Phụ kiện tiểu cảnh</span
+                      >
+                    </div>
+                    <span class="text-xs text-stone-400 font-normal">45 sp</span>
+                  </a>
+
+                  <!-- 8. Bộ sưu tập Tết -->
+                  <a
+                    href="#danh-muc"
+                    class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-2xl text-red-600"
+                        >celebration</span
+                      >
+                      <span class="text-sm font-semibold text-red-700"
+                        >Bộ sưu tập Tết</span
+                      >
+                    </div>
+                    <span class="text-xs text-red-400 font-normal">15 sp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Main Navigation Menu Links (Normal case text) -->
+            <nav
+              class="flex items-center gap-6 sm:gap-8 text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-1 shrink-0"
+            >
+              <a
+                href="index.html"
+                class="hover:text-emerald-700 transition-colors whitespace-nowrap text-emerald-900 font-bold border-b-2 border-[#264332] py-1"
+                >Trang chủ</a
+              >
+              <a
+                href="gioi-thieu.html"
+                class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1"
+                >Giới thiệu</a
+              >
+              <a
+                href="san-pham.html"
+                class="hover:text-emerald-700 transition-colors whitespace-nowrap flex items-center gap-1 py-1"
+              >
+                Sản phẩm
+              </a>
+              <a
+                href="tin-tuc.html"
+                class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1"
+                >Góc kinh nghiệm</a
+              >
+              <a
+                href="lien-he.html"
+                class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1"
+                >Liên hệ</a
+              >
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO BANNER SECTION -->
+      <section
+        class="relative w-full min-h-[600px] lg:min-h-[660px] bg-[#F5F6F0] overflow-hidden flex items-center"
+      >
+        <!-- Full Background Image with Sunlight & Shadows -->
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Hero Background Sunlight & Leaves"
+            class="w-full h-full object-cover opacity-90"
+            src="assets/image/ChatGPT Image Aug 7, 2026, 11_36_22 AM.png"
+          />
+        </div>
+
+        <!-- Soft Circular White Radial Gradient Overlay behind Left Content -->
+        <div
+          class="absolute -left-24 sm:-left-16 top-[30%] -translate-y-1/2 w-[600px] h-[600px] sm:w-[750px] sm:h-[750px] rounded-full pointer-events-none z-[1]"
+          style="
+            background: radial-gradient(
+              circle at center,
+              rgba(255, 255, 255, 0.95) 0%,
+              rgba(255, 255, 255, 0.75) 45%,
+              rgba(255, 255, 255, 0) 75%
+            );
+          "
+        ></div>
+
+        <div
+          class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-16 relative z-10"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Left Hero Text Content -->
+            <div class="lg:col-span-6 space-y-6 max-w-xl relative z-10">
+              <!-- Cursive Title Intro -->
+              <div
+                class="font-script-title text-6xl sm:text-7xl text-[#3A5343] leading-none mb-[-14px]"
+              >
+                Mang
+              </div>
+
+              <!-- Main Serif Headline -->
+              <h1
+                class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-normal text-[#1F3629] leading-[1.14] tracking-tight"
+              >
+                thiên nhiên
+                <span
+                  class="inline-block text-3xl align-middle text-emerald-700 font-sans"
+                ></span
+                ><br />
+                vào không gian sống
+              </h1>
+
+              <!-- Subtitle Wording -->
+              <p
+                class="text-stone-600 text-sm sm:text-base leading-relaxed font-normal"
+              >
+                Khám phá bộ sưu tập sen đá và xương rồng độc đáo, được chăm sóc
+                tỉ mỉ để đem thiên nhiên xanh mát vào từng khoảnh khắc của bạn.
+              </p>
+
+              <!-- CTA Button -->
+              <div class="pt-2">
+                <a
+                  href="#danh-muc"
+                  class="inline-flex items-center gap-3 bg-[#264332] hover:bg-[#1A3224] text-white px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase transition-all duration-300 shadow-sm"
+                >
+                  <span>KHÁM PHÁ NGAY</span>
+                  <span class="text-base">→</span>
+                </a>
+              </div>
+
+              <!-- Floating Hero Info Card -->
+              <div class="pt-6">
+                <div
+                  class="bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-stone-200/70 inline-flex flex-wrap sm:flex-nowrap items-center gap-6 text-xs shadow-sm"
+                >
+                  <div class="flex items-center gap-2.5">
+                    <span
+                      class="material-symbols-outlined text-emerald-800 text-xl"
+                      >eco</span
+                    >
+                    <div>
+                      <span class="font-bold text-primary block leading-tight"
+                        >Cây tuyển chọn</span
+                      >
+                      <span class="text-[10px] text-stone-500"
+                        >Chất lượng cao</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="hidden sm:block w-[1px] h-8 bg-stone-200"></div>
+
+                  <div class="flex items-center gap-2.5">
+                    <span
+                      class="material-symbols-outlined text-emerald-800 text-xl"
+                      >water_drop</span
+                    >
+                    <div>
+                      <span class="font-bold text-primary block leading-tight"
+                        >Giao hàng nhanh</span
+                      >
+                      <span class="text-[10px] text-stone-500">Toàn quốc</span>
+                    </div>
+                  </div>
+
+                  <div class="hidden sm:block w-[1px] h-8 bg-stone-200"></div>
+
+                  <div class="flex items-center gap-2.5">
+                    <span
+                      class="material-symbols-outlined text-emerald-800 text-xl"
+                      >package_2</span
+                    >
+                    <div>
+                      <span class="font-bold text-primary block leading-tight"
+                        >Đóng gói cẩn thận</span
+                      >
+                      <span class="text-[10px] text-stone-500"
+                        >An toàn khi vận chuyển</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Hero Image Showcase -->
+            <div
+              class="lg:col-span-6 relative flex justify-center items-center pt-8 lg:pt-0"
+            >
+              <div class="relative w-full max-w-lg">
+                <!-- Layer 0 (Farthest Back): Blurred Floating Leaves Background -->
+                <div
+                  class="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+                >
+                  <img
+                    alt="Floating Leaves Background Blur"
+                    class="w-[650px] sm:w-[850px] lg:w-[950px] max-w-none h-auto object-contain filter blur-[3px] opacity-85"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 11_36_00 AM (4).png"
+                  />
+                </div>
+
+                <!-- Layer 1 (Middle Background): Green Watercolor & Gold Ring Backdrop -->
+                <div
+                  class="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]"
+                >
+                  <img
+                    alt="Watercolor Green Circle & Gold Ring"
+                    class="w-[460px] h-[460px] sm:w-[540px] sm:h-[540px] object-contain drop-shadow-sm"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 11_36_00 AM (3).png"
+                  />
+                </div>
+
+                <!-- Layer 2 (Front Focal Image): Main Hero Plant Pot -->
+                <div class="relative z-10 max-w-md mx-auto">
+                  <img
+                    alt="Chậu Sen Đá & Chuỗi Ngọc Hero"
+                    class="w-full h-auto object-contain max-h-[480px]"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 11_35_59 AM (1).png"
+                  />
+                </div>
+
+                <!-- Top-Right 100% Tự Nhiên Stamp Badge Image -->
+                <div
+                  class="absolute -top-4 -right-2 sm:top-0 sm:right-2 w-24 h-24 sm:w-28 sm:h-28 transform rotate-6 z-20 drop-shadow-lg"
+                >
+                  <img
+                    alt="100% Tự Nhiên Stamp Badge"
+                    class="w-full h-full object-contain"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 11_36_00 AM (5).png"
+                  />
+                </div>
+
+                <!-- Bottom-Right Pinned Note Card -->
+                <div
+                  class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#F4F1EA] px-4 py-2.5 rounded-lg border border-stone-300/80 shadow-md transform -rotate-3 z-20"
+                >
+                  <!-- Tape Sticker -->
+                  <div
+                    class="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-3.5 bg-[#E6DEC9]/90 border border-[#D9CFA6]/80 rounded-xs rotate-2"
+                  ></div>
+                  <p
+                    class="font-handwriting text-stone-800 text-sm sm:text-base leading-tight pt-0.5"
+                  >
+                    Xanh mát mỗi ngày. 💚
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED CATEGORIES SECTION -->
+      <section id="danh-muc" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Section Header -->
+          <div class="text-center max-w-xl mx-auto mb-14">
+            <div
+              class="flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8C7B5D] mb-2"
+            >
+              <span class="material-symbols-outlined text-sm">eco</span>
+              <span>DANH MỤC NỔI BẬT</span>
+              <span class="material-symbols-outlined text-sm">eco</span>
+            </div>
+            <h2
+              class="font-serif-title text-4xl sm:text-5xl font-normal text-primary mb-2"
+            >
+              Khám phá thế giới xanh
+            </h2>
+            <p class="italic text-stone-500 font-serif-title text-lg">
+              Đa dạng lựa chọn cho mọi không gian sống
+            </p>
+          </div>
+
+          <!-- 4 Categories Cards Grid -->
+          <div id="featured-category-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Category Card 1 -->
+            <a
+              href="#"
+              class="group relative rounded-[28px] overflow-hidden aspect-[3/4] bg-stone-100 flex flex-col justify-end p-6 transition-transform duration-500 hover:-translate-y-1"
+            >
+              <img
+                alt="Sen Đá"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_35 AM (2).png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#1C3A27]/90 via-[#1C3A27]/30 to-transparent"
+              ></div>
+
+              <div class="relative z-10 text-white space-y-2">
+                <div
+                  class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center mb-2"
+                >
+                  <span class="material-symbols-outlined text-xl text-white"
+                    >filter_vintage</span
+                  >
+                </div>
+                <h3 class="font-serif-title text-2xl font-normal text-white">
+                  Sen Đá
+                </h3>
+                <div
+                  class="inline-flex items-center gap-1.5 text-xs text-white/80 group-hover:text-white font-medium"
+                >
+                  <span>Xem bộ sưu tập</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Category Card 2 -->
+            <a
+              href="#"
+              class="group relative rounded-[28px] overflow-hidden aspect-[3/4] bg-stone-100 flex flex-col justify-end p-6 transition-transform duration-500 hover:-translate-y-1"
+            >
+              <img
+                alt="Xương Rồng"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_37 AM (3).png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#1C3A27]/90 via-[#1C3A27]/30 to-transparent"
+              ></div>
+
+              <div class="relative z-10 text-white space-y-2">
+                <div
+                  class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center mb-2"
+                >
+                  <span class="material-symbols-outlined text-xl text-white"
+                    >potted_plant</span
+                  >
+                </div>
+                <h3 class="font-serif-title text-2xl font-normal text-white">
+                  Xương Rồng
+                </h3>
+                <div
+                  class="inline-flex items-center gap-1.5 text-xs text-white/80 group-hover:text-white font-medium"
+                >
+                  <span>Xem bộ sưu tập</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Category Card 3 -->
+            <a
+              href="#"
+              class="group relative rounded-[28px] overflow-hidden aspect-[3/4] bg-stone-100 flex flex-col justify-end p-6 transition-transform duration-500 hover:-translate-y-1"
+            >
+              <img
+                alt="Cây Để Bàn"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_38 AM (4).png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#1C3A27]/90 via-[#1C3A27]/30 to-transparent"
+              ></div>
+
+              <div class="relative z-10 text-white space-y-2">
+                <div
+                  class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center mb-2"
+                >
+                  <span class="material-symbols-outlined text-xl text-white"
+                    >eco</span
+                  >
+                </div>
+                <h3 class="font-serif-title text-2xl font-normal text-white">
+                  Cây Để Bàn
+                </h3>
+                <div
+                  class="inline-flex items-center gap-1.5 text-xs text-white/80 group-hover:text-white font-medium"
+                >
+                  <span>Xem bộ sưu tập</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Category Card 4 -->
+            <a
+              href="#"
+              class="group relative rounded-[28px] overflow-hidden aspect-[3/4] bg-stone-100 flex flex-col justify-end p-6 transition-transform duration-500 hover:-translate-y-1"
+            >
+              <img
+                alt="Cây Thảo Mộc"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_39 AM (5).png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#1C3A27]/90 via-[#1C3A27]/30 to-transparent"
+              ></div>
+
+              <div class="relative z-10 text-white space-y-2">
+                <div
+                  class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center mb-2"
+                >
+                  <span class="material-symbols-outlined text-xl text-white"
+                    >nest_eco_leaf</span
+                  >
+                </div>
+                <h3 class="font-serif-title text-2xl font-normal text-white">
+                  Cây Thảo Mộc
+                </h3>
+                <div
+                  class="inline-flex items-center gap-1.5 text-xs text-white/80 group-hover:text-white font-medium"
+                >
+                  <span>Xem bộ sưu tập</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW ARRIVALS / PRODUCTS SECTION -->
+      <section class="py-16 bg-[#FAF9F6]">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header Row -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4"
+          >
+            <div>
+              <div
+                class="text-xs font-semibold uppercase tracking-[0.2em] text-[#8C7B5D] mb-1"
+              >
+                HÀNG MỚI VỀ
+              </div>
+              <h2
+                class="font-serif-title text-3xl sm:text-4xl font-normal text-primary"
+              >
+                Những mầm xanh mới nhất
+              </h2>
+            </div>
+            <a
+              id="home-all-products-link"
+              href="san-pham.html"
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#264332] hover:text-emerald-800 transition-colors"
+            >
+              <span>Xem tất cả sản phẩm</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- 4 Product Cards Grid -->
+          <div id="home-new-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-[#264332] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                    >MỚI</span
+                  >
+                  <button
+                    class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all"
+                    title="Xem nhanh"
+                  >
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                  <img
+                    alt="Haworthia Cooperi"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (6).png"
+                  />
+                </div>
+                <h4
+                  class="font-serif-title text-xl font-normal text-primary mb-0.5"
+                >
+                  Haworthia Cooperi
+                </h4>
+                <p class="text-xs text-stone-500 mb-3">Sen đá ngọc bích</p>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-bold text-base text-primary">185.000 ₫</span>
+                <button
+                  class="w-8 h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors"
+                  title="Yêu thích"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <button
+                    class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all"
+                    title="Xem nhanh"
+                  >
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                  <img
+                    alt="Lithops Mix"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (7).png"
+                  />
+                </div>
+                <h4
+                  class="font-serif-title text-xl font-normal text-primary mb-0.5"
+                >
+                  Lithops Mix
+                </h4>
+                <p class="text-xs text-stone-500 mb-3">Thạch lan</p>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-bold text-base text-primary">120.000 ₫</span>
+                <button
+                  class="w-8 h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors"
+                  title="Yêu thích"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-[#C86A4B] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                    >BÁN CHẠY</span
+                  >
+                  <button
+                    class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all"
+                    title="Xem nhanh"
+                  >
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                  <img
+                    alt="Sen Đá Chuỗi Ngọc"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (8).png"
+                  />
+                </div>
+                <h4
+                  class="font-serif-title text-xl font-normal text-primary mb-0.5"
+                >
+                  Sen Đá Chuỗi Ngọc
+                </h4>
+                <p class="text-xs text-stone-500 mb-3">String of Pearls</p>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-bold text-base text-primary">150.000 ₫</span>
+                <button
+                  class="w-8 h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors"
+                  title="Yêu thích"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <button
+                    class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all"
+                    title="Xem nhanh"
+                  >
+                    <span class="material-symbols-outlined text-base">add</span>
+                  </button>
+                  <img
+                    alt="Euphorbia Obesa"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_41 AM (9).png"
+                  />
+                </div>
+                <h4
+                  class="font-serif-title text-xl font-normal text-primary mb-0.5"
+                >
+                  Euphorbia Obesa
+                </h4>
+                <p class="text-xs text-stone-500 mb-3">Xương rồng khối</p>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-bold text-base text-primary">210.000 ₫</span>
+                <button
+                  class="w-8 h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors"
+                  title="Yêu thích"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Highlights Bar Below Products -->
+          <div
+            class="mt-14 bg-[#F2F1EC] rounded-2xl p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            <!-- Item 1 -->
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-[#E5E3DA] flex items-center justify-center shrink-0 text-primary"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >local_shipping</span
+                >
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-primary uppercase">
+                  Miễn phí vận chuyển
+                </h4>
+                <p class="text-xs text-stone-500">Đơn từ 300.000 đ</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-[#E5E3DA] flex items-center justify-center shrink-0 text-primary"
+              >
+                <span class="material-symbols-outlined text-2xl">sync</span>
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-primary uppercase">
+                  Đổi trả dễ dàng
+                </h4>
+                <p class="text-xs text-stone-500">Trong 7 ngày</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-[#E5E3DA] flex items-center justify-center shrink-0 text-primary"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >headset_mic</span
+                >
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-primary uppercase">
+                  Tư vấn tận tâm
+                </h4>
+                <p class="text-xs text-stone-500">Hỗ trợ 24/7</p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-[#E5E3DA] flex items-center justify-center shrink-0 text-primary"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >inventory_2</span
+                >
+              </div>
+              <div>
+                <h4 class="font-bold text-xs text-primary uppercase">
+                  Đóng gói cẩn thận
+                </h4>
+                <p class="text-xs text-stone-500">An toàn tuyệt đối</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW PRODUCT CATEGORY SHOWCASE SECTION (MATCHING REFERENCE IMAGE 100%) -->
+      <section class="py-16 sm:py-24 bg-[#FAF9F6] relative overflow-hidden">
+        <!-- Top Corner Leaf Branch Decorations -->
+        <div
+          class="absolute top-0 left-0 w-[8rem] max-w-[8rem] pointer-events-none opacity-80 z-0"
+        >
+          <img
+            alt="Leaf branch top left"
+            class="w-full h-auto object-contain max-w-[8rem]"
+            src="assets/image/image-removebg-preview (1).png"
+          />
+        </div>
+        <div
+          class="absolute top-0 right-0 w-[8rem] max-w-[8rem] pointer-events-none opacity-80 z-0"
+        >
+          <img
+            alt="Leaf branch top right"
+            class="w-full h-auto object-contain max-w-[8rem]"
+            src="assets/image/image-removebg-preview.png"
+          />
+        </div>
+
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Section Header -->
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <!-- Cursive Subtitle with Leaf Symbols -->
+            <div
+              class="font-script-title text-2xl sm:text-3xl text-[#3A5343] mb-1 flex items-center justify-center gap-2"
+            >
+              <span class="text-base"></span>
+              <span>Danh mục sản phẩm</span>
+              <span class="text-base"></span>
+            </div>
+
+            <!-- Main Serif Headline -->
+            <h2
+              class="font-serif-title text-4xl sm:text-5xl font-normal text-primary mb-3"
+            >
+              Khám phá thế giới cây xanh
+              <span
+                class="inline-block text-3xl align-middle text-emerald-700"
+              ></span>
+            </h2>
+
+            <!-- Subtitle Description -->
+            <p
+              class="text-stone-600 text-xs sm:text-sm leading-relaxed font-normal"
+            >
+              Lựa chọn từ hàng trăm loại cây xanh tươi mát, mang thiên nhiên vào
+              không gian sống của bạn.
+            </p>
+          </div>
+
+          <!-- Category Filter Carousel Pill Bar -->
+          <div class="mb-12 flex items-center gap-2 relative z-20">
+            <!-- Left Arrow Button -->
+            <button
+              id="cate-prev-btn"
+              class="w-9 h-9 rounded-full bg-white border border-stone-200/80 shadow-xs flex items-center justify-center text-stone-600 hover:bg-stone-100 hover:scale-105 active:scale-95 transition-all shrink-0 z-10"
+              title="Trước"
+            >
+              <span class="material-symbols-outlined text-sm"
+                >chevron_left</span
+              >
+            </button>
+
+            <!-- Pill Navigation Container -->
+            <div
+              id="cate-pill-container"
+              class="flex-1 bg-white rounded-full p-2 border border-stone-200/80 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth"
+            >
+              <!-- 1. TẤT CẢ (All Products - Active) -->
+              <button
+                class="cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill shadow-xs"
+                data-category="all"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box"
+                >
+                  <span class="material-symbols-outlined text-base">eco</span>
+                </div>
+                <div>
+                  <span class="font-bold text-xs uppercase block leading-tight"
+                    >TẤT CẢ</span
+                  >
+                  <span class="text-[10px] text-white/80 font-normal"
+                    >124 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 2. BỘ SƯU TẬP TẾT -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="tet"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >celebration</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >TẾT</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >15 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 3. SEN ĐÁ -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="sen-da"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >filter_vintage</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >SEN ĐÁ</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >32 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 4. XƯƠNG RỒNG -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="xuong-rong"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >potted_plant</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >XƯƠNG RỒNG</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >18 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 5. CÂY THẢO MỘC -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="thao-moc"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >local_florist</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >CÂY THẢO MỘC</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >14 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 6. CÂY ĐỂ BÀN LÀM VIỆC -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="de-ban"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >desk</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >CÂY ĐỂ BÀN LÀM VIỆC</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >28 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 7. NGUYÊN LIỆU TRỘN ĐẤT -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="tron-dat"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >landscape</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >NGUYÊN LIỆU TRỘN ĐẤT</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >12 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 8. PHỤ KIỆN TIỂU CẢNH -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="tieu-canh"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base">park</span>
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >PHỤ KIỆN TIỂU CẢNH</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >45 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 9. CHẬU TRỒNG CÂY -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="chau-cay"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >storefront</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >CHẬU TRỒNG CÂY</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >36 sản phẩm</span
+                  >
+                </div>
+              </button>
+
+              <!-- 10. BỘ SƯU TẬP NOEL -->
+              <button
+                class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all"
+                data-category="noel"
+              >
+                <div
+                  class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >ac_unit</span
+                  >
+                </div>
+                <div>
+                  <span
+                    class="font-bold text-xs uppercase block leading-tight text-primary"
+                    >NOEL</span
+                  >
+                  <span class="text-[10px] text-stone-500 font-normal"
+                    >10 sản phẩm</span
+                  >
+                </div>
+              </button>
+            </div>
+
+            <!-- Right Arrow Button -->
+            <button
+              id="cate-next-btn"
+              class="w-9 h-9 rounded-full bg-white border border-stone-200/80 shadow-xs flex items-center justify-center text-stone-600 hover:bg-stone-100 hover:scale-105 active:scale-95 transition-all shrink-0 z-10"
+              title="Sau"
+            >
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
+            </button>
+          </div>
+
+          <!-- Real Dynamic Product Cards Grid -->
+          <div
+            id="home-category-product-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+          ></div>
+
+          <!-- Xem Thêm (View More) Button -->
+          <div class="text-center mt-10">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#264332] text-white font-semibold text-sm hover:bg-[#1A3224] transition-all shadow-sm hover:shadow-md group"
+            >
+              <span>Xem thêm sản phẩm</span>
+              <span class="group-hover:translate-x-1 transition-transform"
+                >→</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR STORY SECTION -->
+      <section class="py-16 sm:py-24 bg-[#F7F6F2] relative overflow-hidden">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+          >
+            <!-- Left Text Content & Stats -->
+            <div class="lg:col-span-6 space-y-6">
+              <!-- Subheading -->
+              <div
+                class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8C7B5D]"
+              >
+                <span class="material-symbols-outlined text-sm">eco</span>
+                <span>CÂU CHUYỆN CỦA CHÚNG TÔI</span>
+              </div>
+
+              <!-- Main Serif Title -->
+              <h2
+                class="font-serif-title text-4xl sm:text-5xl font-normal text-primary leading-[1.18] tracking-tight"
+              >
+                Gieo mầm hạnh phúc <br />từ những chiếc lá nhỏ
+              </h2>
+
+              <!-- Decorative Leaf Divider -->
+              <div class="flex items-center gap-3 py-0.5">
+                <div class="h-[1px] w-10 bg-[#8C7B5D]/40"></div>
+                <span class="material-symbols-outlined text-xs text-[#8C7B5D]"
+                  >eco</span
+                >
+                <div class="h-[1px] w-10 bg-[#8C7B5D]/40"></div>
+              </div>
+
+              <!-- Paragraph Text -->
+              <p
+                class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-lg"
+              >
+                Sen Đá Succulent Garden ra đời với mong muốn mang thiên nhiên
+                đến gần hơn với cuộc sống hiện đại. Mỗi chậu cây nhỏ bé là kết
+                tinh của sự kiên nhẫn, tình yêu và niềm tin vào những điều xanh
+                mát, tích cực.
+              </p>
+              <!-- Stats Container Card -->
+              <div class="pt-4">
+                <div
+                  class="bg-white/70 backdrop-blur-sm rounded-3xl border border-stone-200/90 p-5 sm:p-6 shadow-sm grid grid-cols-3 gap-2 text-center divide-x divide-stone-200"
+                >
+                  <!-- Stat 1 -->
+                  <div class="flex flex-col items-center px-2 space-y-1">
+                    <div
+                      class="w-10 h-10 rounded-full bg-[#F3F2ED] flex items-center justify-center text-primary mb-1"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >compost</span
+                      >
+                    </div>
+                    <div
+                      class="font-serif-title text-3xl sm:text-4xl font-normal text-primary"
+                    >
+                      5+
+                    </div>
+                    <div
+                      class="text-[10px] font-bold uppercase tracking-wider text-stone-500"
+                    >
+                      NĂM KINH NGHIỆM
+                    </div>
+                  </div>
+
+                  <!-- Stat 2 -->
+                  <div class="flex flex-col items-center px-2 space-y-1">
+                    <div
+                      class="w-10 h-10 rounded-full bg-[#F3F2ED] flex items-center justify-center text-primary mb-1"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >groups</span
+                      >
+                    </div>
+                    <div
+                      class="font-serif-title text-3xl sm:text-4xl font-normal text-primary"
+                    >
+                      10K+
+                    </div>
+                    <div
+                      class="text-[10px] font-bold uppercase tracking-wider text-stone-500"
+                    >
+                      KHÁCH HÀNG TIN TƯỞNG
+                    </div>
+                  </div>
+
+                  <!-- Stat 3 -->
+                  <div class="flex flex-col items-center px-2 space-y-1">
+                    <div
+                      class="w-10 h-10 rounded-full bg-[#F3F2ED] flex items-center justify-center text-primary mb-1"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >potted_plant</span
+                      >
+                    </div>
+                    <div
+                      class="font-serif-title text-3xl sm:text-4xl font-normal text-primary"
+                    >
+                      500+
+                    </div>
+                    <div
+                      class="text-[10px] font-bold uppercase tracking-wider text-stone-500"
+                    >
+                      LOẠI CÂY & PHỤ KIỆN
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="pt-2">
+                <a
+                  href="#"
+                  class="inline-flex items-center gap-3 bg-[#264332] hover:bg-[#1A3224] text-white px-7 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase transition-all duration-300 shadow-sm"
+                >
+                  <span class="material-symbols-outlined text-base">eco</span>
+                  <span>TÌM HIỂU THÊM VỀ CHÚNG TÔI</span>
+                  <span>→</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Right Composite Image Collage -->
+            <div class="lg:col-span-6 relative pt-6 sm:pt-0">
+              <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
+                <!-- 1. Main Base Image -->
+                <div
+                  class="rounded-[36px] overflow-hidden shadow-xl bg-white border-4 border-white aspect-[4/3] sm:aspect-[1.1] relative z-0"
+                >
+                  <img
+                    alt="Vườn Sen Đá Story Main"
+                    class="w-full h-full object-cover"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_42 AM (10).png"
+                  />
+                </div>
+
+                <!-- 2. Overlapping Tilted Polaroid Card (Top-Left) -->
+                <div
+                  class="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 w-44 sm:w-52 bg-white rounded-2xl p-3 shadow-xl border border-stone-200/80 transform -rotate-6 z-20 transition-transform hover:-rotate-2 duration-300"
+                >
+                  <!-- Washi Tape -->
+                  <div
+                    class="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-5 bg-[#E6DEC9]/80 border border-[#D9CFA6]/60 rounded-xs transform rotate-3 shadow-xs"
+                  ></div>
+
+                  <div
+                    class="aspect-square rounded-xl overflow-hidden mb-2 bg-stone-100"
+                  >
+                    <img
+                      alt="Chăm chút từ những điều nhỏ bé"
+                      class="w-full h-full object-cover"
+                      src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (6).png"
+                    />
+                  </div>
+                  <div
+                    class="font-handwriting text-stone-800 text-sm sm:text-base leading-tight pt-1 px-1"
+                  >
+                    Chăm chút từ những điều nhỏ bé. 🌿
+                  </div>
+                </div>
+
+                <!-- 3. Floating Oval Pill Badge (Top-Right) -->
+                <div
+                  class="absolute top-6 -right-2 sm:top-8 sm:-right-4 bg-white/95 backdrop-blur-md rounded-full px-4 py-2 sm:px-5 sm:py-2.5 shadow-lg border border-stone-200/60 flex items-center gap-3 z-20"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-[#264332] text-white flex items-center justify-center shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-lg"
+                      >nest_eco_leaf</span
+                    >
+                  </div>
+                  <div>
+                    <span
+                      class="block text-xs font-bold text-primary leading-tight"
+                      >Không gian xanh</span
+                    >
+                    <span class="text-[10px] text-stone-500"
+                      >Cho cuộc sống an lành</span
+                    >
+                  </div>
+                </div>
+
+                <!-- 4. Circular Image Snippet (Bottom-Right) -->
+                <div
+                  class="absolute -bottom-8 -right-3 sm:-bottom-10 sm:-right-6 w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-white shadow-2xl overflow-hidden z-20"
+                >
+                  <img
+                    alt="Bộ sưu tập sen đá nhỏ"
+                    class="w-full h-full object-cover"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (7).png"
+                  />
+                </div>
+
+                <!-- 5. Note Card Snippet (Bottom-Center) -->
+                <div
+                  class="absolute bottom-4 left-1/4 sm:bottom-6 sm:left-1/3 bg-[#F4F1EA] p-3 rounded-lg border border-stone-300/80 shadow-md transform -rotate-3 z-20 max-w-[200px]"
+                >
+                  <!-- Mini Tape -->
+                  <div
+                    class="absolute -top-2 right-4 w-8 h-3.5 bg-[#E6DEC9]/90 border border-[#D9CFA6]/80 rounded-xs rotate-6"
+                  ></div>
+                  <p
+                    class="font-handwriting text-stone-800 text-xs sm:text-sm leading-snug"
+                  >
+                    Thiên nhiên nuôi dưỡng tâm hồn. 🌿
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KNOWLEDGE & BLOG SECTION (Góc Kiến Thức & Mẹo Chăm Cây) -->
+      <section class="py-16 sm:py-24 bg-[#FAF9F6] relative overflow-hidden">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Section Header -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4"
+          >
+            <div>
+              <div
+                class="text-xs font-semibold uppercase tracking-[0.2em] text-[#8C7B5D] mb-1"
+              >
+                GÓC CHIA SẺ & KINH NGHIỆM
+              </div>
+              <h2
+                class="font-serif-title text-3xl sm:text-4xl font-normal text-primary"
+              >
+                Bí quyết chăm cây xanh tươi mỗi ngày
+              </h2>
+            </div>
+            <a
+              href="#"
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#264332] hover:text-emerald-800 transition-colors group"
+            >
+              <span>Xem tất cả bài viết</span>
+              <span class="group-hover:translate-x-1 transition-transform"
+                >→</span
+              >
+            </a>
+          </div>
+
+          <!-- 4 Knowledge Article Cards Grid (1 row 4 cards matching product card style 100%) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Article Card 1 -->
+            <article
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <!-- Thumbnail Image with Badge -->
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-[#264332] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >
+                    HƯỚNG DẪN
+                  </span>
+                  <img
+                    alt="Cách tưới nước chuẩn cho Sen Đá"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (7).png"
+                  />
+                </div>
+
+                <!-- Card Body -->
+                <div>
+                  <div
+                    class="flex items-center gap-2 text-[10px] text-stone-500 mb-1.5"
+                  >
+                    <span>05 Th8, 2024</span>
+                    <span>•</span>
+                    <span>5 phút đọc</span>
+                  </div>
+
+                  <h3
+                    class="font-serif-title text-xl font-normal text-primary group-hover:text-emerald-800 transition-colors mb-1.5 leading-snug line-clamp-2"
+                  >
+                    Cách tưới nước chuẩn cho Sen Đá không úng lá
+                  </h3>
+                  <p class="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3">
+                    Tưới nước đúng cách giúp sen đá luôn mọng nước, lên màu chuẩn và rễ khỏe...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div
+                class="pt-2 border-t border-stone-200/60 flex items-center justify-between mt-auto"
+              >
+                <span class="text-xs font-semibold text-stone-600"
+                  >Nguyễn Hoàng</span
+                >
+                <a
+                  href="#"
+                  class="text-xs font-bold text-primary hover:text-emerald-700 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                >
+                  Đọc tiếp <span>→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Article Card 2 -->
+            <article
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <!-- Thumbnail Image with Badge -->
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-[#C86A4B] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >
+                    MẸO CHĂM SÓC
+                  </span>
+                  <img
+                    alt="Công thức phối trộn giá thể"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (8).png"
+                  />
+                </div>
+
+                <!-- Card Body -->
+                <div>
+                  <div
+                    class="flex items-center gap-2 text-[10px] text-stone-500 mb-1.5"
+                  >
+                    <span>02 Th8, 2024</span>
+                    <span>•</span>
+                    <span>7 phút đọc</span>
+                  </div>
+
+                  <h3
+                    class="font-serif-title text-xl font-normal text-primary group-hover:text-emerald-800 transition-colors mb-1.5 leading-snug line-clamp-2"
+                  >
+                    Công thức phối trộn giá thể chuẩn cho bộ rễ
+                  </h3>
+                  <p class="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3">
+                    Đất trồng thông thoáng quyết định 80% sức khỏe cây. Khám phá tỉ lệ Akadama...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div
+                class="pt-2 border-t border-stone-200/60 flex items-center justify-between mt-auto"
+              >
+                <span class="text-xs font-semibold text-stone-600"
+                  >Lê Thanh</span
+                >
+                <a
+                  href="#"
+                  class="text-xs font-bold text-primary hover:text-emerald-700 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                >
+                  Đọc tiếp <span>→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Article Card 3 -->
+            <article
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <!-- Thumbnail Image with Badge -->
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >
+                    TRANG TRÍ
+                  </span>
+                  <img
+                    alt="5 loại sen đá phong thủy"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_38 AM (4).png"
+                  />
+                </div>
+
+                <!-- Card Body -->
+                <div>
+                  <div
+                    class="flex items-center gap-2 text-[10px] text-stone-500 mb-1.5"
+                  >
+                    <span>28 Th7, 2024</span>
+                    <span>•</span>
+                    <span>4 phút đọc</span>
+                  </div>
+
+                  <h3
+                    class="font-serif-title text-xl font-normal text-primary group-hover:text-emerald-800 transition-colors mb-1.5 leading-snug line-clamp-2"
+                  >
+                    Gợi ý 5 loại sen đá phong thủy tài lộc
+                  </h3>
+                  <p class="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3">
+                    Những chậu sen đá xinh xắn mang ý nghĩa thu hút vượng khí & tài lộc...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div
+                class="pt-2 border-t border-stone-200/60 flex items-center justify-between mt-auto"
+              >
+                <span class="text-xs font-semibold text-stone-600"
+                  >Trần Minh</span
+                >
+                <a
+                  href="#"
+                  class="text-xs font-bold text-primary hover:text-emerald-700 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                >
+                  Đọc tiếp <span>→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Article Card 4 -->
+            <article
+              class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group"
+            >
+              <div>
+                <!-- Thumbnail Image with Badge -->
+                <div
+                  class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-white"
+                >
+                  <span
+                    class="absolute top-3 left-3 z-10 bg-amber-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  >
+                    NHÂN GIỐNG
+                  </span>
+                  <img
+                    alt="Cách nhân giống sen đá từ lá"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_35 AM (2).png"
+                  />
+                </div>
+
+                <!-- Card Body -->
+                <div>
+                  <div
+                    class="flex items-center gap-2 text-[10px] text-stone-500 mb-1.5"
+                  >
+                    <span>20 Th7, 2024</span>
+                    <span>•</span>
+                    <span>6 phút đọc</span>
+                  </div>
+
+                  <h3
+                    class="font-serif-title text-xl font-normal text-primary group-hover:text-emerald-800 transition-colors mb-1.5 leading-snug line-clamp-2"
+                  >
+                    Cách nhân giống sen đá từ lá thành công 100%
+                  </h3>
+                  <p class="text-xs text-stone-500 leading-relaxed line-clamp-2 mb-3">
+                    Hướng dẫn từng bước nhân giống sen đá tại nhà đơn giản và hiệu quả cao...
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div
+                class="pt-2 border-t border-stone-200/60 flex items-center justify-between mt-auto"
+              >
+                <span class="text-xs font-semibold text-stone-600"
+                  >Hà Linh</span
+                >
+                <a
+                  href="#"
+                  class="text-xs font-bold text-primary hover:text-emerald-700 flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                >
+                  Đọc tiếp <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONSULTATION CTA BANNER -->
+      <section class="py-12 bg-white">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="bg-[#1D3828] text-white rounded-3xl p-8 lg:p-12 relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-8"
+          >
+            <!-- Left Thumbnail Image -->
+            <div class="flex items-center gap-6">
+              <div
+                class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-white/20"
+              >
+                <img
+                  alt="Tư vấn chọn cây"
+                  class="w-full h-full object-cover"
+                  src="assets/image/ChatGPT Image Aug 7, 2026, 09_45_40 AM (6).png"
+                />
+              </div>
+              <div>
+                <h3
+                  class="font-serif-title text-2xl sm:text-3xl font-normal text-white mb-1"
+                >
+                  Bạn cần tư vấn chọn cây?
+                </h3>
+                <p class="text-sm text-stone-300 font-light">
+                  Chúng tôi luôn sẵn sàng đồng hành cùng bạn!
+                </p>
+              </div>
+            </div>
+
+            <!-- Right CTA Button -->
+            <a
+              href="#"
+              class="bg-[#EBF2EC] hover:bg-white text-[#1D3828] px-7 py-3.5 rounded-full font-bold text-xs tracking-wider uppercase flex items-center gap-2 transition-colors shrink-0"
+            >
+              <span>LIÊN HỆ NGAY</span>
+              <span class="material-symbols-outlined text-base">forum</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-[#15271C] text-white pt-16 pb-8 border-t border-emerald-950"
+    >
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-14 border-b border-white/10"
+        >
+          <!-- Col 1: Brand & Social -->
+          <div class="space-y-4">
+            <a href="index.html" class="flex items-center gap-3 group">
+              <img
+                src="assets/image/logo.png"
+                alt="Vườn Sen Đá Châu Châu Garden"
+                class="h-14 w-auto object-contain bg-white rounded-full p-1"
+              />
+            </a>
+
+            <p class="text-xs text-stone-300 leading-relaxed">
+              Mang thiên nhiên vào không gian sống của bạn với những chậu cây
+              nhỏ xinh, đầy sức sống.
+            </p>
+
+            <!-- Social Media Icons -->
+            <div class="flex items-center gap-3 pt-2">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                title="Facebook"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                title="Instagram"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                title="TikTok"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.47-1.44 2.47-.14 1.25.43 2.48 1.43 3.19 1.01.7 2.37.79 3.48.24 1.08-.53 1.76-1.64 1.83-2.84.05-2.86.02-5.71.03-8.57.01-1.35-.01-2.69.01-4.04z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                title="Pinterest"
+              >
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: VỀ CHÚNG TÔI -->
+          <div>
+            <h4
+              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
+            >
+              VỀ CHÚNG TÔI
+            </h4>
+            <ul class="space-y-2.5 text-xs text-stone-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Giới thiệu</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Câu chuyện thương hiệu</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Tin tức</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Tuyển dụng</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: CHĂM SÓC KHÁCH HÀNG -->
+          <div>
+            <h4
+              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
+            >
+              CHĂM SÓC KHÁCH HÀNG
+            </h4>
+            <ul class="space-y-2.5 text-xs text-stone-300">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Chính sách đổi trả</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Chính sách vận chuyển</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Hướng dẫn chăm sóc cây</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Câu hỏi thường gặp</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Điều khoản & điều kiện</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: ĐĂNG KÝ NHẬN TIN -->
+          <div>
+            <h4
+              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
+            >
+              ĐĂNG KÝ NHẬN TIN
+            </h4>
+            <p class="text-xs text-stone-300 leading-relaxed mb-4">
+              Nhận ưu đãi và mẹo chăm sóc cây hàng tuần từ Sen Đá.
+            </p>
+
+            <form onsubmit="event.preventDefault()" class="space-y-2">
+              <div
+                class="flex items-center bg-[#233C2D] rounded-lg p-1 border border-white/10 focus-within:border-white/30"
+              >
+                <input
+                  type="email"
+                  placeholder="Nhập email của bạn..."
+                  class="bg-transparent border-none px-3 py-2 text-xs w-full text-white placeholder:text-stone-400 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  class="bg-white text-primary rounded-md p-2 hover:bg-stone-200 transition-colors"
+                  title="Gửi"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >arrow_forward</span
+                  >
+                </button>
+              </div>
+              <div
+                class="flex items-center gap-1.5 text-[11px] text-stone-400 pt-1"
+              >
+                <span class="material-symbols-outlined text-sm text-stone-400"
+                  >lock</span
+                >
+                <span>Chúng tôi cam kết bảo mật thông tin của bạn.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div
+          class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-400"
+        >
+          <p>© 2024 Sen Đá Succulent Garden. All rights reserved.</p>
+
+          <div class="flex items-center gap-6">
+            <div
+              class="flex items-center gap-2 text-[10px] font-bold tracking-wider text-stone-300"
+            >
+              <span class="bg-white/10 px-2 py-0.5 rounded">VISA</span>
+              <span class="bg-white/10 px-2 py-0.5 rounded">Mastercard</span>
+              <span class="bg-white/10 px-2 py-0.5 rounded">MoMo</span>
+              <span class="bg-white/10 px-2 py-0.5 rounded">ZaloPay</span>
+            </div>
+
+            <!-- Scroll to top button -->
+            <button
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              title="Về đầu trang"
+            >
+              <span class="material-symbols-outlined text-base">north</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <!-- GSAP Category Animation & Dropdown Logic -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Dropdown Danh Mục Sản Phẩm Toggle Logic
+        const btnDanhMuc = document.getElementById("btn-danh-muc");
+        const dropdownDanhMuc = document.getElementById("dropdown-danh-muc");
+        const danhMucArrow = document.getElementById("danh-muc-arrow");
+
+        if (btnDanhMuc && dropdownDanhMuc) {
+          btnDanhMuc.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isHidden = dropdownDanhMuc.classList.contains("hidden");
+
+            if (isHidden) {
+              dropdownDanhMuc.classList.remove("hidden");
+              requestAnimationFrame(() => {
+                dropdownDanhMuc.classList.remove("opacity-0", "scale-95");
+                dropdownDanhMuc.classList.add("opacity-100", "scale-100");
+              });
+              if (danhMucArrow) danhMucArrow.style.transform = "rotate(180deg)";
+            } else {
+              dropdownDanhMuc.classList.remove("opacity-100", "scale-100");
+              dropdownDanhMuc.classList.add("opacity-0", "scale-95");
+              setTimeout(() => {
+                dropdownDanhMuc.classList.add("hidden");
+              }, 200);
+              if (danhMucArrow) danhMucArrow.style.transform = "rotate(0deg)";
+            }
+          });
+
+          document.addEventListener("click", (e) => {
+            if (
+              !btnDanhMuc.contains(e.target) &&
+              !dropdownDanhMuc.contains(e.target)
+            ) {
+              dropdownDanhMuc.classList.remove("opacity-100", "scale-100");
+              dropdownDanhMuc.classList.add("opacity-0", "scale-95");
+              setTimeout(() => {
+                dropdownDanhMuc.classList.add("hidden");
+              }, 200);
+              if (danhMucArrow) danhMucArrow.style.transform = "rotate(0deg)";
+            }
+          });
+        }
+        const container = document.getElementById("cate-pill-container");
+        const prevBtn = document.getElementById("cate-prev-btn");
+        const nextBtn = document.getElementById("cate-next-btn");
+        const tabs = document.querySelectorAll(".cate-pill-tab");
+
+        if (container && prevBtn && nextBtn) {
+          const getItemWidth = () => {
+            const firstTab = container.querySelector(".cate-pill-tab");
+            return firstTab ? firstTab.offsetWidth + 8 : 180;
+          };
+
+          // GSAP Smooth Scroll by 1 item width on Next/Prev Click
+          nextBtn.addEventListener("click", () => {
+            const step = getItemWidth();
+            gsap.to(container, {
+              scrollLeft: container.scrollLeft + step,
+              duration: 0.45,
+              ease: "power2.out",
+            });
+            gsap.fromTo(
+              nextBtn,
+              { scale: 0.85 },
+              { scale: 1, duration: 0.3, ease: "back.out(2)" }
+            );
+          });
+
+          prevBtn.addEventListener("click", () => {
+            const step = getItemWidth();
+            gsap.to(container, {
+              scrollLeft: container.scrollLeft - step,
+              duration: 0.45,
+              ease: "power2.out",
+            });
+            gsap.fromTo(
+              prevBtn,
+              { scale: 0.85 },
+              { scale: 1, duration: 0.3, ease: "back.out(2)" }
+            );
+          });
+        }
+
+        // GSAP Tab Selection & Pulse Animation
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            // Remove active state from all tabs
+            tabs.forEach((t) => {
+              t.classList.remove("bg-[#264332]", "text-white", "shadow-xs", "active-pill");
+              t.classList.add("hover:bg-stone-100", "text-stone-700");
+
+              const iconBox = t.querySelector(".icon-box");
+              if (iconBox) {
+                iconBox.classList.remove("bg-white/20", "text-white");
+                iconBox.classList.add("bg-stone-100", "text-stone-600");
+              }
+
+              const title = t.querySelector("span.font-bold");
+              if (title) title.classList.add("text-primary");
+
+              const sub = t.querySelector("span.text-[10px]");
+              if (sub) {
+                sub.classList.remove("text-white/80");
+                sub.classList.add("text-stone-500");
+              }
+            });
+
+            // Activate clicked tab
+            tab.classList.remove("hover:bg-stone-100", "text-stone-700");
+            tab.classList.add("bg-[#264332]", "text-white", "shadow-xs", "active-pill");
+
+            const iconBox = tab.querySelector(".icon-box");
+            if (iconBox) {
+              iconBox.classList.remove("bg-stone-100", "text-stone-600");
+              iconBox.classList.add("bg-white/20", "text-white");
+            }
+
+            const title = tab.querySelector("span.font-bold");
+            if (title) title.classList.remove("text-primary");
+
+            const sub = tab.querySelector("span.text-[10px]");
+            if (sub) {
+              sub.classList.remove("text-stone-500");
+              sub.classList.add("text-white/80");
+            }
+
+            // GSAP spring pop effect on click
+            gsap.fromTo(
+              tab,
+              { scale: 0.92 },
+              { scale: 1, duration: 0.45, ease: "back.out(2)" }
+            );
+
+            // Animate grid cards refresh with GSAP stagger
+            const gridCards = document.querySelectorAll(
+              "#cate-pill-container + #cate-next-btn + div > div, #cate-pill-container ~ div.grid > div"
+            );
+            if (gridCards.length) {
+              gsap.fromTo(
+                gridCards,
+                { opacity: 0, y: 16 },
+                { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }
+              );
+            }
+          });
+        });
+      });
+    </script>
+    <script src="assets/js/shop-cart.js"></script>
+    <script src="assets/js/catalog-renderer.js"></script>
+  </body>
+</html>

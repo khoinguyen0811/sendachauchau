@@ -1,0 +1,20 @@
+{
+  "format": "shopee-catalog-schema/v1",
+  "description": "Relationship guide for the split catalog files.",
+  "relations": [
+    "catalog-products[].categoryId -> categories[].id",
+    "product-variants[].productId -> catalog-products[].id",
+    "product-descriptions[].productId -> catalog-products[].id",
+    "product-media[].productId -> catalog-products[].id",
+    "product-category-map[].categoryId -> categories[].id"
+  ],
+  "files": {
+    "categories.json": "Shopee category tree.",
+    "catalog-products.json": "230 parent listings; light summary and foreign keys.",
+    "product-variants.json": "1,115 SKU rows with selected options, price, stock, logistics and their own imageUrl.",
+    "product-descriptions.json": "Long and short descriptions split from product summaries.",
+    "product-media.json": "Unique image gallery for every parent product, mapped back to variant IDs.",
+    "product-category-map.json": "Reverse map from leaf category to parent products.",
+    "products.json": "Previous lossless flat export, retained for auditing/import compatibility."
+  }
+}

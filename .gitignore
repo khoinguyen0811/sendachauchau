@@ -1,0 +1,9 @@
+.vercel
+.git
+*.xlsx
+*.rar
+*.zip
+export_*.py
+split_shopee_catalog.py
+shopee_products_complete.json
+.DS_Store

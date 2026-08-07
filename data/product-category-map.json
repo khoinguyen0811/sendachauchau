@@ -1,0 +1,346 @@
+{
+  "format": "shopee-parent-product-category-map/v1",
+  "sourceFile": "Sen____Ch_u_Ch_u__Online_Shop___Shopee_V_shopee_2026-08-07.xlsx",
+  "sourceSha256": "9643402422b75178755eb031514672d38fc6e77f2755685ef2e93ba023ecd8e6",
+  "exportedAtUtc": "2026-08-07T08:26:34.939536Z",
+  "mappings": [
+    {
+      "categoryId": "cate-me-be-do-choi-bup-be-thu-nhoi-bong-nha-bup-be-phu-kien",
+      "productIds": [
+        "product-shopee-8250484962"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-do-tho-cung-do-phong-thuy",
+      "productIds": [
+        "product-shopee-18069108800"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-dung-cu-nha-bep-khac",
+      "productIds": [
+        "product-shopee-3985430872"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich-dung-cu-dinh-vit-chot",
+      "productIds": [
+        "product-shopee-8440209181"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-cay-canh",
+      "productIds": [
+        "product-shopee-8854730375",
+        "product-shopee-8730747351",
+        "product-shopee-8454725415",
+        "product-shopee-5488833791",
+        "product-shopee-3383149061",
+        "product-shopee-23375335565",
+        "product-shopee-57407605227",
+        "product-shopee-7483089420",
+        "product-shopee-10403832428",
+        "product-shopee-8231316855",
+        "product-shopee-24684204564",
+        "product-shopee-9230883489",
+        "product-shopee-14722918639",
+        "product-shopee-4983060652",
+        "product-shopee-22648984575",
+        "product-shopee-15871316763",
+        "product-shopee-43707770922",
+        "product-shopee-9130881357",
+        "product-shopee-11100244645",
+        "product-shopee-5983088527",
+        "product-shopee-10670279526",
+        "product-shopee-8469904097",
+        "product-shopee-11900168859",
+        "product-shopee-9067644507",
+        "product-shopee-9630873243",
+        "product-shopee-8330884593",
+        "product-shopee-8030750663",
+        "product-shopee-3483192339",
+        "product-shopee-9148823836",
+        "product-shopee-19177135192",
+        "product-shopee-9030855915",
+        "product-shopee-40209060104",
+        "product-shopee-8032088135",
+        "product-shopee-2933139418",
+        "product-shopee-8435577765",
+        "product-shopee-8330853376",
+        "product-shopee-8930868344",
+        "product-shopee-16316996853",
+        "product-shopee-8031028751",
+        "product-shopee-3583187392",
+        "product-shopee-9054720437",
+        "product-shopee-4384451425",
+        "product-shopee-29664348512",
+        "product-shopee-4490805921",
+        "product-shopee-8248936973",
+        "product-shopee-22588616216",
+        "product-shopee-3027836290",
+        "product-shopee-7487376696",
+        "product-shopee-9048830130",
+        "product-shopee-8354725342",
+        "product-shopee-8748823777",
+        "product-shopee-8736545231",
+        "product-shopee-22271959472",
+        "product-shopee-4387423645",
+        "product-shopee-9948813809",
+        "product-shopee-8830872109",
+        "product-shopee-48706500346",
+        "product-shopee-9530732995",
+        "product-shopee-3027047555",
+        "product-shopee-4887392351",
+        "product-shopee-19291056511",
+        "product-shopee-12196388987",
+        "product-shopee-16872935645",
+        "product-shopee-9636542922",
+        "product-shopee-3288947489",
+        "product-shopee-8030748283",
+        "product-shopee-13243199973",
+        "product-shopee-26708495736",
+        "product-shopee-22088613748",
+        "product-shopee-8148831913",
+        "product-shopee-22474459911",
+        "product-shopee-7183052786",
+        "product-shopee-9532097524",
+        "product-shopee-41778169864",
+        "product-shopee-18244856187",
+        "product-shopee-25550910855",
+        "product-shopee-43318983544",
+        "product-shopee-24116418755",
+        "product-shopee-29477623865",
+        "product-shopee-8935581287",
+        "product-shopee-6088832694",
+        "product-shopee-8130699556",
+        "product-shopee-24782507221",
+        "product-shopee-8254720016",
+        "product-shopee-6383060464",
+        "product-shopee-9154725458",
+        "product-shopee-4688834631",
+        "product-shopee-8254709690",
+        "product-shopee-9454729452",
+        "product-shopee-19966471307",
+        "product-shopee-8136543006",
+        "product-shopee-9748830144",
+        "product-shopee-4887101158",
+        "product-shopee-8635577505",
+        "product-shopee-14320751520",
+        "product-shopee-15662416627"
+      ],
+      "productCount": 96
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-chau-cay",
+      "productIds": [
+        "product-shopee-25688161550",
+        "product-shopee-29054421645",
+        "product-shopee-55111986638",
+        "product-shopee-52751044995",
+        "product-shopee-23381849282",
+        "product-shopee-9730716611",
+        "product-shopee-9442810974",
+        "product-shopee-9930760544",
+        "product-shopee-40762736447",
+        "product-shopee-3021233649",
+        "product-shopee-8630864468",
+        "product-shopee-22686036103",
+        "product-shopee-17217007272",
+        "product-shopee-17162845813",
+        "product-shopee-19579592498",
+        "product-shopee-17682093465",
+        "product-shopee-8130756055",
+        "product-shopee-8034499383",
+        "product-shopee-8735577570",
+        "product-shopee-24906812061",
+        "product-shopee-29858490628",
+        "product-shopee-3683195175",
+        "product-shopee-5892526623",
+        "product-shopee-29604421016",
+        "product-shopee-8931573107",
+        "product-shopee-24586311134",
+        "product-shopee-25667687831",
+        "product-shopee-27317016288",
+        "product-shopee-4883093014",
+        "product-shopee-28106721182",
+        "product-shopee-5785334983",
+        "product-shopee-29458490759",
+        "product-shopee-3583187851",
+        "product-shopee-7183066885",
+        "product-shopee-23624702571",
+        "product-shopee-14499238473",
+        "product-shopee-8334499906",
+        "product-shopee-10410699083",
+        "product-shopee-4383199113",
+        "product-shopee-28453386420",
+        "product-shopee-50156423290",
+        "product-shopee-4983089523",
+        "product-shopee-25983036809",
+        "product-shopee-5491538331",
+        "product-shopee-18671072579",
+        "product-shopee-20565521807",
+        "product-shopee-29606311389"
+      ],
+      "productCount": 47
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-dat-trong",
+      "productIds": [
+        "product-shopee-9835626252",
+        "product-shopee-8445276716",
+        "product-shopee-9945280052",
+        "product-shopee-6093072673",
+        "product-shopee-4391787955",
+        "product-shopee-12062949444",
+        "product-shopee-9240215596"
+      ],
+      "productCount": 7
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-dung-cu-lam-vuon",
+      "productIds": [
+        "product-shopee-17193508826",
+        "product-shopee-22448972393",
+        "product-shopee-8330964428",
+        "product-shopee-26158495052",
+        "product-shopee-20944835649",
+        "product-shopee-49704988770"
+      ],
+      "productCount": 6
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-hat-giong-chat-ho-tro-trong-cay",
+      "productIds": [
+        "product-shopee-8955563008",
+        "product-shopee-8532096216",
+        "product-shopee-21808542503",
+        "product-shopee-2933021491",
+        "product-shopee-9136901463",
+        "product-shopee-8330847503",
+        "product-shopee-7684454135",
+        "product-shopee-9330877034",
+        "product-shopee-2933842288",
+        "product-shopee-8530856889"
+      ],
+      "productCount": 10
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-phan-bon",
+      "productIds": [
+        "product-shopee-5583091217",
+        "product-shopee-3483214495",
+        "product-shopee-25532609953",
+        "product-shopee-26359764503"
+      ],
+      "productCount": 4
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-lam-vuon-trang-tri-vuon",
+      "productIds": [
+        "product-shopee-29905881100",
+        "product-shopee-6087747785",
+        "product-shopee-26100965639",
+        "product-shopee-11001201465",
+        "product-shopee-24725998233",
+        "product-shopee-10901199809",
+        "product-shopee-11501198160",
+        "product-shopee-6487799593",
+        "product-shopee-2952107311",
+        "product-shopee-5987799614",
+        "product-shopee-2933232937",
+        "product-shopee-9850487663",
+        "product-shopee-9950476456",
+        "product-shopee-6287798702",
+        "product-shopee-25575998736",
+        "product-shopee-9930867191",
+        "product-shopee-8450258085",
+        "product-shopee-11501200069",
+        "product-shopee-25123817790",
+        "product-shopee-24331269982",
+        "product-shopee-10301198679",
+        "product-shopee-25081273232",
+        "product-shopee-9330884806",
+        "product-shopee-5187749641",
+        "product-shopee-9934449402",
+        "product-shopee-28100960574",
+        "product-shopee-4087800318",
+        "product-shopee-27206729632",
+        "product-shopee-4987729182",
+        "product-shopee-9650487355",
+        "product-shopee-10601198407",
+        "product-shopee-8036546470",
+        "product-shopee-19169109434",
+        "product-shopee-27150960690",
+        "product-shopee-28455789292",
+        "product-shopee-8950477552",
+        "product-shopee-9636546284",
+        "product-shopee-23310823127",
+        "product-shopee-6987799365",
+        "product-shopee-29454420094",
+        "product-shopee-29400965698",
+        "product-shopee-25325993999",
+        "product-shopee-25525998079",
+        "product-shopee-24425994094",
+        "product-shopee-24973813943",
+        "product-shopee-3887890553",
+        "product-shopee-25473818116",
+        "product-shopee-26950960999"
+      ],
+      "productCount": 48
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-trang-tri-nha-cua-hoa-trang-tri",
+      "productIds": [
+        "product-shopee-24601013248"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-trang-tri-nha-cua-khac",
+      "productIds": [
+        "product-shopee-27620027866"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-nha-cua-doi-song-trang-tri-tiec-tung-thiep",
+      "productIds": [
+        "product-shopee-56752525673"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-so-thich-suu-tam-do-suu-tam-tuong-tinh",
+      "productIds": [
+        "product-shopee-24451899269",
+        "product-shopee-29912254892"
+      ],
+      "productCount": 2
+    },
+    {
+      "categoryId": "cate-so-thich-suu-tam-nhac-cu-phu-kien-phu-kien-am-nhac",
+      "productIds": [
+        "product-shopee-10001201935"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-van-phong-pham-qua-tang-giay-goi-tui-qua-tang",
+      "productIds": [
+        "product-shopee-22188021091"
+      ],
+      "productCount": 1
+    },
+    {
+      "categoryId": "cate-van-phong-pham-thiet-bi-truong-hoc-bang-viet-gia-treo-bang",
+      "productIds": [
+        "product-shopee-9830964333"
+      ],
+      "productCount": 1
+    }
+  ]
+}

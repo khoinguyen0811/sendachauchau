@@ -1,0 +1,501 @@
+{
+  "format": "normalized-catalog-categories/v1",
+  "sourceFile": "Sen____Ch_u_Ch_u__Online_Shop___Shopee_V_shopee_2026-08-07.xlsx",
+  "sourceSha256": "9643402422b75178755eb031514672d38fc6e77f2755685ef2e93ba023ecd8e6",
+  "exportedAtUtc": "2026-08-07T08:01:14.848094Z",
+  "categories": [
+    {
+      "id": "cate-me-be",
+      "name": "Mẹ & Bé",
+      "parentId": null,
+      "level": 1,
+      "path": [
+        "Mẹ & Bé"
+      ],
+      "pathLabel": "Mẹ & Bé",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song",
+      "name": "Nhà cửa & Đời sống",
+      "parentId": null,
+      "level": 1,
+      "path": [
+        "Nhà cửa & Đời sống"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1070
+    },
+    {
+      "id": "cate-so-thich-suu-tam",
+      "name": "Sở thích & Sưu tầm",
+      "parentId": null,
+      "level": 1,
+      "path": [
+        "Sở thích & Sưu tầm"
+      ],
+      "pathLabel": "Sở thích & Sưu tầm",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 28
+    },
+    {
+      "id": "cate-van-phong-pham",
+      "name": "Văn Phòng Phẩm",
+      "parentId": null,
+      "level": 1,
+      "path": [
+        "Văn Phòng Phẩm"
+      ],
+      "pathLabel": "Văn Phòng Phẩm",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 16
+    },
+    {
+      "id": "cate-me-be-do-choi",
+      "name": "Đồ chơi",
+      "parentId": "cate-me-be",
+      "level": 2,
+      "path": [
+        "Mẹ & Bé",
+        "Đồ chơi"
+      ],
+      "pathLabel": "Mẹ & Bé > Đồ chơi",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich",
+      "name": "Dụng cụ & Thiết bị tiện ích",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Dụng cụ & Thiết bị tiện ích"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Dụng cụ & Thiết bị tiện ích",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-dung-cu-nha-bep",
+      "name": "Dụng cụ nhà bếp",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Dụng cụ nhà bếp"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Dụng cụ nhà bếp",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon",
+      "name": "Làm vườn",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1035
+    },
+    {
+      "id": "cate-nha-cua-doi-song-trang-tri-nha-cua",
+      "name": "Trang trí nhà cửa",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Trang trí nhà cửa"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Trang trí nhà cửa",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 21
+    },
+    {
+      "id": "cate-nha-cua-doi-song-trang-tri-tiec-tung",
+      "name": "Trang trí tiệc tùng",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Trang trí tiệc tùng"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Trang trí tiệc tùng",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 2
+    },
+    {
+      "id": "cate-nha-cua-doi-song-do-tho-cung-do-phong-thuy",
+      "name": "Đồ thờ cúng, đồ phong thủy",
+      "parentId": "cate-nha-cua-doi-song",
+      "level": 2,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Đồ thờ cúng, đồ phong thủy"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Đồ thờ cúng, đồ phong thủy",
+      "isLeaf": true,
+      "directProductCount": 10,
+      "productCount": 10
+    },
+    {
+      "id": "cate-so-thich-suu-tam-nhac-cu-phu-kien",
+      "name": "Nhạc Cụ & Phụ Kiện",
+      "parentId": "cate-so-thich-suu-tam",
+      "level": 2,
+      "path": [
+        "Sở thích & Sưu tầm",
+        "Nhạc Cụ & Phụ Kiện"
+      ],
+      "pathLabel": "Sở thích & Sưu tầm > Nhạc Cụ & Phụ Kiện",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-so-thich-suu-tam-do-suu-tam",
+      "name": "Đồ Sưu Tầm",
+      "parentId": "cate-so-thich-suu-tam",
+      "level": 2,
+      "path": [
+        "Sở thích & Sưu tầm",
+        "Đồ Sưu Tầm"
+      ],
+      "pathLabel": "Sở thích & Sưu tầm > Đồ Sưu Tầm",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 27
+    },
+    {
+      "id": "cate-van-phong-pham-qua-tang-giay-goi",
+      "name": "Quà Tặng - Giấy Gói",
+      "parentId": "cate-van-phong-pham",
+      "level": 2,
+      "path": [
+        "Văn Phòng Phẩm",
+        "Quà Tặng - Giấy Gói"
+      ],
+      "pathLabel": "Văn Phòng Phẩm > Quà Tặng - Giấy Gói",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 12
+    },
+    {
+      "id": "cate-van-phong-pham-thiet-bi-truong-hoc",
+      "name": "Thiết Bị Trường Học",
+      "parentId": "cate-van-phong-pham",
+      "level": 2,
+      "path": [
+        "Văn Phòng Phẩm",
+        "Thiết Bị Trường Học"
+      ],
+      "pathLabel": "Văn Phòng Phẩm > Thiết Bị Trường Học",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 4
+    },
+    {
+      "id": "cate-me-be-do-choi-bup-be-thu-nhoi-bong",
+      "name": "Búp bê & Thú nhồi bông",
+      "parentId": "cate-me-be-do-choi",
+      "level": 3,
+      "path": [
+        "Mẹ & Bé",
+        "Đồ chơi",
+        "Búp bê & Thú nhồi bông"
+      ],
+      "pathLabel": "Mẹ & Bé > Đồ chơi > Búp bê & Thú nhồi bông",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich-dung-cu",
+      "name": "Dụng cụ",
+      "parentId": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Dụng cụ & Thiết bị tiện ích",
+        "Dụng cụ"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Dụng cụ & Thiết bị tiện ích > Dụng cụ",
+      "isLeaf": false,
+      "directProductCount": 0,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-dung-cu-nha-bep-khac",
+      "name": "Khác",
+      "parentId": "cate-nha-cua-doi-song-dung-cu-nha-bep",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Dụng cụ nhà bếp",
+        "Khác"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Dụng cụ nhà bếp > Khác",
+      "isLeaf": true,
+      "directProductCount": 1,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-chau-cay",
+      "name": "Chậu cây",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Chậu cây"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Chậu cây",
+      "isLeaf": true,
+      "directProductCount": 423,
+      "productCount": 423
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-cay-canh",
+      "name": "Cây cảnh",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Cây cảnh"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Cây cảnh",
+      "isLeaf": true,
+      "directProductCount": 403,
+      "productCount": 403
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-dung-cu-lam-vuon",
+      "name": "Dụng cụ làm vườn",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Dụng cụ làm vườn"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Dụng cụ làm vườn",
+      "isLeaf": true,
+      "directProductCount": 32,
+      "productCount": 32
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-hat-giong-chat-ho-tro-trong-cay",
+      "name": "Hạt giống & chất hỗ trợ trồng cây",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Hạt giống & chất hỗ trợ trồng cây"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Hạt giống & chất hỗ trợ trồng cây",
+      "isLeaf": true,
+      "directProductCount": 25,
+      "productCount": 25
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-phan-bon",
+      "name": "Phân bón",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Phân bón"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Phân bón",
+      "isLeaf": true,
+      "directProductCount": 7,
+      "productCount": 7
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-trang-tri-vuon",
+      "name": "Trang trí vườn",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Trang trí vườn"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Trang trí vườn",
+      "isLeaf": true,
+      "directProductCount": 135,
+      "productCount": 135
+    },
+    {
+      "id": "cate-nha-cua-doi-song-lam-vuon-dat-trong",
+      "name": "Đất trồng",
+      "parentId": "cate-nha-cua-doi-song-lam-vuon",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Làm vườn",
+        "Đất trồng"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Làm vườn > Đất trồng",
+      "isLeaf": true,
+      "directProductCount": 10,
+      "productCount": 10
+    },
+    {
+      "id": "cate-nha-cua-doi-song-trang-tri-nha-cua-hoa-trang-tri",
+      "name": "Hoa trang trí",
+      "parentId": "cate-nha-cua-doi-song-trang-tri-nha-cua",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Trang trí nhà cửa",
+        "Hoa trang trí"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Trang trí nhà cửa > Hoa trang trí",
+      "isLeaf": true,
+      "directProductCount": 2,
+      "productCount": 2
+    },
+    {
+      "id": "cate-nha-cua-doi-song-trang-tri-nha-cua-khac",
+      "name": "Khác",
+      "parentId": "cate-nha-cua-doi-song-trang-tri-nha-cua",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Trang trí nhà cửa",
+        "Khác"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Trang trí nhà cửa > Khác",
+      "isLeaf": true,
+      "directProductCount": 19,
+      "productCount": 19
+    },
+    {
+      "id": "cate-nha-cua-doi-song-trang-tri-tiec-tung-thiep",
+      "name": "Thiệp",
+      "parentId": "cate-nha-cua-doi-song-trang-tri-tiec-tung",
+      "level": 3,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Trang trí tiệc tùng",
+        "Thiệp"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Trang trí tiệc tùng > Thiệp",
+      "isLeaf": true,
+      "directProductCount": 2,
+      "productCount": 2
+    },
+    {
+      "id": "cate-so-thich-suu-tam-nhac-cu-phu-kien-phu-kien-am-nhac",
+      "name": "Phụ Kiện Âm Nhạc",
+      "parentId": "cate-so-thich-suu-tam-nhac-cu-phu-kien",
+      "level": 3,
+      "path": [
+        "Sở thích & Sưu tầm",
+        "Nhạc Cụ & Phụ Kiện",
+        "Phụ Kiện Âm Nhạc"
+      ],
+      "pathLabel": "Sở thích & Sưu tầm > Nhạc Cụ & Phụ Kiện > Phụ Kiện Âm Nhạc",
+      "isLeaf": true,
+      "directProductCount": 1,
+      "productCount": 1
+    },
+    {
+      "id": "cate-so-thich-suu-tam-do-suu-tam-tuong-tinh",
+      "name": "Tượng tĩnh",
+      "parentId": "cate-so-thich-suu-tam-do-suu-tam",
+      "level": 3,
+      "path": [
+        "Sở thích & Sưu tầm",
+        "Đồ Sưu Tầm",
+        "Tượng tĩnh"
+      ],
+      "pathLabel": "Sở thích & Sưu tầm > Đồ Sưu Tầm > Tượng tĩnh",
+      "isLeaf": true,
+      "directProductCount": 27,
+      "productCount": 27
+    },
+    {
+      "id": "cate-van-phong-pham-qua-tang-giay-goi-tui-qua-tang",
+      "name": "Túi Quà Tặng",
+      "parentId": "cate-van-phong-pham-qua-tang-giay-goi",
+      "level": 3,
+      "path": [
+        "Văn Phòng Phẩm",
+        "Quà Tặng - Giấy Gói",
+        "Túi Quà Tặng"
+      ],
+      "pathLabel": "Văn Phòng Phẩm > Quà Tặng - Giấy Gói > Túi Quà Tặng",
+      "isLeaf": true,
+      "directProductCount": 12,
+      "productCount": 12
+    },
+    {
+      "id": "cate-van-phong-pham-thiet-bi-truong-hoc-bang-viet-gia-treo-bang",
+      "name": "Bảng Viết & Giá Treo Bảng",
+      "parentId": "cate-van-phong-pham-thiet-bi-truong-hoc",
+      "level": 3,
+      "path": [
+        "Văn Phòng Phẩm",
+        "Thiết Bị Trường Học",
+        "Bảng Viết & Giá Treo Bảng"
+      ],
+      "pathLabel": "Văn Phòng Phẩm > Thiết Bị Trường Học > Bảng Viết & Giá Treo Bảng",
+      "isLeaf": true,
+      "directProductCount": 4,
+      "productCount": 4
+    },
+    {
+      "id": "cate-me-be-do-choi-bup-be-thu-nhoi-bong-nha-bup-be-phu-kien",
+      "name": "Nhà búp bê & Phụ kiện",
+      "parentId": "cate-me-be-do-choi-bup-be-thu-nhoi-bong",
+      "level": 4,
+      "path": [
+        "Mẹ & Bé",
+        "Đồ chơi",
+        "Búp bê & Thú nhồi bông",
+        "Nhà búp bê & Phụ kiện"
+      ],
+      "pathLabel": "Mẹ & Bé > Đồ chơi > Búp bê & Thú nhồi bông > Nhà búp bê & Phụ kiện",
+      "isLeaf": true,
+      "directProductCount": 1,
+      "productCount": 1
+    },
+    {
+      "id": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich-dung-cu-dinh-vit-chot",
+      "name": "Đinh, vít & chốt",
+      "parentId": "cate-nha-cua-doi-song-dung-cu-thiet-bi-tien-ich-dung-cu",
+      "level": 4,
+      "path": [
+        "Nhà cửa & Đời sống",
+        "Dụng cụ & Thiết bị tiện ích",
+        "Dụng cụ",
+        "Đinh, vít & chốt"
+      ],
+      "pathLabel": "Nhà cửa & Đời sống > Dụng cụ & Thiết bị tiện ích > Dụng cụ > Đinh, vít & chốt",
+      "isLeaf": true,
+      "directProductCount": 1,
+      "productCount": 1
+    }
+  ]
+}
