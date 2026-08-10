@@ -56,8 +56,8 @@
       ? formatPrice(product.minPrice) 
       : `${formatPrice(product.minPrice)} – ${formatPrice(product.maxPrice)}`;
     const image = product.image 
-      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.remove()">` 
-      : "";
+      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='assets/image/logo.png';">` 
+      : `<img src="assets/image/logo.png" alt="${escapeHtml(product.name)}" class="w-full h-full object-contain p-4 bg-stone-100 opacity-60">`;
 
     return `<article class="bg-[#F5F4EF] rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0 border border-stone-200/60 hover:border-[#264332]/30 shadow-2xs">
       <div>
