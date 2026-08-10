@@ -516,7 +516,33 @@
           </div>
         </div>
       </div>
-    </footer>
+    <!-- MOBILE FIXED BOTTOM NAVIGATION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-stone-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] px-2 py-1.5 flex items-center justify-around text-center">
+      <a href="index.html" class="flex flex-col items-center gap-0.5 text-stone-600 hover:text-[#264332] transition-colors py-1 px-2">
+        <span class="material-symbols-outlined text-xl">home</span>
+        <span class="text-[10px] font-semibold leading-none">Trang chủ</span>
+      </a>
+      <a href="san-pham.html" class="flex flex-col items-center gap-0.5 text-[#264332] font-bold py-1 px-2">
+        <span class="material-symbols-outlined text-xl">potted_plant</span>
+        <span class="text-[10px] leading-none">Sản phẩm</span>
+      </a>
+      <a href="san-pham.html?sale=true" class="flex flex-col items-center gap-0.5 text-stone-600 hover:text-[#264332] transition-colors py-1 px-2">
+        <span class="material-symbols-outlined text-xl">sell</span>
+        <span class="text-[10px] font-semibold leading-none">Khuyến mãi</span>
+      </a>
+      <a href="tin-tuc.html" class="flex flex-col items-center gap-0.5 text-stone-600 hover:text-[#264332] transition-colors py-1 px-2">
+        <span class="material-symbols-outlined text-xl">menu_book</span>
+        <span class="text-[10px] font-semibold leading-none">Kinh nghiệm</span>
+      </a>
+      <a href="gio-hang.html" class="flex flex-col items-center gap-0.5 text-stone-600 hover:text-[#264332] transition-colors py-1 px-2 relative">
+        <div class="relative">
+          <span class="material-symbols-outlined text-xl">shopping_bag</span>
+          <span class="absolute -top-1 -right-2 bg-[#264332] text-white text-[8px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">0</span>
+        </div>
+        <span class="text-[10px] font-semibold leading-none">Giỏ hàng</span>
+      </a>
+    </div>
+
     <script src="assets/js/shop-cart.js"></script>
     <script src="assets/js/catalog-renderer.js"></script>
   </body>
