@@ -51,7 +51,7 @@
   }
 
   function productCard(product, compact = false) {
-    const subtitle = product.category?.name || "Sản phẩm từ Châu Châu Garden";
+    const subtitle = product.category?.name || "Sản phẩm từ Sen đá Châu Châu";
     const price = product.minPrice === product.maxPrice 
       ? formatPrice(product.minPrice) 
       : `${formatPrice(product.minPrice)} – ${formatPrice(product.maxPrice)}`;
@@ -59,26 +59,32 @@
       ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.remove()">` 
       : "";
 
-    return `<article class="bg-[#F5F4EF] rounded-2xl p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0">
+    return `<article class="bg-[#F5F4EF] rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0 border border-stone-200/60 hover:border-[#264332]/30 shadow-2xs">
       <div>
-        <div class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-stone-100">
-          <button class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all" title="Xem nhanh">
-            <span class="material-symbols-outlined text-base">add</span>
+        <div class="relative aspect-square rounded-xl overflow-hidden mb-3 bg-stone-100">
+          <button class="absolute top-2.5 right-2.5 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all" title="Xem chi tiết">
+            <span class="material-symbols-outlined text-sm sm:text-base">visibility</span>
           </button>
           <a href="${productUrl(product.id)}" class="block w-full h-full">
             ${image}
           </a>
         </div>
         <a href="${productUrl(product.id)}">
-          <h4 class="font-serif-title ${compact ? "text-lg" : "text-xl"} font-normal text-primary mb-0.5 group-hover:text-emerald-800 transition-colors line-clamp-2">${escapeHtml(product.name)}</h4>
+          <h4 class="font-serif-title text-sm sm:text-base font-normal text-primary mb-1 group-hover:text-emerald-800 transition-colors line-clamp-2 leading-snug">${escapeHtml(product.name)}</h4>
         </a>
-        <p class="text-xs text-stone-500 mb-3 line-clamp-1">${escapeHtml(subtitle)}</p>
+        <p class="text-[11px] sm:text-xs text-stone-500 mb-2.5 line-clamp-1">${escapeHtml(subtitle)}</p>
       </div>
 
-      <div class="flex items-center justify-between gap-2 pt-2 border-t border-stone-200/40">
-        <span class="font-bold text-xs sm:text-sm md:text-base text-primary whitespace-nowrap">${price}</span>
-        <button class="w-8 h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors shrink-0" title="Yêu thích">
-          <span class="material-symbols-outlined text-lg">favorite</span>
+      <div class="space-y-2 pt-2 border-t border-stone-200/50 mt-auto">
+        <div class="flex items-center justify-between gap-1">
+          <span class="font-bold text-xs sm:text-sm text-primary whitespace-nowrap">${price}</span>
+          <button class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-stone-400 hover:text-rose-500 transition-colors shrink-0" title="Yêu thích">
+            <span class="material-symbols-outlined text-base sm:text-lg">favorite</span>
+          </button>
+        </div>
+        <button onclick="window.location.href='${productUrl(product.id)}'" class="w-full py-2 px-2 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-2xs">
+          <span class="material-symbols-outlined text-sm">shopping_cart</span>
+          <span>Thêm vào giỏ</span>
         </button>
       </div>
     </article>`;
@@ -143,8 +149,16 @@
       let items = catalog.products.map((item) => enrich(item, catalog));
       if (categoryId) items = items.filter((item) => isProductInCategory(item, categoryId, catalog));
       if (query) items = items.filter((item) => `${item.name} ${item.category?.pathLabel || ""}`.toLocaleLowerCase("vi").includes(query));
-      if (sortBy === "price-asc") items.sort((a, b) => (a.minPrice ?? Infinity) - (b.minPrice ?? Infinity));
-      if (sortBy === "price-desc") items.sort((a, b) => (b.minPrice ?? -Infinity) - (a.minPrice ?? -Infinity));
+      
+      if (sortBy === "indoor") {
+        items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("trong nhà") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("bàn") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("lưỡi hổ") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("kim tiền"));
+      } else if (sortBy === "outdoor") {
+        items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("ngoài trời") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("sen đá") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("xương rồng") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("sân vườn"));
+      } else if (sortBy === "price-asc") {
+        items.sort((a, b) => (a.minPrice ?? Infinity) - (b.minPrice ?? Infinity));
+      } else if (sortBy === "price-desc") {
+        items.sort((a, b) => (b.minPrice ?? -Infinity) - (a.minPrice ?? -Infinity));
+      }
       const pageCount = Math.max(1, Math.ceil(items.length / pageSize));
       currentPage = Math.min(currentPage, pageCount);
       const start = (currentPage - 1) * pageSize;
