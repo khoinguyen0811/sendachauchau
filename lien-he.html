@@ -34,6 +34,9 @@
     <!-- GSAP Animation Library CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
+    <!-- Central Design System & Gilroy Font CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script id="tailwind-config">
@@ -48,14 +51,27 @@
               "text-main": "#2C3531",
             },
             fontFamily: {
-              sans: ["Plus Jakarta Sans", "sans-serif"],
+              sans: ["Gilroy", "Plus Jakarta Sans", "sans-serif"],
               serif: ["Cormorant Garamond", "serif"],
               script: ["Caveat", "cursive"],
               "serif-title": ["MuseoModerno", "sans-serif"],
             },
           },
         },
+      };
+    </script>
     <style>
+      @keyframes topbarMarquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @media (max-width: 767px) {
+        .animate-topbar-marquee {
+          display: inline-flex;
+          white-space: nowrap;
+          animation: topbarMarquee 12s linear infinite;
+        }
+      }
       html, body {
         overflow-x: hidden;
         max-width: 100vw;
@@ -64,55 +80,87 @@
   </head>
   <body class="bg-bg-light text-text-main font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-[#1F3629] text-white text-[11px] font-medium py-2 px-4 text-center tracking-wider flex items-center justify-center gap-2">
-      <span class="material-symbols-outlined text-xs">local_shipping</span>
-      <span>Miễn phí giao hàng cho đơn từ 500.000đ</span>
-      <span class="opacity-40">|</span>
-      <span class="material-symbols-outlined text-xs">card_giftcard</span>
-      <span>Tặng phân tan chậm</span>
+    <div class="bg-[#1F3629] text-white text-[11px] font-medium py-2 overflow-hidden w-full relative">
+      <div class="max-w-[1440px] mx-auto flex justify-center items-center px-4">
+        <div class="animate-topbar-marquee md:animate-none flex items-center gap-6 shrink-0 whitespace-nowrap">
+          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
+          <span class="opacity-40">|</span>
+          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
+          <span class="opacity-40">|</span>
+          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
+          <span class="opacity-40">|</span>
+          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
+          <span class="opacity-40 md:hidden">|</span>
+          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
+          <span class="opacity-40 md:hidden">|</span>
+          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
+          <span class="opacity-40 md:hidden">|</span>
+        </div>
+      </div>
     </div>
 
     <!-- MAIN HEADER -->
     <header class="bg-white border-b border-stone-200/80 sticky top-0 z-40 shadow-xs">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
-        <div class="flex items-center justify-between gap-4 w-full md:w-auto">
-          <a href="index.html" class="flex items-center gap-3 group">
-            <img
-              src="assets/image/logo.png"
-              alt="Sen đá Châu Châu"
-              class="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-          </a>
-          <div class="flex items-center gap-3 md:hidden text-xs text-primary font-semibold">
-            <a href="gio-hang.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F5F4EF] hover:bg-stone-200 transition-colors relative">
-              <i class="fi fi-rr-shopping-bag text-base text-stone-700"></i>
-              <span class="text-xs font-semibold text-stone-800">Giỏ hàng</span>
+        <!-- Left: 3-line Menu Icon + Logo -->
+        <div class="flex items-center justify-between md:justify-start gap-3 w-full md:w-auto shrink-0">
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            <button
+              id="btn-toggle-category-drawer"
+              data-open-category-drawer
+              class="w-10 h-10 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 text-[#264332] flex md:hidden items-center justify-center transition-colors cursor-pointer shrink-0"
+              title="Danh mục sản phẩm"
+            >
+              <span class="material-symbols-outlined text-2xl font-bold">menu</span>
+            </button>
+            <a href="index.html" class="flex items-center gap-3 group">
+              <img
+                src="assets/image/logo.png"
+                alt="Sen đá Châu Châu"
+                class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              />
+            </a>
+          </div>
+
+          <!-- Mobile Actions (Icon Only - Hidden on Desktop) -->
+          <div class="flex md:hidden items-center gap-2 text-xs text-primary font-semibold shrink-0">
+            <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Yêu thích">
+              <i class="fi fi-rr-heart text-base text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
+              <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
+            </a>
+            <a href="gio-hang.html" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Giỏ hàng">
+              <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
+              <span data-cart-count class="absolute -top-1 -right-1 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Tài khoản">
+              <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
             </a>
           </div>
         </div>
 
-        <!-- Search Bar (Desktop & Mobile) -->
+        <!-- Center: Search Bar (Desktop & Mobile) -->
         <div class="flex-1 max-w-xl w-full flex items-center bg-[#F3F4F0] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-transparent focus-within:border-primary/30 transition-all">
-          <input class="bg-transparent border-none focus:outline-none text-xs sm:text-sm w-full text-text-main placeholder:text-stone-400 font-normal" placeholder="Tìm kiếm cây cảnh, sen đá, xương rồng. . ." type="text" />
+          <input class="bg-transparent border-none focus:outline-none text-xs sm:text-sm w-full text-text-main placeholder:text-stone-400 font-normal" placeholder="Bạn cần tìm gì?" type="text" />
           <span class="material-symbols-outlined text-stone-500 text-lg sm:text-xl cursor-pointer hover:text-primary transition-colors">search</span>
         </div>
 
-        <!-- Right Actions -->
-        <div class="hidden md:flex items-center gap-4 sm:gap-6 text-xs text-primary font-semibold">
-          <a href="#" class="w-9 h-9 rounded-full hover:bg-stone-100 flex items-center justify-center transition-colors group relative shrink-0" title="Yêu thích">
+        <!-- Right: Desktop Header Actions (ICON + TEXT - Visible on Desktop) -->
+        <div class="hidden md:flex items-center gap-4 sm:gap-6 text-xs text-primary font-semibold shrink-0">
+          <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group relative" title="Yêu thích">
             <div class="relative flex items-center justify-center">
               <i class="fi fi-rr-heart text-lg text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
               <span class="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
             </div>
+            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Yêu thích</span>
           </a>
-          <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group">
+          <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group" title="Tài khoản">
             <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
             <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Tài khoản</span>
           </a>
-          <a href="gio-hang.html" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group relative">
+          <a href="gio-hang.html" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F4EF] hover:bg-stone-200 transition-colors group relative" title="Giỏ hàng">
             <div class="relative flex items-center justify-center">
               <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
-              <span class="absolute -top-2 -right-2.5 bg-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
+              <span data-cart-count class="absolute -top-1.5 -right-2 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
             </div>
             <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Giỏ hàng</span>
           </a>
@@ -122,9 +170,9 @@
       <!-- Lower Sub-Navigation Bar -->
       <div class="border-t border-stone-200/80 bg-white shadow-xs relative z-30">
         <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between py-2 gap-2 lg:gap-6 relative">
-            <div class="relative shrink-0 z-50 w-full lg:w-auto">
-              <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-4 py-2.5 lg:px-6 lg:py-3 rounded-xl lg:rounded-full flex items-center justify-between lg:justify-start gap-3 lg:gap-4 text-xs lg:text-sm font-bold uppercase tracking-wider transition-all shadow-xs group cursor-pointer w-full lg:w-auto">
+          <div class="flex items-center justify-between py-2 gap-4 relative">
+            <div class="hidden lg:block relative shrink-0 z-50">
+              <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-5 py-2.5 rounded-full flex items-center gap-3 text-xs lg:text-sm font-bold uppercase tracking-wider transition-all shadow-xs group cursor-pointer">
                 <div class="flex items-center gap-2.5">
                   <span class="material-symbols-outlined text-lg lg:text-xl">menu</span>
                   <span>DANH MỤC SẢN PHẨM</span>
@@ -133,12 +181,12 @@
               </button>
             </div>
 
-            <nav class="flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-2 border-t lg:border-t-0 border-stone-100 w-full lg:w-auto shrink-0">
+            <nav class="flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-2 w-full lg:w-auto shrink-0 cursor-grab select-none">
               <a href="index.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Trang chủ</a>
               <a href="san-pham.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Sản phẩm</a>
               <a href="san-pham.html?sale=true" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Khuyến mãi</a>
               <a href="tin-tuc.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Góc kinh nghiệm</a>
-              <a href="tin-tuc.html#video" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Video</a>
+              <a href="video.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Video</a>
             </nav>
           </div>
         </div>
@@ -229,17 +277,103 @@
 
               <div>
                 <label class="text-xs font-semibold text-stone-700 block mb-1">Chủ đề cần hỗ trợ</label>
-                <div class="relative">
-                  <select class="w-full appearance-none bg-[#F5F4EF] border border-stone-200/80 rounded-xl px-4 py-2.5 text-xs text-[#264332] font-semibold focus:outline-none focus:border-[#264332] focus:ring-2 focus:ring-[#264332]/10 pr-10 cursor-pointer transition-all">
-                    <option class="bg-white text-stone-800 font-sans">Tư vấn chọn sen đá phong thủy</option>
-                    <option class="bg-white text-stone-800 font-sans">Đặt mua cây số lượng lớn / Quà tặng</option>
-                    <option class="bg-white text-stone-800 font-sans">Hỗ trợ bảo hành / Đổi trả cây</option>
-                    <option class="bg-white text-stone-800 font-sans">Góp ý dịch vụ</option>
+                <div id="contact-subject-dropdown" class="relative">
+                  <select id="contact-subject" class="hidden">
+                    <option value="Tư vấn chọn sen đá phong thủy">Tư vấn chọn sen đá phong thủy</option>
+                    <option value="Đặt mua cây số lượng lớn / Quà tặng">Đặt mua cây số lượng lớn / Quà tặng</option>
+                    <option value="Hỗ trợ bảo hành / Đổi trả cây">Hỗ trợ bảo hành / Đổi trả cây</option>
+                    <option value="Góp ý dịch vụ">Góp ý dịch vụ</option>
                   </select>
-                  <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-500 text-lg pointer-events-none">expand_more</span>
-                </div>
-              </div>
 
+                  <button
+                    type="button"
+                    id="contact-subject-btn"
+                    class="w-full bg-[#F5F4EF] hover:bg-[#EBE9DF] border border-stone-200/80 rounded-xl px-4 py-2.5 text-xs text-[#264332] font-semibold focus:outline-none cursor-pointer transition-all flex items-center justify-between group"
+                  >
+                    <span id="contact-subject-label">Tư vấn chọn sen đá phong thủy</span>
+                    <span id="contact-subject-arrow" class="material-symbols-outlined text-stone-500 text-lg transition-transform duration-200">expand_more</span>
+                  </button>
+
+                  <div
+                    id="contact-subject-menu"
+                    class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-stone-200/80 p-2 z-[9999] transition-all transform origin-top duration-200"
+                  >
+                    <div class="text-stone-800 font-sans space-y-1">
+                      <button
+                        type="button"
+                        data-value="Tư vấn chọn sen đá phong thủy"
+                        class="contact-subject-option w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-[#264332] bg-[#F5F4EF] rounded-xl transition-all cursor-pointer text-left group active-option"
+                      >
+                        <span>Tư vấn chọn sen đá phong thủy</span>
+                        <span class="material-symbols-outlined text-[#264332] text-sm check-icon">check</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-value="Đặt mua cây số lượng lớn / Quà tặng"
+                        class="contact-subject-option w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-stone-700 hover:text-[#264332] hover:bg-[#F5F4EF] rounded-xl transition-all cursor-pointer text-left group"
+                      >
+                        <span>Đặt mua cây số lượng lớn / Quà tặng</span>
+                        <span class="material-symbols-outlined text-[#264332] text-sm opacity-0 check-icon">check</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-value="Hỗ trợ bảo hành / Đổi trả cây"
+                        class="contact-subject-option w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-stone-700 hover:text-[#264332] hover:bg-[#F5F4EF] rounded-xl transition-all cursor-pointer text-left group"
+                      >
+                        <span>Hỗ trợ bảo hành / Đổi trả cây</span>
+                        <span class="material-symbols-outlined text-[#264332] text-sm opacity-0 check-icon">check</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-value="Góp ý dịch vụ"
+                        class="contact-subject-option w-full flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-stone-700 hover:text-[#264332] hover:bg-[#F5F4EF] rounded-xl transition-all cursor-pointer text-left group"
+                      >
+                        <span>Góp ý dịch vụ</span>
+                        <span class="material-symbols-outlined text-[#264332] text-sm opacity-0 check-icon">check</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                    const btn = document.getElementById("contact-subject-btn");
+                    const menu = document.getElementById("contact-subject-menu");
+                    const arrow = document.getElementById("contact-subject-arrow");
+                    const label = document.getElementById("contact-subject-label");
+                    const select = document.getElementById("contact-subject");
+                    const options = document.querySelectorAll(".contact-subject-option");
+                    if (!btn || !menu) return;
+                    btn.addEventListener("click", function(e) {
+                      e.stopPropagation();
+                      const isHidden = menu.classList.contains("hidden");
+                      if (isHidden) { menu.classList.remove("hidden"); arrow?.classList.add("rotate-180"); }
+                      else { menu.classList.add("hidden"); arrow?.classList.remove("rotate-180"); }
+                    });
+                    document.addEventListener("click", function(e) {
+                      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                        menu.classList.add("hidden"); arrow?.classList.remove("rotate-180");
+                      }
+                    });
+                    options.forEach(function(opt) {
+                      opt.addEventListener("click", function() {
+                        const val = opt.getAttribute("data-value");
+                        if (label) label.textContent = val;
+                        if (select) select.value = val;
+                        options.forEach(function(o) {
+                          o.classList.remove("bg-[#F5F4EF]", "text-[#264332]");
+                          o.classList.add("text-stone-700");
+                          const icon = o.querySelector(".check-icon");
+                          if (icon) icon.classList.add("opacity-0");
+                        });
+                        opt.classList.remove("text-stone-700");
+                        opt.classList.add("bg-[#F5F4EF]", "text-[#264332]");
+                        const activeIcon = opt.querySelector(".check-icon");
+                        if (activeIcon) activeIcon.classList.remove("opacity-0");
+                        menu.classList.add("hidden");
+                        arrow?.classList.remove("rotate-180");
+                      });
+                    });
+                  });
               <div>
                 <label class="text-xs font-semibold text-stone-700 block mb-1">Nội dung tin nhắn *</label>
                 <textarea rows="4" required placeholder="Nhập câu hỏi hoặc yêu cầu của bạn tại đây..." class="w-full bg-[#F5F4EF] border border-stone-200/80 rounded-xl px-4 py-2.5 text-xs text-stone-800 focus:outline-none focus:border-[#264332] focus:ring-2 focus:ring-[#264332]/10 transition-all"></textarea>
@@ -254,188 +388,145 @@
       </div>
     </main>
 
-    <!-- FOOTER (100% Unified with Homepage) -->
-    <footer
-      class="bg-[#15271C] text-white pt-16 pb-8 border-t border-emerald-950 mt-auto"
-    >
+    <!-- FOOTER -->
+    <footer class="bg-[#FAF9F6] text-[#1C3A27] pt-14 pb-20 md:pb-8 border-t border-stone-200/80 mt-auto">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-14 border-b border-white/10"
-        >
-          <!-- Col 1: Brand & Social -->
-          <div class="space-y-4">
-            <a href="index.html" class="flex items-center gap-3 group">
-              <img
-                src="assets/image/logo.png"
-                alt="Sen đá Châu Châu"
-                class="h-14 w-auto object-contain bg-white rounded-2xl p-1.5 shadow-xs"
-              />
-            </a>
-
-            <p class="text-xs text-stone-300 leading-relaxed">
-              Mang thiên nhiên vào không gian sống của bạn với những chậu cây
-              nhỏ xinh, đầy sức sống.
+        <!-- TOP SECTION: Feedback Banner + Hotline/Email + Social Links -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 items-center">
+          <!-- Left: Feedback Banner -->
+          <div class="lg:col-span-5 space-y-3">
+            <h3 class="font-bold text-xl sm:text-2xl text-[#264332] tracking-tight">
+              Sen đá Châu Châu lắng nghe bạn!
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-md">
+              Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cao trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.
             </p>
+            <a
+              href="lien-he.html"
+              class="inline-flex items-center gap-2 bg-[#264332] text-white hover:bg-[#1A3224] transition-all px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-2xs group"
+            >
+              <span>ĐÓNG GÓP Ý KIẾN</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
 
-            <!-- Social Media Icons -->
-            <div class="flex items-center gap-3 pt-2">
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                title="Facebook"
-              >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                title="Instagram"
-              >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                title="TikTok"
-              >
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.47-1.44 2.47-.14 1.25.43 2.48 1.43 3.19 1.01.7 2.37.79 3.48.24 1.08-.53 1.76-1.64 1.83-2.84.05-2.86.02-5.71.03-8.57.01-1.35-.01-2.69.01-4.04z"
-                  />
-                </svg>
-              </a>
+          <!-- Middle: Contact Hotline & Email Pills -->
+          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">call</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">HOTLINE</span>
+                <a href="tel:0908888733" class="font-bold text-sm sm:text-base text-[#264332] hover:underline">0908.888.733</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">mail</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">EMAIL</span>
+                <a href="mailto:sendachauchau@gmail.com" class="font-bold text-xs sm:text-sm text-[#264332] hover:underline">sendachauchau@gmail.com</a>
+              </div>
             </div>
           </div>
 
-          <!-- Col 2: VỀ CHÚNG TÔI -->
-          <div>
-            <h4
-              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
-            >
-              VỀ CHÚNG TÔI
-            </h4>
-            <ul class="space-y-2.5 text-xs text-stone-300">
-              <li>
-                <a href="gioi-thieu.html" class="hover:text-white transition-colors"
-                  >Giới thiệu</a
-                >
-              </li>
-              <li>
-                <a href="gioi-thieu.html" class="hover:text-white transition-colors"
-                  >Câu chuyện thương hiệu</a
-                >
-              </li>
-              <li>
-                <a href="tin-tuc.html" class="hover:text-white transition-colors"
-                  >Tin tức & Kinh nghiệm</a
-                >
-              </li>
-              <li>
-                <a href="lien-he.html" class="hover:text-white transition-colors"
-                  >Liên hệ</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 3: CHĂM SÓC KHÁCH HÀNG -->
-          <div>
-            <h4
-              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
-            >
-              CHĂM SÓC KHÁCH HÀNG
-            </h4>
-            <ul class="space-y-2.5 text-xs text-stone-300">
-              <li>
-                <a href="lien-he.html" class="hover:text-white transition-colors"
-                  >Chính sách đổi trả</a
-                >
-              </li>
-              <li>
-                <a href="lien-he.html" class="hover:text-white transition-colors"
-                  >Chính sách vận chuyển</a
-                >
-              </li>
-              <li>
-                <a href="tin-tuc.html" class="hover:text-white transition-colors"
-                  >Hướng dẫn chăm sóc cây</a
-                >
-              </li>
-              <li>
-                <a href="lien-he.html" class="hover:text-white transition-colors"
-                  >Câu hỏi thường gặp</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 4: ĐĂNG KÝ NHẬN TIN -->
-          <div>
-            <h4
-              class="font-semibold text-xs uppercase tracking-widest text-stone-200 mb-4"
-            >
-              ĐĂNG KÝ NHẬN TIN
-            </h4>
-            <p class="text-xs text-stone-300 leading-relaxed mb-4">
-              Nhận ưu đãi và mẹo chăm sóc cây hàng tuần từ Sen Đá.
-            </p>
-
-            <form onsubmit="event.preventDefault()" class="space-y-2">
-              <div
-                class="flex items-center bg-[#233C2D] rounded-lg p-1 border border-white/10 focus-within:border-white/30"
-              >
-                <input
-                  type="email"
-                  placeholder="Nhập email của bạn..."
-                  class="bg-transparent border-none px-3 py-2 text-xs w-full text-white placeholder:text-stone-400 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  class="bg-white text-primary rounded-md p-2 hover:bg-stone-200 transition-colors"
-                  title="Gửi"
-                >
-                  <span class="material-symbols-outlined text-sm"
-                    >arrow_forward</span
-                  >
-                </button>
-              </div>
-              <div
-                class="flex items-center gap-1.5 text-[11px] text-stone-400 pt-1"
-              >
-                <span class="material-symbols-outlined text-sm text-stone-400"
-                  >lock</span
-                >
-                <span>Chúng tôi cam kết bảo mật thông tin của bạn.</span>
-              </div>
-            </form>
+          <!-- Right: Social Connections -->
+          <div class="lg:col-span-3 space-y-3 lg:text-right">
+            <h4 class="font-bold text-sm text-[#264332]">Kết nối với chúng tôi</h4>
+            <div class="flex items-center lg:justify-end gap-2.5 flex-wrap">
+              <!-- Facebook -->
+              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Facebook">
+                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <!-- Zalo -->
+              <a href="#" class="px-3 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 font-bold text-xs flex items-center justify-center transition-all" title="Zalo">
+                Zalo
+              </a>
+              <!-- TikTok -->
+              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="TikTok">
+                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.47-1.44 2.47-.14 1.25.43 2.48 1.43 3.19 1.01.7 2.37.79 3.48.24 1.08-.53 1.76-1.64 1.83-2.84.05-2.86.02-5.71.03-8.57.01-1.35-.01-2.69.01-4.04z"/>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Instagram">
+                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="YouTube">
+                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Footer Bottom Bar -->
-        <div
-          class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-400"
-        >
-          <p>© 2024 Sen đá Châu Châu. All rights reserved.</p>
+        <!-- DIVIDER -->
+        <div class="border-t border-stone-200/80"></div>
 
-          <div class="flex items-center gap-6">
-            <div
-              class="flex items-center gap-2 text-[10px] font-bold tracking-wider text-stone-300"
-            >
-              <span class="bg-white/10 px-2 py-0.5 rounded">VISA</span>
-              <span class="bg-white/10 px-2 py-0.5 rounded">Mastercard</span>
-              <span class="bg-white/10 px-2 py-0.5 rounded">MoMo</span>
-              <span class="bg-white/10 px-2 py-0.5 rounded">ZaloPay</span>
+        <!-- MIDDLE SECTION: 4 Columns Navigation & Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
+          <!-- Col 1: Liên kết -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-[#264332]">Liên kết</h4>
+            <ul class="space-y-2 text-xs text-stone-600">
+              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Bộ sưu tập sản phẩm</a></li>
+              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Chậu sen đá thiết kế</a></li>
+              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Tiểu cảnh phong thủy</a></li>
+              <li><a href="https://shopee.vn" target="_blank" rel="noopener" class="hover:text-[#264332] transition-colors inline-flex items-center gap-1">Cửa hàng Shopee Mall <span class="text-[10px]">↗</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Col 2: Chính sách -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-[#264332]">Chính sách</h4>
+            <ul class="space-y-2 text-xs text-stone-600">
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách bảo mật</a></li>
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách đổi trả 7 ngày</a></li>
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách giao hàng & đóng gói</a></li>
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách thanh toán</a></li>
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Tiếp nhận & giải quyết khiếu nại</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Hỗ trợ khách hàng -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-[#264332]">Hỗ trợ khách hàng</h4>
+            <ul class="space-y-2 text-xs text-stone-600">
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Hướng dẫn mua hàng</a></li>
+              <li><a href="tin-tuc.html" class="hover:text-[#264332] transition-colors">Hướng dẫn trồng & chăm sen đá</a></li>
+              <li><a href="#" class="hover:text-[#264332] transition-colors">Câu hỏi thường gặp (FAQs)</a></li>
+              <li><a href="lien-he.html" class="hover:text-[#264332] transition-colors">Liên hệ tư vấn</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Địa chỉ liên hệ -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm text-[#264332]">Địa chỉ liên hệ</h4>
+            <div class="space-y-2 text-xs text-stone-600 leading-relaxed">
+              <p class="font-bold text-[#264332]">SEN ĐÁ CHÂU CHÂU</p>
+              <p>Địa chỉ: 217/47 Bùi Thị Xuân, Phường 3, Quận Tân Bình, TP. Hồ Chí Minh</p>
+              <p>Số điện thoại: <a href="tel:0908888733" class="font-semibold text-[#264332] hover:underline">0908 888 733</a></p>
+              <p>Email: <a href="mailto:sendachauchau@gmail.com" class="font-semibold text-[#264332] hover:underline">sendachauchau@gmail.com</a></p>
             </div>
+          </div>
+        </div>
 
-            <!-- Scroll to top button -->
+        <!-- DIVIDER BOTTOM -->
+        <div class="border-t border-stone-200/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+          <div>
+            <p class="font-bold text-[#264332]">© SEN ĐÁ CHÂU CHÂU</p>
+            <p class="text-[11px] text-stone-400 mt-0.5">Cung cấp sen đá, xương rồng & phụ kiện tiểu cảnh uy tín Tân Bình.</p>
+          </div>
+          <div class="flex items-center gap-3">
             <button
               onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
               class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"

@@ -62,9 +62,6 @@
     return `<article class="bg-[#F5F4EF] rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0 border border-stone-200/60 hover:border-[#264332]/30 shadow-2xs">
       <div>
         <div class="relative aspect-square rounded-xl overflow-hidden mb-3 bg-stone-100">
-          <button class="absolute top-2.5 right-2.5 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-stone-700 hover:bg-white hover:scale-105 transition-all" title="Xem chi tiết">
-            <span class="material-symbols-outlined text-sm sm:text-base">visibility</span>
-          </button>
           <a href="${productUrl(product.id)}" class="block w-full h-full">
             ${image}
           </a>
@@ -82,7 +79,7 @@
             <span class="material-symbols-outlined text-base sm:text-lg">favorite</span>
           </button>
         </div>
-        <button onclick="window.location.href='${productUrl(product.id)}'" class="w-full py-2 px-2 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-2xs">
+        <button data-quick-add-id="${escapeHtml(product.id)}" class="w-full py-2 px-2 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer">
           <span class="material-symbols-outlined text-sm">shopping_cart</span>
           <span>Thêm vào giỏ</span>
         </button>
@@ -129,7 +126,7 @@
     const summary = document.getElementById("catalog-summary");
     const sort = document.getElementById("catalog-sort");
     const search = document.querySelector("[data-catalog-search]");
-    const categoryId = new URLSearchParams(location.search).get("category") || "";
+    const initialCategoryId = new URLSearchParams(location.search).get("category") || "";
     const productCount = (category) => catalog.products.filter((p) => isProductInCategory(p, category.id, catalog)).length;
     const leafCategories = catalog.categories.filter((item) => item.isLeaf).map((item) => ({ ...item, realCount: productCount(item) })).filter((item) => item.realCount > 0).sort((a, b) => b.realCount - a.realCount);
     const pageSize = 12;
@@ -137,7 +134,159 @@
     let query = (new URLSearchParams(location.search).get("q") || "").trim().toLocaleLowerCase("vi");
     let sortBy = "default";
 
-    if (categoryList) categoryList.innerHTML = `<li>${categoryLink({ id: "", name: "Tất cả sản phẩm", productCount: catalog.products.length }, !categoryId)}</li>${leafCategories.map((item) => `<li>${categoryLink({ ...item, productCount: item.realCount }, item.id === categoryId)}</li>`).join("")}`;
+    // Selected Categories State (Array of checked category IDs)
+    let selectedCategoryIds = initialCategoryId ? [initialCategoryId] : [];
+
+    // Select2 Advanced Filters State
+    let selectedPrice = "all";
+    let selectedSizes = [];
+    let selectedEnv = "all";
+
+    if (window.jQuery && $.fn.select2) {
+      const $priceSelect = $("#select2-price");
+      const $sizeSelect = $("#select2-size");
+      const $envSelect = $("#select2-env");
+
+      if ($priceSelect.length) {
+        $priceSelect.select2({
+          placeholder: "Tất cả khoảng giá",
+          minimumResultsForSearch: Infinity,
+          width: "100%"
+        }).on("change", function () {
+          selectedPrice = $(this).val() || "all";
+          currentPage = 1;
+          draw();
+        });
+      }
+
+      if ($sizeSelect.length) {
+        $sizeSelect.select2({
+          placeholder: "Chọn kích thước chậu...",
+          allowClear: true,
+          width: "100%"
+        }).on("change", function () {
+          selectedSizes = $(this).val() || [];
+          currentPage = 1;
+          draw();
+        });
+      }
+
+      if ($envSelect.length) {
+        $envSelect.select2({
+          placeholder: "Tất cả môi trường",
+          minimumResultsForSearch: Infinity,
+          width: "100%"
+        }).on("change", function () {
+          selectedEnv = $(this).val() || "all";
+          currentPage = 1;
+          draw();
+        });
+      }
+
+      $("#btn-reset-filters").on("click", function () {
+        if ($priceSelect.length) $priceSelect.val("all").trigger("change.select2");
+        if ($sizeSelect.length) $sizeSelect.val(null).trigger("change.select2");
+        if ($envSelect.length) $envSelect.val("all").trigger("change.select2");
+        selectedCategoryIds = [];
+        selectedPrice = "all";
+        selectedSizes = [];
+        selectedEnv = "all";
+        currentPage = 1;
+        renderCategoryCheckboxes();
+        draw();
+      });
+    }
+
+    // Function to render category checkboxes
+    function renderCategoryCheckboxes() {
+      if (!categoryList) return;
+      const isAllChecked = selectedCategoryIds.length === 0;
+
+      const badge = document.getElementById("cat-selected-badge");
+      if (badge) {
+        if (selectedCategoryIds.length > 0) {
+          badge.textContent = `${selectedCategoryIds.length} đã chọn`;
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+      }
+
+      let html = `
+        <li>
+          <label class="flex items-center justify-between p-2 rounded-xl hover:bg-[#F5F4EF] transition-colors cursor-pointer group select-none ${isAllChecked ? "bg-[#F5F4EF] font-bold text-primary" : ""}">
+            <div class="flex items-center gap-2.5">
+              <input
+                type="checkbox"
+                class="cat-checkbox-all rounded text-primary focus:ring-primary accent-[#264332] w-4 h-4 cursor-pointer"
+                ${isAllChecked ? "checked" : ""}
+              />
+              <span class="text-xs font-semibold ${isAllChecked ? "text-primary font-bold" : "text-stone-700"} group-hover:text-primary">
+                Tất cả sản phẩm
+              </span>
+            </div>
+            <span class="text-[10px] font-bold ${isAllChecked ? "bg-[#264332] text-white px-2 py-0.5 rounded-full" : "text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full"}">
+              ${catalog.products.length}
+            </span>
+          </label>
+        </li>
+      `;
+
+      leafCategories.forEach((cat) => {
+        const isChecked = selectedCategoryIds.includes(cat.id);
+        html += `
+          <li>
+            <label class="flex items-center justify-between p-2 rounded-xl hover:bg-[#F5F4EF] transition-colors cursor-pointer group select-none ${isChecked ? "bg-[#F5F4EF] font-bold text-primary" : ""}">
+              <div class="flex items-center gap-2.5">
+                <input
+                  type="checkbox"
+                  class="cat-checkbox rounded text-primary focus:ring-primary accent-[#264332] w-4 h-4 cursor-pointer"
+                  value="${cat.id}"
+                  ${isChecked ? "checked" : ""}
+                />
+                <span class="text-xs font-semibold ${isChecked ? "text-primary font-bold" : "text-stone-700"} group-hover:text-primary">
+                  ${escapeHtml(cat.name)}
+                </span>
+              </div>
+              <span class="text-[10px] font-bold ${isChecked ? "bg-[#264332] text-white px-2 py-0.5 rounded-full" : "text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full"}">
+                ${cat.realCount}
+              </span>
+            </label>
+          </li>
+        `;
+      });
+
+      categoryList.innerHTML = html;
+
+      // Bind Checkbox Change Listeners
+      categoryList.querySelectorAll(".cat-checkbox-all").forEach((input) => {
+        input.addEventListener("change", (e) => {
+          if (e.target.checked) {
+            selectedCategoryIds = [];
+            currentPage = 1;
+            renderCategoryCheckboxes();
+            draw();
+          }
+        });
+      });
+
+      categoryList.querySelectorAll(".cat-checkbox").forEach((input) => {
+        input.addEventListener("change", (e) => {
+          const val = e.target.value;
+          if (e.target.checked) {
+            if (!selectedCategoryIds.includes(val)) selectedCategoryIds.push(val);
+          } else {
+            selectedCategoryIds = selectedCategoryIds.filter((id) => id !== val);
+          }
+          currentPage = 1;
+          renderCategoryCheckboxes();
+          draw();
+        });
+      });
+    }
+
+    renderCategoryCheckboxes();
+
     if (search) {
       search.value = new URLSearchParams(location.search).get("q") || "";
       search.addEventListener("input", () => { query = search.value.trim().toLocaleLowerCase("vi"); currentPage = 1; draw(); });
@@ -147,8 +296,47 @@
     function draw() {
       document.getElementById("catalog-pagination")?.remove();
       let items = catalog.products.map((item) => enrich(item, catalog));
-      if (categoryId) items = items.filter((item) => isProductInCategory(item, categoryId, catalog));
+      
+      // Checkbox Category Multi-Filter
+      if (selectedCategoryIds.length > 0) {
+        items = items.filter((item) => selectedCategoryIds.some((catId) => isProductInCategory(item, catId, catalog)));
+      }
+
       if (query) items = items.filter((item) => `${item.name} ${item.category?.pathLabel || ""}`.toLocaleLowerCase("vi").includes(query));
+
+      // Select2 Price Filter
+      if (selectedPrice === "under-100k") {
+        items = items.filter((item) => (item.minPrice || 0) < 100000);
+      } else if (selectedPrice === "100k-300k") {
+        items = items.filter((item) => (item.minPrice || 0) >= 100000 && (item.minPrice || 0) <= 300000);
+      } else if (selectedPrice === "300k-500k") {
+        items = items.filter((item) => (item.minPrice || 0) >= 300000 && (item.minPrice || 0) <= 500000);
+      } else if (selectedPrice === "over-500k") {
+        items = items.filter((item) => (item.minPrice || 0) > 500000);
+      }
+
+      // Select2 Size Filter
+      if (selectedSizes.length > 0) {
+        items = items.filter((item) => {
+          const nameLower = (item.name || "").toLowerCase();
+          return selectedSizes.some((size) => {
+            if (size === "mini") return nameLower.includes("mini") || nameLower.includes("5cm") || (item.minPrice || 0) < 50000;
+            if (size === "small") return nameLower.includes("8cm") || nameLower.includes("nhỏ");
+            if (size === "medium") return nameLower.includes("12cm") || nameLower.includes("vừa");
+            if (size === "large") return nameLower.includes("15cm") || nameLower.includes("lớn");
+            return true;
+          });
+        });
+      }
+
+      // Select2 Environment Filter
+      if (selectedEnv === "indoor") {
+        items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("trong nhà") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("bàn") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("lưỡi hổ") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("kim tiền"));
+      } else if (selectedEnv === "outdoor") {
+        items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("ngoài trời") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("sen đá") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("xương rồng") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("sân vườn"));
+      } else if (selectedEnv === "easy") {
+        items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("sen đá") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("lưỡi hổ") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("chậu"));
+      }
       
       if (sortBy === "indoor") {
         items = items.filter((item) => `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("trong nhà") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("bàn") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("lưỡi hổ") || `${item.name} ${item.category?.name || ""}`.toLowerCase().includes("kim tiền"));
@@ -201,7 +389,52 @@
     draw();
   }
 
+  function flashSaleCard(product) {
+    const minPrice = product.minPrice || 50000;
+    const charCode = (product.id || "").charCodeAt((product.id || "").length - 1) || 5;
+    const discountPercent = Math.min(40, Math.max(15, (charCode % 5 + 2) * 6));
+    const originalPrice = Math.round((minPrice / (1 - discountPercent / 100)) / 1000) * 1000;
+    const soldCount = Math.floor((charCode * 9) % 120 + 35);
+    const progressPercent = Math.min(95, Math.max(40, Math.floor((soldCount / 180) * 100)));
+
+    const image = product.image 
+      ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='assets/image/logo.png';">` 
+      : `<img src="assets/image/logo.png" alt="${escapeHtml(product.name)}" class="w-full h-full object-contain p-4 bg-stone-100 opacity-60">`;
+
+    return `<div class="w-52 sm:w-64 shrink-0 bg-[#F5F4EF] hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 group shadow-2xs flex flex-col justify-between">
+      <div>
+        <div class="relative aspect-square rounded-xl overflow-hidden mb-3 bg-white">
+          <span class="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs">-${discountPercent}%</span>
+          <a href="${productUrl(product.id)}" class="block w-full h-full">
+            ${image}
+          </a>
+        </div>
+        <a href="${productUrl(product.id)}">
+          <h4 class="font-serif-title text-sm sm:text-base font-normal text-primary truncate group-hover:text-emerald-800 transition-colors">${escapeHtml(product.name)}</h4>
+        </a>
+        <p class="text-[11px] text-stone-500 mb-2">Đã bán ${soldCount} chậu</p>
+      </div>
+
+      <div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-bold text-sm text-rose-600">${formatPrice(minPrice)}</span>
+          <span class="text-xs text-stone-400 line-through">${formatPrice(originalPrice)}</span>
+        </div>
+        <div class="w-full bg-stone-200 h-2 rounded-full mt-2.5 overflow-hidden">
+          <div class="bg-amber-500 h-full rounded-full" style="width: ${progressPercent}%;"></div>
+        </div>
+      </div>
+    </div>`;
+  }
+
   function renderHome(catalog) {
+    const flashSaleGrid = document.getElementById("home-flash-sale-grid");
+    if (flashSaleGrid) {
+      const realProductsWithImages = catalog.products.filter((p) => p.image && p.image.startsWith("assets/product/"));
+      const flashItems = (realProductsWithImages.length >= 4 ? realProductsWithImages : catalog.products).slice(0, 8);
+      flashSaleGrid.innerHTML = flashItems.map((item) => flashSaleCard(enrich(item, catalog))).join("");
+    }
+
     const categoryGrid = document.getElementById("featured-category-grid");
     if (categoryGrid) {
       const leaves = catalog.categories.filter((item) => item.isLeaf).sort((a, b) => (catalog.productsByCategory.get(b.id)?.length || 0) - (catalog.productsByCategory.get(a.id)?.length || 0)).slice(0, 4);
@@ -423,18 +656,147 @@
     showVariant();
   }
 
+  function initCustomSortDropdown() {
+    const btn = document.getElementById("custom-sort-btn");
+    const menu = document.getElementById("custom-sort-menu");
+    const arrow = document.getElementById("custom-sort-arrow");
+    const label = document.getElementById("custom-sort-label");
+    const select = document.getElementById("catalog-sort");
+    const options = document.querySelectorAll(".custom-sort-option");
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isHidden = menu.classList.contains("hidden");
+      if (isHidden) {
+        menu.classList.remove("hidden");
+        arrow?.classList.add("rotate-180");
+      } else {
+        menu.classList.add("hidden");
+        arrow?.classList.remove("rotate-180");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add("hidden");
+        arrow?.classList.remove("rotate-180");
+      }
+    });
+
+    options.forEach((opt) => {
+      opt.addEventListener("click", () => {
+        const val = opt.getAttribute("data-value");
+        const textSpan = opt.querySelector("span");
+        const text = textSpan ? textSpan.textContent.trim() : "";
+
+        if (label && text) label.textContent = text;
+        if (select) {
+          select.value = val;
+          select.dispatchEvent(new Event("change"));
+        }
+
+        options.forEach((o) => {
+          o.classList.remove("bg-[#F5F4EF]", "text-[#264332]");
+          o.classList.add("text-stone-700");
+          const icon = o.querySelector(".check-icon");
+          if (icon) icon.classList.add("opacity-0");
+        });
+
+        opt.classList.remove("text-stone-700");
+        opt.classList.add("bg-[#F5F4EF]", "text-[#264332]");
+        const activeIcon = opt.querySelector(".check-icon");
+        if (activeIcon) activeIcon.classList.remove("opacity-0");
+
+        menu.classList.add("hidden");
+        arrow?.classList.remove("rotate-180");
+      });
+    });
+  }
+
+  function initCounterAnimations() {
+    const counters = document.querySelectorAll(".counter-val[data-target]");
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute("data-target"), 10);
+          const prefix = el.getAttribute("data-prefix") || "";
+          const suffix = el.getAttribute("data-suffix") || "";
+          const isLocale = el.getAttribute("data-format") === "locale";
+          const duration = 1800; // 1.8 seconds animation
+          let startTime = null;
+
+          function animate(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.floor(easeOut * target);
+
+            const formattedVal = isLocale ? currentVal.toLocaleString("vi-VN") : currentVal;
+            el.textContent = `${prefix}${formattedVal}${suffix}`;
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              const finalVal = isLocale ? target.toLocaleString("vi-VN") : target;
+              el.textContent = `${prefix}${finalVal}${suffix}`;
+            }
+          }
+
+          requestAnimationFrame(animate);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    counters.forEach((el) => observer.observe(el));
+  }
+
   async function start() {
     try {
       const catalog = await loadCatalog();
+      window.__CURRENT_CATALOG__ = catalog;
       renderHome(catalog);
       renderListing(catalog);
       renderDetail(catalog);
       renderCategoryDropdown(catalog);
+      initCustomSortDropdown();
+      initCounterAnimations();
     } catch (error) {
       console.error(error);
       document.querySelectorAll("#catalog-product-grid, #home-new-product-grid").forEach((element) => { element.innerHTML = `<p class="col-span-full text-center text-stone-500 py-8">Không thể tải dữ liệu. Hãy mở website qua web server.</p>`; });
     }
   }
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-quick-add-id]");
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const productId = btn.dataset.quickAddId;
+    const catalog = window.__CURRENT_CATALOG__;
+    if (!catalog) return;
+    const rawProduct = catalog.products.find((p) => p.id === productId);
+    if (!rawProduct) return;
+    const product = enrich(rawProduct, catalog);
+    const variants = product.variants || [];
+    const firstVariant = variants[0];
+
+    window.ShopCart?.add({
+      productId: product.id,
+      variantId: firstVariant?.id || `${product.id}-v1`,
+      name: product.name,
+      imageUrl: firstVariant?.imageUrl || product.image,
+      price: firstVariant?.commerce?.["Giá bán"] || product.minPrice || 0,
+      quantity: 1,
+      variantLabel: firstVariant ? (Object.values(firstVariant.selectedOptions || {}).filter(Boolean).join(" · ") || firstVariant.sku || "Mặc định") : "Mặc định",
+    });
+  });
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
 })();
