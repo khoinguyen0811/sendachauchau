@@ -122,16 +122,18 @@
       <!-- Lower Sub-Navigation Bar -->
       <div class="border-t border-stone-200/80 bg-white shadow-xs relative z-30">
         <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between py-2 gap-6 relative">
-            <div class="relative shrink-0 z-50">
-              <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-6 py-3 rounded-full flex items-center gap-4 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-sm group cursor-pointer">
-                <span class="material-symbols-outlined text-xl">menu</span>
-                <span>DANH MỤC SẢN PHẨM</span>
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between py-2 gap-2 lg:gap-6 relative">
+            <div class="relative shrink-0 z-50 w-full lg:w-auto">
+              <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-4 py-2.5 lg:px-6 lg:py-3 rounded-xl lg:rounded-full flex items-center justify-between lg:justify-start gap-3 lg:gap-4 text-xs lg:text-sm font-bold uppercase tracking-wider transition-all shadow-xs group cursor-pointer w-full lg:w-auto">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-lg lg:text-xl">menu</span>
+                  <span>DANH MỤC SẢN PHẨM</span>
+                </div>
                 <span id="danh-muc-arrow" class="material-symbols-outlined text-base transition-transform duration-300 inline-block">expand_more</span>
               </button>
             </div>
 
-            <nav class="flex items-center gap-6 sm:gap-8 text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-1 shrink-0">
+            <nav class="flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-2 border-t lg:border-t-0 border-stone-100 w-full lg:w-auto shrink-0">
               <a href="index.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Trang chủ</a>
               <a href="san-pham.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Sản phẩm</a>
               <a href="san-pham.html?sale=true" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Khuyến mãi</a>
