@@ -1,445 +1,442 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Sen đá Châu Châu | Sen đá xương rồng quận Tân Phú</title>
-    <meta
-      content="Tìm hiểu hành trình 7+ năm ươm mầm thiên nhiên và tình yêu sen đá của Sen đá Châu Châu."
-      name="description"
-    />
+ <head>
+ <meta charset="UTF-8" />
+ <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+ <title>Sen đá Châu Châu | Sen đá xương rồng quận Tân Phú</title>
+ <meta
+ content="Tìm hiểu hành trình 7+ năm ươm mầm thiên nhiên và tình yêu sen đá của Sen đá Châu Châu."
+ name="description"
+ />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com" rel="preconnect" />
+ <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+ <link
+ href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+ rel="stylesheet"
+ />
+ <link
+ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+ rel="stylesheet"
+ />
+ <link
+ href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+ rel="stylesheet"
+ />
 
-    <!-- Flaticon Uicons CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
-    />
+ <!-- Flaticon Uicons CDN -->
+ <link
+ rel="stylesheet"
+ href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+ />
 
-    <!-- GSAP Animation Library CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+ <!-- GSAP Animation Library CDN -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-    <!-- Central Design System & Gilroy Font CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+ <!-- Central Design System & Gilroy Font CSS -->
+ <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#264332",
-              secondary: "#8C7B5D",
-              accent: "#C86A4B",
-              "bg-light": "#FAF9F6",
-              "text-main": "#2C3531",
-            },
-            fontFamily: {
-              sans: ["Gilroy", "Plus Jakarta Sans", "sans-serif"],
-              serif: ["Cormorant Garamond", "serif"],
-              script: ["Caveat", "cursive"],
-              "serif-title": ["MuseoModerno", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @keyframes topbarMarquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      @media (max-width: 767px) {
-        .animate-topbar-marquee {
-          display: inline-flex;
-          white-space: nowrap;
-          animation: topbarMarquee 12s linear infinite;
-        }
-      }
-      html, body {
-        overflow-x: hidden;
-        max-width: 100vw;
-      }
-    </style>
-  </head>
-  <body class="bg-bg-light text-text-main font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-[#1F3629] text-white text-[11px] font-medium py-2 overflow-hidden w-full relative">
-      <div class="max-w-[1440px] mx-auto flex justify-center items-center px-4">
-        <div class="animate-topbar-marquee md:animate-none flex items-center gap-6 shrink-0 whitespace-nowrap">
-          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
-          <span class="opacity-40">|</span>
-          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
-          <span class="opacity-40">|</span>
-          <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
-          <span class="opacity-40">|</span>
-          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
-          <span class="opacity-40 md:hidden">|</span>
-          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
-          <span class="opacity-40 md:hidden">|</span>
-          <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
-          <span class="opacity-40 md:hidden">|</span>
-        </div>
-      </div>
-    </div>
+ <!-- Tailwind CSS CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script id="tailwind-config">
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ primary:"#264332",
+ secondary:"#8C7B5D",
+ accent:"#C86A4B","bg-light":"#FAF9F6","text-main":"#2C3531",
+ },
+ fontFamily: {
+ sans: ["Gilroy","Plus Jakarta Sans","sans-serif"],
+ serif: ["Cormorant Garamond","serif"],
+ script: ["Caveat","cursive"],"serif-title": ["MuseoModerno","sans-serif"],
+ },
+ },
+ },
+ };
+ </script>
+ <style>
+ @keyframes topbarMarquee {
+ 0% { transform: translateX(0); }
+ 100% { transform: translateX(-50%); }
+ }
+ @media (max-width: 767px) {
+ .animate-topbar-marquee {
+ display: inline-flex;
+ white-space: nowrap;
+ animation: topbarMarquee 12s linear infinite;
+ }
+ }
+ html, body {
+ overflow-x: hidden;
+ max-width: 100vw;
+ }
+ </style>
+ </head>
+ <body class="bg-bg-light text-text-main font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
+ <!-- TOP ANNOUNCEMENT BAR -->
+ <div class="bg-[#1F3629] text-white text-[11px] font-medium py-2 overflow-hidden w-full relative">
+ <div class="max-w-[1440px] mx-auto flex justify-center items-center px-4">
+ <div class="animate-topbar-marquee md:animate-none flex items-center gap-6 shrink-0 whitespace-nowrap">
+ <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
+ <span class="opacity-40">|</span>
+ <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
+ <span class="opacity-40">|</span>
+ <span class="inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
+ <span class="opacity-40">|</span>
+ <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">local_shipping</span> Miễn phí giao hàng cho đơn từ 500.000đ</span>
+ <span class="opacity-40 md:hidden">|</span>
+ <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">card_giftcard</span> Tặng phân tan chậm cho mọi đơn hàng</span>
+ <span class="opacity-40 md:hidden">|</span>
+ <span class="inline-flex items-center gap-1.5 md:hidden"><span class="material-symbols-outlined text-xs">park</span> Bảo hành 1 đổi 1 trong 7 ngày</span>
+ <span class="opacity-40 md:hidden">|</span>
+ </div>
+ </div>
+ </div>
 
-    <!-- MAIN HEADER -->
-    <header class="bg-white border-b border-stone-200/80 sticky top-0 z-40 shadow-xs">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
-        <!-- Left: 3-line Menu Icon + Logo -->
-        <div class="flex items-center justify-between md:justify-start gap-3 w-full md:w-auto shrink-0">
-          <div class="flex items-center gap-2.5 sm:gap-3">
-            <button
-              id="btn-toggle-category-drawer"
-              data-open-category-drawer
-              class="w-10 h-10 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 text-[#264332] flex md:hidden items-center justify-center transition-colors cursor-pointer shrink-0"
-              title="Danh mục sản phẩm"
-            >
-              <span class="material-symbols-outlined text-2xl font-bold">menu</span>
-            </button>
-            <a href="index.html" class="flex items-center gap-3 group">
-              <img
-                src="assets/image/logo.png"
-                alt="Sen đá Châu Châu"
-                class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-              />
-            </a>
-          </div>
+ <!-- MAIN HEADER -->
+ <header class="bg-white border-b border-stone-200/80 sticky top-0 z-40">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-6">
+ <!-- Left: 3-line Menu Icon + Logo -->
+ <div class="flex items-center justify-between md:justify-start gap-3 w-full md:w-auto shrink-0">
+ <div class="flex items-center gap-2.5 sm:gap-3">
+ <button
+ id="btn-toggle-category-drawer"
+ data-open-category-drawer
+ class="w-10 h-10 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 text-[#264332] flex md:hidden items-center justify-center transition-colors cursor-pointer shrink-0"
+ title="Danh mục sản phẩm"
+ >
+ <span class="material-symbols-outlined text-2xl font-bold">menu</span>
+ </button>
+ <a href="index.html" class="flex items-center gap-3 group">
+ <img
+ src="assets/image/logo.png"
+ alt="Sen đá Châu Châu"
+ class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+ />
+ </a>
+ </div>
 
-          <!-- Mobile Actions (Icon Only - Hidden on Desktop) -->
-          <div class="flex md:hidden items-center gap-2 text-xs text-primary font-semibold shrink-0">
-            <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Yêu thích">
-              <i class="fi fi-rr-heart text-base text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
-              <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
-            </a>
-            <a href="gio-hang.html" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Giỏ hàng">
-              <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
-              <span data-cart-count class="absolute -top-1 -right-1 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Tài khoản">
-              <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
-            </a>
-          </div>
-        </div>
+ <!-- Mobile Actions (Icon Only - Hidden on Desktop) -->
+ <div class="flex md:hidden items-center gap-2 text-xs text-primary font-semibold shrink-0">
+ <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Yêu thích">
+ <i class="fi fi-rr-heart text-base text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
+ <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+ </a>
+ <a href="gio-hang.html" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Giỏ hàng">
+ <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
+ <span data-cart-count class="absolute -top-1 -right-1 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+ </a>
+ <a href="#" class="w-9 h-9 rounded-xl bg-[#F5F4EF] hover:bg-stone-200 flex items-center justify-center transition-colors group relative shrink-0" title="Tài khoản">
+ <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-[#264332] transition-colors leading-none"></i>
+ </a>
+ </div>
+ </div>
 
-        <!-- Center: Search Bar (Desktop & Mobile) -->
-        <div class="flex-1 max-w-xl w-full flex items-center bg-[#F3F4F0] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-transparent focus-within:border-primary/30 transition-all">
-          <input class="bg-transparent border-none focus:outline-none text-xs sm:text-sm w-full text-text-main placeholder:text-stone-400 font-normal" placeholder="Bạn cần tìm gì?" type="text" />
-          <span class="material-symbols-outlined text-stone-500 text-lg sm:text-xl cursor-pointer hover:text-primary transition-colors">search</span>
-        </div>
+ <!-- Center: Search Bar (Desktop & Mobile) -->
+ <div class="flex-1 max-w-xl w-full flex items-center bg-[#F3F4F0] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-transparent focus-within:border-primary/30 transition-all">
+ <input class="bg-transparent border-none focus:outline-none text-xs sm:text-sm w-full text-text-main placeholder:text-stone-400 font-normal" placeholder="Bạn cần tìm gì?" type="text" />
+ <span class="material-symbols-outlined text-stone-500 text-lg sm:text-xl cursor-pointer hover:text-primary transition-colors">search</span>
+ </div>
 
-        <!-- Right: Desktop Header Actions (ICON + TEXT - Visible on Desktop) -->
-        <div class="hidden md:flex items-center gap-4 sm:gap-6 text-xs text-primary font-semibold shrink-0">
-          <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group relative" title="Yêu thích">
-            <div class="relative flex items-center justify-center">
-              <i class="fi fi-rr-heart text-lg text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
-              <span class="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
-            </div>
-            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Yêu thích</span>
-          </a>
-          <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group" title="Tài khoản">
-            <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
-            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Tài khoản</span>
-          </a>
-          <a href="gio-hang.html" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F4EF] hover:bg-stone-200 transition-colors group relative" title="Giỏ hàng">
-            <div class="relative flex items-center justify-center">
-              <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
-              <span data-cart-count class="absolute -top-1.5 -right-2 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">0</span>
-            </div>
-            <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Giỏ hàng</span>
-          </a>
-        </div>
-      </div>
+ <!-- Right: Desktop Header Actions (ICON + TEXT - Visible on Desktop) -->
+ <div class="hidden md:flex items-center gap-4 sm:gap-6 text-xs text-primary font-semibold shrink-0">
+ <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group relative" title="Yêu thích">
+ <div class="relative flex items-center justify-center">
+ <i class="fi fi-rr-heart text-lg text-stone-700 group-hover:text-rose-500 transition-colors leading-none"></i>
+ <span class="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+ </div>
+ <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Yêu thích</span>
+ </a>
+ <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-stone-100 transition-colors group" title="Tài khoản">
+ <i class="fi fi-rr-user text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
+ <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Tài khoản</span>
+ </a>
+ <a href="gio-hang.html" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F4EF] hover:bg-stone-200 transition-colors group relative" title="Giỏ hàng">
+ <div class="relative flex items-center justify-center">
+ <i class="fi fi-rr-shopping-bag text-base text-stone-700 group-hover:text-primary transition-colors leading-none"></i>
+ <span data-cart-count class="absolute -top-1.5 -right-2 bg-[#264332] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+ </div>
+ <span class="text-xs font-semibold text-stone-800 group-hover:text-primary transition-colors">Giỏ hàng</span>
+ </a>
+ </div>
+ </div>
 
-      <!-- Lower Sub-Navigation Bar -->
-      <div class="border-t border-stone-200/80 bg-white shadow-xs relative z-30">
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between py-2 gap-4 relative">
-            <div class="hidden lg:block relative shrink-0 z-50">
-              <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-5 py-2.5 rounded-full flex items-center gap-3 text-xs lg:text-sm font-bold uppercase tracking-wider transition-all shadow-xs group cursor-pointer">
-                <div class="flex items-center gap-2.5">
-                  <span class="material-symbols-outlined text-lg lg:text-xl">menu</span>
-                  <span>DANH MỤC SẢN PHẨM</span>
-                </div>
-                <span id="danh-muc-arrow" class="material-symbols-outlined text-base transition-transform duration-300 inline-block">expand_more</span>
-              </button>
-              <div id="dropdown-danh-muc" class="hidden absolute top-full left-0 mt-2 lg:mt-3 w-full lg:w-80 bg-white rounded-[24px] shadow-2xl border border-stone-200/60 p-3 transition-all duration-200 origin-top-left z-[9999]">
-                <div class="space-y-1 text-stone-800 font-sans">
-                  <a href="san-pham.html" class="flex items-center justify-between p-3 rounded-2xl bg-[#F8F7EE] text-[#244332] transition-colors group/item">
-                    <div class="flex items-center gap-4">
-                      <span class="material-symbols-outlined text-2xl text-[#244332]">filter_vintage</span>
-                      <span class="text-sm font-semibold text-stone-800">Sen đá</span>
-                    </div>
-                    <span class="text-xs text-stone-400 font-normal">32 sp</span>
-                  </a>
-                  <a href="san-pham.html" class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item">
-                    <div class="flex items-center gap-4">
-                      <span class="material-symbols-outlined text-2xl text-[#244332]">potted_plant</span>
-                      <span class="text-sm font-semibold text-stone-800">Xương rồng</span>
-                    </div>
-                    <span class="text-xs text-stone-400 font-normal">18 sp</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+ <!-- Lower Sub-Navigation Bar -->
+ <div class="border-t border-stone-200/80 bg-white relative z-30">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+ <div class="flex items-center justify-between py-2 gap-4 relative">
+ <div class="hidden lg:block relative shrink-0 z-50">
+ <button id="btn-danh-muc" class="bg-[#244332] hover:bg-[#1A3224] text-white px-5 py-2.5 rounded-full flex items-center gap-3 text-xs lg:text-sm font-bold uppercase tracking-wider transition-all group cursor-pointer">
+ <div class="flex items-center gap-2.5">
+ <span class="material-symbols-outlined text-lg lg:text-xl">menu</span>
+ <span>DANH MỤC SẢN PHẨM</span>
+ </div>
+ <span id="danh-muc-arrow" class="material-symbols-outlined text-base transition-transform duration-300 inline-block">expand_more</span>
+ </button>
+ <div id="dropdown-danh-muc" class="hidden absolute top-full left-0 mt-2 lg:mt-3 w-full lg:w-80 bg-white rounded-[24px] border border-stone-200/60 p-3 transition-all duration-200 origin-top-left z-[9999]">
+ <div class="space-y-1 text-stone-800 font-sans">
+ <a href="san-pham.html" class="flex items-center justify-between p-3 rounded-2xl bg-[#F8F7EE] text-[#244332] transition-colors group/item">
+ <div class="flex items-center gap-4">
+ <span class="material-symbols-outlined text-2xl text-[#244332]">filter_vintage</span>
+ <span class="text-sm font-semibold text-stone-800">Sen đá</span>
+ </div>
+ <span class="text-xs text-stone-400 font-normal">32 sp</span>
+ </a>
+ <a href="san-pham.html" class="flex items-center justify-between p-3 rounded-2xl hover:bg-[#F8F7EE] transition-colors group/item">
+ <div class="flex items-center gap-4">
+ <span class="material-symbols-outlined text-2xl text-[#244332]">potted_plant</span>
+ <span class="text-sm font-semibold text-stone-800">Xương rồng</span>
+ </div>
+ <span class="text-xs text-stone-400 font-normal">18 sp</span>
+ </a>
+ </div>
+ </div>
+ </div>
 
-            <nav class="flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-2 w-full lg:w-auto shrink-0 cursor-grab select-none">
-              <a href="index.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Trang chủ</a>
-              <a href="san-pham.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Sản phẩm</a>
-              <a href="san-pham.html?sale=true" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Khuyến mãi</a>
-              <a href="tin-tuc.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Góc kinh nghiệm</a>
-              <a href="video.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Video</a>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
+ <nav class="flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold tracking-wide text-[#264332] normal-case overflow-x-auto no-scrollbar py-2 w-full lg:w-auto shrink-0 cursor-grab select-none">
+ <a href="index.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Trang chủ</a>
+ <a href="san-pham.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Sản phẩm</a>
+ <a href="san-pham.html?sale=true" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Khuyến mãi</a>
+ <a href="tin-tuc.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Góc kinh nghiệm</a>
+ <a href="video.html" class="hover:text-emerald-700 transition-colors whitespace-nowrap py-1">Video</a>
+ </nav>
+ </div>
+ </div>
+ </div>
+ </header>
 
-    <!-- BREADCRUMB HERO BANNER -->
-    <section class="bg-[#F5F4EF] py-12 border-b border-stone-200/60">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-        <div class="text-xs font-semibold uppercase tracking-[0.2em] text-[#8C7B5D] mb-2">VỀ CHÚNG TÔI</div>
-        <h1 class="font-serif-title text-4xl sm:text-5xl font-normal text-primary mb-4">Hành Trình Đem Xanh Vào Nơi Sống</h1>
-        <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
-          Hành trình hơn 7 năm yêu sen đá của Sen đá Châu Châu được gói gọn trong những chậu cây khỏe đẹp, tuyển chọn kỹ lưỡng cùng mức giá thật dễ thương.
-        </p>
-      </div>
-    </section>
+ <!-- BREADCRUMB HERO BANNER -->
+ <section class="bg-[#F5F4EF] py-12 border-b border-stone-200/60">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+ <div class="text-xs font-semibold uppercase tracking-[0.2em] text-[#8C7B5D] mb-2">VỀ CHÚNG TÔI</div>
+ <h1 class="font-serif-title text-4xl sm:text-5xl font-normal text-primary mb-4">Hành Trình Đem Xanh Vào Nơi Sống</h1>
+ <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+ Hành trình hơn 7 năm yêu sen đá của Sen đá Châu Châu được gói gọn trong những chậu cây khỏe đẹp, tuyển chọn kỹ lưỡng cùng mức giá thật dễ thương.
+ </p>
+ </div>
+ </section>
 
-    <!-- CORE VALUES SECTION -->
-    <section class="py-16 bg-white">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="font-serif-title text-3xl font-normal text-primary">Giá Trị Cốt Lõi Của Chúng Tôi</h2>
-          <p class="text-xs text-stone-500 mt-1">4 lời cam kết vàng làm nên thương hiệu Sen Đá Garden</p>
-        </div>
+ <!-- CORE VALUES SECTION -->
+ <section class="py-16 bg-white">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+ <div class="text-center mb-12">
+ <h2 class="font-serif-title text-3xl font-normal text-primary">Giá Trị Cốt Lõi Của Chúng Tôi</h2>
+ <p class="text-xs text-stone-500 mt-1">4 lời cam kết vàng làm nên thương hiệu Sen Đá Garden</p>
+ </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group shadow-2xs">
-            <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
-              <span class="material-symbols-outlined text-2xl">eco</span>
-            </div>
-            <h3 class="font-serif-title text-lg font-normal text-primary">100% Cây Tự Nhiên</h3>
-            <p class="text-xs text-stone-600 leading-relaxed">Cây được thuần dưỡng khỏe mạnh tại vườn ươm, dễ sống và phát triển rực rỡ.</p>
-          </div>
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+ <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group">
+ <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
+ <span class="material-symbols-outlined text-2xl">eco</span>
+ </div>
+ <h3 class="font-serif-title text-lg font-normal text-primary">100% Cây Tự Nhiên</h3>
+ <p class="text-xs text-stone-600 leading-relaxed">Cây được thuần dưỡng khỏe mạnh tại vườn ươm, dễ sống và phát triển rực rỡ.</p>
+ </div>
 
-          <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group shadow-2xs">
-            <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
-              <span class="material-symbols-outlined text-2xl">landscape</span>
-            </div>
-            <h3 class="font-serif-title text-lg font-normal text-primary">Giá Thể Chuẩn Tỉ Lệ</h3>
-            <p class="text-xs text-stone-600 leading-relaxed">Công thức phối trộn Akadama & Pumice giúp đất tơi xốp, thoát nước cực tốt.</p>
-          </div>
+ <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group">
+ <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
+ <span class="material-symbols-outlined text-2xl">landscape</span>
+ </div>
+ <h3 class="font-serif-title text-lg font-normal text-primary">Giá Thể Chuẩn Tỉ Lệ</h3>
+ <p class="text-xs text-stone-600 leading-relaxed">Công thức phối trộn Akadama & Pumice giúp đất tơi xốp, thoát nước cực tốt.</p>
+ </div>
 
-          <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group shadow-2xs">
-            <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
-              <span class="material-symbols-outlined text-2xl">support_agent</span>
-            </div>
-            <h3 class="font-serif-title text-lg font-normal text-primary">Tư Vấn Tận Tâm</h3>
-            <p class="text-xs text-stone-600 leading-relaxed">Đội ngũ am hiểu kỹ thuật đồng hành tư vấn cách chăm cây trọn đời cho bạn.</p>
-          </div>
+ <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group">
+ <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
+ <span class="material-symbols-outlined text-2xl">support_agent</span>
+ </div>
+ <h3 class="font-serif-title text-lg font-normal text-primary">Tư Vấn Tận Tâm</h3>
+ <p class="text-xs text-stone-600 leading-relaxed">Đội ngũ am hiểu kỹ thuật đồng hành tư vấn cách chăm cây trọn đời cho bạn.</p>
+ </div>
 
-          <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group shadow-2xs">
-            <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
-              <span class="material-symbols-outlined text-2xl">local_shipping</span>
-            </div>
-            <h3 class="font-serif-title text-lg font-normal text-primary">Đóng Gói Chuyên Nghiệp</h3>
-            <p class="text-xs text-stone-600 leading-relaxed">Chống sốc chấn động 3 lớp giúp cây đến tay nguyên vẹn, tươi tắn như tại vườn.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+ <div class="bg-[#F5F4EF] hover:bg-white p-6 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 text-center space-y-3 group">
+ <div class="w-12 h-12 rounded-2xl bg-[#264332]/10 text-[#264332] flex items-center justify-center mx-auto group-hover:bg-[#264332] group-hover:text-white transition-all duration-300">
+ <span class="material-symbols-outlined text-2xl">local_shipping</span>
+ </div>
+ <h3 class="font-serif-title text-lg font-normal text-primary">Đóng Gói Chuyên Nghiệp</h3>
+ <p class="text-xs text-stone-600 leading-relaxed">Chống sốc chấn động 3 lớp giúp cây đến tay nguyên vẹn, tươi tắn như tại vườn.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <!-- STATS COUNTER -->
-    <section class="py-12 bg-[#264332] text-white">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="10000" data-suffix="+" data-format="locale">10.000+</div>
-            <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Khách Hàng Hài Lòng</div>
-          </div>
-          <div>
-            <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="50" data-suffix="+">50+</div>
-            <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Giống Cây Độc Lạ</div>
-          </div>
-          <div>
-            <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300">99.8%</div>
-            <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Đánh Giá 5 Sao</div>
-          </div>
-          <div>
-            <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="5" data-suffix=" Năm">5 Năm</div>
-            <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Kinh Nghiệm Ươm Trồng</div>
-          </div>
-        </div>
-      </div>
-    </section>
+ <!-- STATS COUNTER -->
+ <section class="py-12 bg-[#264332] text-white">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+ <div>
+ <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="10000" data-suffix="+" data-format="locale">10.000+</div>
+ <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Khách Hàng Hài Lòng</div>
+ </div>
+ <div>
+ <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="50" data-suffix="+">50+</div>
+ <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Giống Cây Độc Lạ</div>
+ </div>
+ <div>
+ <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300">99.8%</div>
+ <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Đánh Giá 5 Sao</div>
+ </div>
+ <div>
+ <div class="font-serif-title text-4xl sm:text-5xl font-normal text-amber-300 counter-val" data-target="5" data-suffix=" Năm">5 Năm</div>
+ <div class="text-xs text-stone-300 uppercase tracking-wider mt-1">Kinh Nghiệm Ươm Trồng</div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-[#FAF9F6] text-[#1C3A27] pt-14 pb-20 md:pb-8 border-t border-stone-200/80 mt-auto">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- TOP SECTION: Feedback Banner + Hotline/Email + Social Links -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 items-center">
-          <!-- Left: Feedback Banner -->
-          <div class="lg:col-span-5 space-y-3">
-            <h3 class="font-bold text-xl sm:text-2xl text-[#264332] tracking-tight">
-              Sen đá Châu Châu lắng nghe bạn!
-            </h3>
-            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-md">
-              Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cao trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.
-            </p>
-            <a
-              href="lien-he.html"
-              class="inline-flex items-center gap-2 bg-[#264332] text-white hover:bg-[#1A3224] transition-all px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-2xs group"
-            >
-              <span>ĐÓNG GÓP Ý KIẾN</span>
-              <span class="group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-          </div>
+ <!-- FOOTER -->
+ <footer class="bg-[#FAF9F6] text-[#1C3A27] pt-14 pb-20 md:pb-8 border-t border-stone-200/80 mt-auto">
+ <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+ <!-- TOP SECTION: Feedback Banner + Hotline/Email + Social Links -->
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 items-center">
+ <!-- Left: Feedback Banner -->
+ <div class="lg:col-span-5 space-y-3">
+ <h3 class="font-bold text-xl sm:text-2xl text-[#264332] tracking-tight">
+ Sen đá Châu Châu lắng nghe bạn!
+ </h3>
+ <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-md">
+ Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cao trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.
+ </p>
+ <a
+ href="lien-he.html"
+ class="inline-flex items-center gap-2 bg-[#264332] text-white hover:bg-[#1A3224] transition-all px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider group"
+ >
+ <span>ĐÓNG GÓP Ý KIẾN</span>
+ <span class="group-hover:translate-x-1 transition-transform">→</span>
+ </a>
+ </div>
 
-          <!-- Middle: Contact Hotline & Email Pills -->
-          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-xl">call</span>
-              </div>
-              <div>
-                <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">HOTLINE</span>
-                <a href="tel:0908888733" class="font-bold text-sm sm:text-base text-[#264332] hover:underline">0908.888.733</a>
-              </div>
-            </div>
+ <!-- Middle: Contact Hotline & Email Pills -->
+ <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+ <div class="flex items-center gap-3">
+ <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
+ <span class="material-symbols-outlined text-xl">call</span>
+ </div>
+ <div>
+ <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">HOTLINE</span>
+ <a href="tel:0908888733" class="font-bold text-sm sm:text-base text-[#264332] hover:underline">0908.888.733</a>
+ </div>
+ </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-xl">mail</span>
-              </div>
-              <div>
-                <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">EMAIL</span>
-                <a href="mailto:sendachauchau@gmail.com" class="font-bold text-xs sm:text-sm text-[#264332] hover:underline">sendachauchau@gmail.com</a>
-              </div>
-            </div>
-          </div>
+ <div class="flex items-center gap-3">
+ <div class="w-10 h-10 rounded-full bg-[#264332]/10 text-[#264332] flex items-center justify-center shrink-0">
+ <span class="material-symbols-outlined text-xl">mail</span>
+ </div>
+ <div>
+ <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400 block leading-tight">EMAIL</span>
+ <a href="mailto:sendachauchau@gmail.com" class="font-bold text-xs sm:text-sm text-[#264332] hover:underline">sendachauchau@gmail.com</a>
+ </div>
+ </div>
+ </div>
 
-          <!-- Right: Social Connections -->
-          <div class="lg:col-span-3 space-y-3 lg:text-right">
-            <h4 class="font-bold text-sm text-[#264332]">Kết nối với chúng tôi</h4>
-            <div class="flex items-center lg:justify-end gap-2.5 flex-wrap">
-              <!-- Facebook -->
-              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Facebook">
-                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <!-- Zalo -->
-              <a href="#" class="px-3 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 font-bold text-xs flex items-center justify-center transition-all" title="Zalo">
-                Zalo
-              </a>
-              <!-- TikTok -->
-              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="TikTok">
-                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
-                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.47-1.44 2.47-.14 1.25.43 2.48 1.43 3.19 1.01.7 2.37.79 3.48.24 1.08-.53 1.76-1.64 1.83-2.84.05-2.86.02-5.71.03-8.57.01-1.35-.01-2.69.01-4.04z"/>
-                </svg>
-              </a>
-              <!-- Instagram -->
-              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Instagram">
-                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
-              <!-- YouTube -->
-              <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 shadow-2xs hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="YouTube">
-                <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+ <!-- Right: Social Connections -->
+ <div class="lg:col-span-3 space-y-3 lg:text-right">
+ <h4 class="font-bold text-sm text-[#264332]">Kết nối với chúng tôi</h4>
+ <div class="flex items-center lg:justify-end gap-2.5 flex-wrap">
+ <!-- Facebook -->
+ <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Facebook">
+ <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+ <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+ </svg>
+ </a>
+ <!-- Zalo -->
+ <a href="#" class="px-3 h-9 rounded-full bg-white border border-stone-200 hover:bg-[#264332] hover:text-white text-stone-700 font-bold text-xs flex items-center justify-center transition-all" title="Zalo">
+ Zalo
+ </a>
+ <!-- TikTok -->
+ <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="TikTok">
+ <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+ <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.47-1.44 2.47-.14 1.25.43 2.48 1.43 3.19 1.01.7 2.37.79 3.48.24 1.08-.53 1.76-1.64 1.83-2.84.05-2.86.02-5.71.03-8.57.01-1.35-.01-2.69.01-4.04z"/>
+ </svg>
+ </a>
+ <!-- Instagram -->
+ <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="Instagram">
+ <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+ <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+ </svg>
+ </a>
+ <!-- YouTube -->
+ <a href="#" class="w-9 h-9 rounded-full bg-white border border-stone-200 hover:bg-[#264332] hover:text-white text-stone-700 flex items-center justify-center transition-all group" title="YouTube">
+ <svg class="w-3.5 h-3.5 fill-current group-hover:fill-white" viewBox="0 0 24 24">
+ <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div>
 
-        <!-- DIVIDER -->
-        <div class="border-t border-stone-200/80"></div>
+ <!-- DIVIDER -->
+ <div class="border-t border-stone-200/80"></div>
 
-        <!-- MIDDLE SECTION: 4 Columns Navigation & Info -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
-          <!-- Col 1: Liên kết -->
-          <div class="space-y-3">
-            <h4 class="font-bold text-sm text-[#264332]">Liên kết</h4>
-            <ul class="space-y-2 text-xs text-stone-600">
-              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Bộ sưu tập sản phẩm</a></li>
-              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Chậu sen đá thiết kế</a></li>
-              <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Tiểu cảnh phong thủy</a></li>
-              <li><a href="https://shopee.vn" target="_blank" rel="noopener" class="hover:text-[#264332] transition-colors inline-flex items-center gap-1">Cửa hàng Shopee Mall <span class="text-[10px]">↗</span></a></li>
-            </ul>
-          </div>
+ <!-- MIDDLE SECTION: 4 Columns Navigation & Info -->
+ <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
+ <!-- Col 1: Liên kết -->
+ <div class="space-y-3">
+ <h4 class="font-bold text-sm text-[#264332]">Liên kết</h4>
+ <ul class="space-y-2 text-xs text-stone-600">
+ <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Bộ sưu tập sản phẩm</a></li>
+ <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Chậu sen đá thiết kế</a></li>
+ <li><a href="san-pham.html" class="hover:text-[#264332] transition-colors">Tiểu cảnh phong thủy</a></li>
+ <li><a href="https://shopee.vn" target="_blank" rel="noopener" class="hover:text-[#264332] transition-colors inline-flex items-center gap-1">Cửa hàng Shopee Mall <span class="text-[10px]">↗</span></a></li>
+ </ul>
+ </div>
 
-          <!-- Col 2: Chính sách -->
-          <div class="space-y-3">
-            <h4 class="font-bold text-sm text-[#264332]">Chính sách</h4>
-            <ul class="space-y-2 text-xs text-stone-600">
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách bảo mật</a></li>
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách đổi trả 7 ngày</a></li>
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách giao hàng & đóng gói</a></li>
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách thanh toán</a></li>
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Tiếp nhận & giải quyết khiếu nại</a></li>
-            </ul>
-          </div>
+ <!-- Col 2: Chính sách -->
+ <div class="space-y-3">
+ <h4 class="font-bold text-sm text-[#264332]">Chính sách</h4>
+ <ul class="space-y-2 text-xs text-stone-600">
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách bảo mật</a></li>
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách đổi trả 7 ngày</a></li>
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách giao hàng & đóng gói</a></li>
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Chính sách thanh toán</a></li>
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Tiếp nhận & giải quyết khiếu nại</a></li>
+ </ul>
+ </div>
 
-          <!-- Col 3: Hỗ trợ khách hàng -->
-          <div class="space-y-3">
-            <h4 class="font-bold text-sm text-[#264332]">Hỗ trợ khách hàng</h4>
-            <ul class="space-y-2 text-xs text-stone-600">
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Hướng dẫn mua hàng</a></li>
-              <li><a href="tin-tuc.html" class="hover:text-[#264332] transition-colors">Hướng dẫn trồng & chăm sen đá</a></li>
-              <li><a href="#" class="hover:text-[#264332] transition-colors">Câu hỏi thường gặp (FAQs)</a></li>
-              <li><a href="lien-he.html" class="hover:text-[#264332] transition-colors">Liên hệ tư vấn</a></li>
-            </ul>
-          </div>
+ <!-- Col 3: Hỗ trợ khách hàng -->
+ <div class="space-y-3">
+ <h4 class="font-bold text-sm text-[#264332]">Hỗ trợ khách hàng</h4>
+ <ul class="space-y-2 text-xs text-stone-600">
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Hướng dẫn mua hàng</a></li>
+ <li><a href="tin-tuc.html" class="hover:text-[#264332] transition-colors">Hướng dẫn trồng & chăm sen đá</a></li>
+ <li><a href="#" class="hover:text-[#264332] transition-colors">Câu hỏi thường gặp (FAQs)</a></li>
+ <li><a href="lien-he.html" class="hover:text-[#264332] transition-colors">Liên hệ tư vấn</a></li>
+ </ul>
+ </div>
 
-          <!-- Col 4: Địa chỉ liên hệ -->
-          <div class="space-y-3">
-            <h4 class="font-bold text-sm text-[#264332]">Địa chỉ liên hệ</h4>
-            <div class="space-y-2 text-xs text-stone-600 leading-relaxed">
-              <p class="font-bold text-[#264332]">SEN ĐÁ CHÂU CHÂU</p>
-              <p>Địa chỉ: 217/47 Bùi Thị Xuân, Phường 3, Quận Tân Bình, TP. Hồ Chí Minh</p>
-              <p>Số điện thoại: <a href="tel:0908888733" class="font-semibold text-[#264332] hover:underline">0908 888 733</a></p>
-              <p>Email: <a href="mailto:sendachauchau@gmail.com" class="font-semibold text-[#264332] hover:underline">sendachauchau@gmail.com</a></p>
-            </div>
-          </div>
-        </div>
+ <!-- Col 4: Địa chỉ liên hệ -->
+ <div class="space-y-3">
+ <h4 class="font-bold text-sm text-[#264332]">Địa chỉ liên hệ</h4>
+ <div class="space-y-2 text-xs text-stone-600 leading-relaxed">
+ <p class="font-bold text-[#264332]">SEN ĐÁ CHÂU CHÂU</p>
+ <p>Địa chỉ: 217/47 Bùi Thị Xuân, Phường 3, Quận Tân Bình, TP. Hồ Chí Minh</p>
+ <p>Số điện thoại: <a href="tel:0908888733" class="font-semibold text-[#264332] hover:underline">0908 888 733</a></p>
+ <p>Email: <a href="mailto:sendachauchau@gmail.com" class="font-semibold text-[#264332] hover:underline">sendachauchau@gmail.com</a></p>
+ </div>
+ </div>
+ </div>
 
-        <!-- DIVIDER BOTTOM -->
-        <div class="border-t border-stone-200/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
-          <div>
-            <p class="font-bold text-[#264332]">© SEN ĐÁ CHÂU CHÂU</p>
-            <p class="text-[11px] text-stone-400 mt-0.5">Cung cấp sen đá, xương rồng & phụ kiện tiểu cảnh uy tín Tân Bình.</p>
-          </div>
-          <div class="flex items-center gap-3">
-            <button
-              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-              class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-[#264332] hover:bg-[#264332] hover:text-white transition-colors"
-              title="Về đầu trang"
-            >
-              <span class="material-symbols-outlined text-base">north</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="assets/js/shop-cart.js"></script>
-  </body>
+ <!-- DIVIDER BOTTOM -->
+ <div class="border-t border-stone-200/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+ <div>
+ <p class="font-bold text-[#264332]">© SEN ĐÁ CHÂU CHÂU</p>
+ <p class="text-[11px] text-stone-400 mt-0.5">Cung cấp sen đá, xương rồng & phụ kiện tiểu cảnh uy tín Tân Bình.</p>
+ </div>
+ <div class="flex items-center gap-3">
+ <button
+ onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+ class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-[#264332] hover:bg-[#264332] hover:text-white transition-colors"
+ title="Về đầu trang"
+ >
+ <span class="material-symbols-outlined text-base">north</span>
+ </button>
+ </div>
+ </div>
+ </div>
+ </footer>
+ <script src="assets/js/shop-cart.js"></script>
+ </body>
 </html>

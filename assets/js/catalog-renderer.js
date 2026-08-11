@@ -59,7 +59,7 @@
       ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='assets/image/logo.png';">` 
       : `<img src="assets/image/logo.png" alt="${escapeHtml(product.name)}" class="w-full h-full object-contain p-4 bg-stone-100 opacity-60">`;
 
-    return `<article class="bg-[#F5F4EF] rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0 border border-stone-200/60 hover:border-[#264332]/30 shadow-2xs">
+    return `<article class="bg-[#F5F4EF] rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:bg-white transition-colors duration-300 group min-w-0 border border-stone-200/60 hover:border-[#264332]/30">
       <div>
         <div class="relative aspect-square rounded-xl overflow-hidden mb-3 bg-stone-100">
           <a href="${productUrl(product.id)}" class="block w-full h-full">
@@ -79,7 +79,7 @@
             <span class="material-symbols-outlined text-base sm:text-lg">favorite</span>
           </button>
         </div>
-        <button data-quick-add-id="${escapeHtml(product.id)}" class="w-full py-2 px-2 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer">
+        <button data-quick-add-id="${escapeHtml(product.id)}" class="w-full py-2 px-2 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer">
           <span class="material-symbols-outlined text-sm">shopping_cart</span>
           <span>Thêm vào giỏ</span>
         </button>
@@ -367,11 +367,11 @@
         };
 
         const prevBtn = currentPage > 1
-          ? `<button data-page="${currentPage - 1}" class="w-10 h-10 rounded-2xl bg-white border border-stone-200/80 text-stone-700 font-bold hover:bg-stone-50 hover:border-primary transition-colors flex items-center justify-center shrink-0 shadow-xs" title="Trang trước"><span class="material-symbols-outlined text-lg">arrow_back</span></button>`
+          ? `<button data-page="${currentPage - 1}" class="w-10 h-10 rounded-2xl bg-white border border-stone-200/80 text-stone-700 font-bold hover:bg-stone-50 hover:border-primary transition-colors flex items-center justify-center shrink-0" title="Trang trước"><span class="material-symbols-outlined text-lg">arrow_back</span></button>`
           : "";
 
         const nextBtn = currentPage < pageCount
-          ? `<button data-page="${currentPage + 1}" class="w-10 h-10 rounded-2xl bg-white border border-stone-200/80 text-stone-700 font-bold hover:bg-stone-50 hover:border-primary transition-colors flex items-center justify-center shrink-0 shadow-xs" title="Trang sau"><span class="material-symbols-outlined text-lg">arrow_forward</span></button>`
+          ? `<button data-page="${currentPage + 1}" class="w-10 h-10 rounded-2xl bg-white border border-stone-200/80 text-stone-700 font-bold hover:bg-stone-50 hover:border-primary transition-colors flex items-center justify-center shrink-0" title="Trang sau"><span class="material-symbols-outlined text-lg">arrow_forward</span></button>`
           : "";
 
         const pageButtons = getPaginationItems(currentPage, pageCount).map((item) => {
@@ -379,7 +379,7 @@
             return `<span class="w-10 h-10 flex items-center justify-center text-stone-400 font-bold select-none">...</span>`;
           }
           const isCurrent = item === currentPage;
-          return `<button data-page="${item}" class="w-10 h-10 rounded-2xl text-xs font-bold transition-colors shrink-0 flex items-center justify-center ${isCurrent ? "bg-[#264332] text-white shadow-xs border border-[#264332]" : "bg-white border border-stone-200/80 text-stone-700 hover:bg-stone-50 hover:border-primary"}">${item}</button>`;
+          return `<button data-page="${item}" class="w-10 h-10 rounded-2xl text-xs font-bold transition-colors shrink-0 flex items-center justify-center ${isCurrent ? "bg-[#264332] text-white border border-[#264332]" : "bg-white border border-stone-200/80 text-stone-700 hover:bg-stone-50 hover:border-primary"}">${item}</button>`;
         }).join("");
 
         grid.insertAdjacentHTML("afterend", `<nav id="catalog-pagination" class="flex flex-wrap items-center justify-center gap-2 pt-8 w-full" aria-label="Phân trang sản phẩm">${prevBtn}${pageButtons}${nextBtn}</nav>`);
@@ -401,10 +401,10 @@
       ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='assets/image/logo.png';">` 
       : `<img src="assets/image/logo.png" alt="${escapeHtml(product.name)}" class="w-full h-full object-contain p-4 bg-stone-100 opacity-60">`;
 
-    return `<div class="w-52 sm:w-64 shrink-0 bg-[#F5F4EF] hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 group shadow-2xs flex flex-col justify-between">
+    return `<div class="w-52 sm:w-64 shrink-0 bg-[#F5F4EF] hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200/60 hover:border-[#264332]/40 transition-all duration-300 group flex flex-col justify-between">
       <div>
         <div class="relative aspect-square rounded-xl overflow-hidden mb-3 bg-white">
-          <span class="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs">-${discountPercent}%</span>
+          <span class="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-${discountPercent}%</span>
           <a href="${productUrl(product.id)}" class="block w-full h-full">
             ${image}
           </a>
@@ -483,7 +483,7 @@
         const topCategories = uniqueCategories.slice(0, 10);
 
         const pillTabsHtml = `
-          <button data-category-id="" class="cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill shadow-xs cursor-pointer">
+          <button data-category-id="" class="cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill cursor-pointer">
             <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box"><span class="material-symbols-outlined text-base">eco</span></div>
             <div>
               <span class="font-bold text-xs uppercase block leading-tight">TẤT CẢ</span>
@@ -513,7 +513,7 @@
               const subSpan = b.querySelector('span[class*="text-[10px]"]');
               if (subSpan) subSpan.className = "text-[10px] text-stone-500 font-normal";
             });
-            btn.className = "cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill shadow-xs cursor-pointer";
+            btn.className = "cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill cursor-pointer";
             const activeIcon = btn.querySelector(".icon-box");
             if (activeIcon) activeIcon.className = "w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box";
             const activeTextSpan = btn.querySelector("span.font-bold");
@@ -592,7 +592,7 @@
         </div>
         <div class="flex flex-wrap gap-2">
           ${hashtags.map((tag) => `
-            <a href="san-pham.html?q=${encodeURIComponent(tag)}" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-[#F5F4EF] border border-stone-200/80 text-[#264332] hover:bg-[#264332] hover:text-white transition-all shadow-2xs group">
+            <a href="san-pham.html?q=${encodeURIComponent(tag)}" class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-[#F5F4EF] border border-stone-200/80 text-[#264332] hover:bg-[#264332] hover:text-white transition-all group">
               <span class="text-emerald-600 group-hover:text-amber-300 font-bold">#</span>
               <span>${escapeHtml(tag)}</span>
             </a>
@@ -663,7 +663,7 @@
         button.style.setProperty("background-color", isSelected ? "#264332" : "#ffffff", "important");
         button.style.setProperty("color", isSelected ? "#ffffff" : "#374151", "important");
         button.style.setProperty("border-color", isSelected ? "#264332" : "#e7e5e4", "important");
-        button.style.setProperty("box-shadow", isSelected ? "0 2px 5px rgba(38, 67, 50, 0.22)" : "none", "important");
+        button.style.removeProperty("box-shadow");
       });
       galleryChoices.forEach((button) => button.classList.toggle("border-primary", button.dataset.imageUrl === imageUrl));
     };
@@ -793,7 +793,7 @@
     counters.forEach((el) => observer.observe(el));
   }
 
-  async function start() {
+  async function start() { 
     try {
       const catalog = await loadCatalog();
       window.__CURRENT_CATALOG__ = catalog;
