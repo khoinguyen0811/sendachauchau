@@ -423,6 +423,10 @@
         <div class="w-full bg-stone-200 h-2 rounded-full mt-2.5 overflow-hidden">
           <div class="bg-amber-500 h-full rounded-full" style="width: ${progressPercent}%;"></div>
         </div>
+        <button data-quick-add-id="${escapeHtml(product.id)}" class="w-full mt-3 py-2.5 px-3 bg-[#264332] text-white hover:bg-[#1C3A27] active:scale-[0.98] transition-all rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-sm">shopping_cart</span>
+          <span>Thêm giỏ hàng ngay</span>
+        </button>
       </div>
     </div>`;
   }
@@ -483,7 +487,7 @@
         const topCategories = uniqueCategories.slice(0, 10);
 
         const pillTabsHtml = `
-          <button data-category-id="" class="cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill cursor-pointer">
+          <button data-category-id="" class="cate-pill-tab w-full min-w-0 bg-[#264332] text-white px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all active-pill cursor-pointer">
             <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box"><span class="material-symbols-outlined text-base">eco</span></div>
             <div>
               <span class="font-bold text-xs uppercase block leading-tight">TẤT CẢ</span>
@@ -491,7 +495,7 @@
             </div>
           </button>
           ${topCategories.map((cat) => `
-            <button data-category-id="${escapeHtml(cat.id)}" class="cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all cursor-pointer">
+            <button data-category-id="${escapeHtml(cat.id)}" class="cate-pill-tab w-full min-w-0 hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all cursor-pointer">
               <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"><span class="material-symbols-outlined text-base">potted_plant</span></div>
               <div>
                 <span class="font-bold text-xs uppercase block leading-tight text-primary">${escapeHtml(cat.name)}</span>
@@ -505,7 +509,7 @@
         pillContainer.querySelectorAll("[data-category-id]").forEach((btn) => {
           btn.addEventListener("click", () => {
             pillContainer.querySelectorAll("[data-category-id]").forEach((b) => {
-              b.className = "cate-pill-tab hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all cursor-pointer";
+              b.className = "cate-pill-tab w-full min-w-0 hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all cursor-pointer";
               const icon = b.querySelector(".icon-box");
               if (icon) icon.className = "w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box";
               const textSpan = b.querySelector("span.font-bold");
@@ -513,7 +517,7 @@
               const subSpan = b.querySelector('span[class*="text-[10px]"]');
               if (subSpan) subSpan.className = "text-[10px] text-stone-500 font-normal";
             });
-            btn.className = "cate-pill-tab bg-[#264332] text-white px-5 py-2.5 rounded-full flex items-center gap-3 shrink-0 text-left transition-all active-pill cursor-pointer";
+            btn.className = "cate-pill-tab w-full min-w-0 bg-[#264332] text-white px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all active-pill cursor-pointer";
             const activeIcon = btn.querySelector(".icon-box");
             if (activeIcon) activeIcon.className = "w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box";
             const activeTextSpan = btn.querySelector("span.font-bold");

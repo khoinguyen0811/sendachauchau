@@ -117,10 +117,39 @@
   --color-accent-rose: #F43F5E;
   --color-accent-tan: #AE9077;
 
-  /* Background Colors */
-  --color-bg-light: #FAF9F6;
+  /*
+   * Responsive theme tokens
+   *
+   * Đây là các biến màu dành cho phần quản trị sau này. Chỉ cần ghi đè
+   * các biến --theme-* tương ứng là có thể đổi màu riêng cho desktop/mobile
+   * mà không phải sửa trực tiếp từng giao diện.
+   */
+  --theme-page-bg-mobile: #FAF9F6;
+  --theme-surface-bg-mobile: #FAF9F6;
+  --theme-card-bg-mobile: #FFFFFF;
+  --theme-text-mobile: #1C3A27;
+  --theme-muted-text-mobile: #78716C;
+  --theme-border-mobile: #E7E5E4;
+
+  --theme-page-bg-desktop: #000000;
+  --theme-surface-bg-desktop: #000000;
+  --theme-card-bg-desktop: #000000;
+  --theme-text-desktop: #F7F6F2;
+  --theme-muted-text-desktop: #C9C5BD;
+  --theme-border-desktop: #343434;
+
+  /* Active theme aliases: mobile is the default. */
+  --theme-page-bg: var(--theme-page-bg-mobile);
+  --theme-surface-bg: var(--theme-surface-bg-mobile);
+  --theme-card-bg: var(--theme-card-bg-mobile);
+  --theme-text: var(--theme-text-mobile);
+  --theme-muted-text: var(--theme-muted-text-mobile);
+  --theme-border: var(--theme-border-mobile);
+
+  /* Legacy aliases retained for existing templates. */
+  --color-bg-light: var(--theme-page-bg);
   --color-bg-card: #F5F4EF;
-  --color-bg-white: #FFFFFF;
+  --color-bg-white: var(--theme-card-bg);
 
   /* Text & Border Colors */
   --color-text-main: #1C3A27;
@@ -132,14 +161,100 @@
 /* 3. GLOBAL BASE STYLES & OVERRIDES */
 html, body {
   font-family: var(--font-sans) !important;
-  background-color: var(--color-bg-light) !important;
-  color: var(--color-text-main);
+  background-color: var(--theme-page-bg) !important;
+  color: var(--theme-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: 'Gilroy', sans-serif !important;
+}
+
+/* Desktop-only black theme. Mobile deliberately keeps the current cream UI. */
+@media (min-width: 768px) {
+  :root {
+    --theme-page-bg: var(--theme-page-bg-desktop);
+    --theme-surface-bg: var(--theme-surface-bg-desktop);
+    --theme-card-bg: var(--theme-card-bg-desktop);
+    --theme-text: var(--theme-text-desktop);
+    --theme-muted-text: var(--theme-muted-text-desktop);
+    --theme-border: var(--theme-border-desktop);
+  }
+
+  /* Page-level surfaces inherit the desktop theme across every static page. */
+  body > header,
+  body > main,
+  body > main > section,
+  body > footer {
+    background-color: var(--theme-surface-bg) !important;
+    border-color: var(--theme-border) !important;
+  }
+
+  /* Existing Tailwind utility surfaces become dark cards on desktop. */
+  body > header .bg-white,
+  body > main .bg-white,
+  body > footer .bg-white,
+  body > header .bg-\[\#FAF9F6\],
+  body > main .bg-\[\#FAF9F6\],
+  body > footer .bg-\[\#FAF9F6\],
+  body > header .bg-\[\#F7F6F2\],
+  body > main .bg-\[\#F7F6F2\],
+  body > footer .bg-\[\#F7F6F2\],
+  body > header .bg-\[\#F5F4EF\],
+  body > main .bg-\[\#F5F4EF\],
+  body > footer .bg-\[\#F5F4EF\],
+  body > header .bg-\[\#F3F2ED\],
+  body > main .bg-\[\#F3F2ED\],
+  body > footer .bg-\[\#F3F2ED\],
+  body > header .bg-\[\#F2F1EC\],
+  body > main .bg-\[\#F2F1EC\],
+  body > footer .bg-\[\#F2F1EC\] {
+    background-color: var(--theme-card-bg) !important;
+  }
+
+  /* Preserve contrast for the most common existing text utilities. */
+  body > header .text-primary,
+  body > main .text-primary,
+  body > footer .text-primary,
+  body > header .text-text-main,
+  body > main .text-text-main,
+  body > footer .text-text-main,
+  body > header .text-\[\#264332\],
+  body > main .text-\[\#264332\],
+  body > footer .text-\[\#264332\],
+  body > header .text-\[\#1C3A27\],
+  body > main .text-\[\#1C3A27\],
+  body > footer .text-\[\#1C3A27\] {
+    color: var(--theme-text) !important;
+  }
+
+  body > header .text-stone-400,
+  body > main .text-stone-400,
+  body > footer .text-stone-400,
+  body > header .text-stone-500,
+  body > main .text-stone-500,
+  body > footer .text-stone-500,
+  body > header .text-stone-600,
+  body > main .text-stone-600,
+  body > footer .text-stone-600,
+  body > header .text-stone-700,
+  body > main .text-stone-700,
+  body > footer .text-stone-700 {
+    color: var(--theme-muted-text) !important;
+  }
+
+  body > header .border-stone-100,
+  body > main .border-stone-100,
+  body > footer .border-stone-100,
+  body > header .border-stone-200,
+  body > main .border-stone-200,
+  body > footer .border-stone-200,
+  body > header .border-stone-300,
+  body > main .border-stone-300,
+  body > footer .border-stone-300 {
+    border-color: var(--theme-border) !important;
+  }
 }
 
 /* Custom scrollbars */
