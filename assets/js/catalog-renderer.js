@@ -456,16 +456,38 @@
 
     const homeCatGrid = document.getElementById("home-category-product-grid");
     const pillContainer = document.getElementById("cate-pill-container");
+    const moreCategoriesButton = document.getElementById("home-category-more");
     if (homeCatGrid) {
-      let activeCategoryId = "";
+      const primaryCollections = [
+        {
+          id: "collection-sen-da",
+          name: "Sen đá",
+          icon: "filter_vintage",
+          matches: (product) => /sen\s*đá/i.test(product.name || ""),
+        },
+        {
+          id: "collection-xuong-rong",
+          name: "Xương rồng",
+          icon: "potted_plant",
+          matches: (product) => /xương\s*rồng|cactus/i.test(product.name || ""),
+        },
+      ].map((collection) => ({
+        ...collection,
+        realCount: catalog.products.filter(collection.matches).length,
+      }));
+
+      let activeCategoryId = primaryCollections[0].id;
+      let showingMoreCategories = false;
       const renderCatProducts = () => {
-        let items = catalog.products.filter((p) => isProductInCategory(p, activeCategoryId, catalog));
+        const collection = primaryCollections.find((item) => item.id === activeCategoryId);
+        const items = collection
+          ? catalog.products.filter(collection.matches)
+          : catalog.products.filter((p) => isProductInCategory(p, activeCategoryId, catalog));
         const shown = items.slice(0, 8).map((item) => productCard(enrich(item, catalog), true));
         homeCatGrid.innerHTML = shown.length 
           ? shown.join("") 
           : `<p class="col-span-full text-center text-stone-500 py-12">Không tìm thấy sản phẩm phù hợp trong danh mục này.</p>`;
       };
-      renderCatProducts();
 
       if (pillContainer) {
         const categoriesWithCount = catalog.categories
@@ -485,50 +507,48 @@
           }
         }
         const topCategories = uniqueCategories.slice(0, 10);
-
-        const pillTabsHtml = `
-          <button data-category-id="" class="cate-pill-tab w-full min-w-0 bg-[#264332] text-white px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all active-pill cursor-pointer">
-            <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box"><span class="material-symbols-outlined text-base">eco</span></div>
-            <div>
-              <span class="font-bold text-xs uppercase block leading-tight">TẤT CẢ</span>
-              <span class="text-[10px] text-white/80 font-normal">${catalog.products.length} sản phẩm</span>
-            </div>
-          </button>
-          ${topCategories.map((cat) => `
-            <button data-category-id="${escapeHtml(cat.id)}" class="cate-pill-tab w-full min-w-0 hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all cursor-pointer">
-              <div class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box"><span class="material-symbols-outlined text-base">potted_plant</span></div>
+        const getCategoryTab = (category, icon = "potted_plant") => {
+          const isActive = category.id === activeCategoryId;
+          return `
+            <button data-category-id="${escapeHtml(category.id)}" class="cate-pill-tab w-full min-w-0 ${isActive ? "bg-[#264332] text-white active-pill" : "hover:bg-stone-100 text-stone-700"} px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all cursor-pointer">
+              <div class="w-7 h-7 rounded-full ${isActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-600"} flex items-center justify-center icon-box"><span class="material-symbols-outlined text-base">${icon}</span></div>
               <div>
-                <span class="font-bold text-xs uppercase block leading-tight text-primary">${escapeHtml(cat.name)}</span>
-                <span class="text-[10px] text-stone-500 font-normal">${cat.realCount} sản phẩm</span>
+                <span class="font-bold text-xs uppercase block leading-tight ${isActive ? "text-white" : "text-primary"}">${escapeHtml(category.name)}</span>
+                <span class="text-[10px] ${isActive ? "text-white/80" : "text-stone-500"} font-normal">${category.realCount} sản phẩm</span>
               </div>
-            </button>
-          `).join("")}
-        `;
-        pillContainer.innerHTML = pillTabsHtml;
+            </button>`;
+        };
 
-        pillContainer.querySelectorAll("[data-category-id]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            pillContainer.querySelectorAll("[data-category-id]").forEach((b) => {
-              b.className = "cate-pill-tab w-full min-w-0 hover:bg-stone-100 text-stone-700 px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all cursor-pointer";
-              const icon = b.querySelector(".icon-box");
-              if (icon) icon.className = "w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 icon-box";
-              const textSpan = b.querySelector("span.font-bold");
-              if (textSpan) textSpan.className = "font-bold text-xs uppercase block leading-tight text-primary";
-              const subSpan = b.querySelector('span[class*="text-[10px]"]');
-              if (subSpan) subSpan.className = "text-[10px] text-stone-500 font-normal";
+        const renderCategoryTabs = () => {
+          const categoriesToShow = showingMoreCategories
+            ? [{ id: "", name: "Tất cả", realCount: catalog.products.length }, ...topCategories]
+            : primaryCollections;
+
+          pillContainer.innerHTML = categoriesToShow
+            .map((category) => getCategoryTab(category, category.icon || (category.id ? "potted_plant" : "eco")))
+            .join("");
+
+          pillContainer.querySelectorAll("[data-category-id]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              activeCategoryId = btn.dataset.categoryId;
+              renderCategoryTabs();
+              renderCatProducts();
             });
-            btn.className = "cate-pill-tab w-full min-w-0 bg-[#264332] text-white px-4 py-2.5 rounded-xl flex items-center gap-3 text-left transition-all active-pill cursor-pointer";
-            const activeIcon = btn.querySelector(".icon-box");
-            if (activeIcon) activeIcon.className = "w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white icon-box";
-            const activeTextSpan = btn.querySelector("span.font-bold");
-            if (activeTextSpan) activeTextSpan.className = "font-bold text-xs uppercase block leading-tight text-white";
-            const activeSubSpan = btn.querySelector('span[class*="text-[10px]"]');
-            if (activeSubSpan) activeSubSpan.className = "text-[10px] text-white/80 font-normal";
-
-            activeCategoryId = btn.dataset.categoryId;
-            renderCatProducts();
           });
+        };
+
+        moreCategoriesButton?.addEventListener("click", () => {
+          showingMoreCategories = !showingMoreCategories;
+          activeCategoryId = showingMoreCategories ? "" : primaryCollections[0].id;
+          moreCategoriesButton.setAttribute("aria-expanded", String(showingMoreCategories));
+          moreCategoriesButton.innerHTML = showingMoreCategories
+            ? `<span>Thu gọn danh mục</span><span class="group-hover:-translate-y-1 transition-transform">↑</span>`
+            : `<span>Xem thêm danh mục</span><span class="group-hover:translate-x-1 transition-transform">→</span>`;
+          renderCategoryTabs();
+          renderCatProducts();
         });
+
+        renderCategoryTabs();
 
         const prevBtn = document.getElementById("cate-prev-btn");
         const nextBtn = document.getElementById("cate-next-btn");
@@ -543,6 +563,7 @@
           });
         }
       }
+      renderCatProducts();
     }
 
     const allProductsLink = document.getElementById("home-all-products-link");
@@ -562,12 +583,105 @@
 
   function extractHashtagsAndCleanText(rawText = "") {
     if (!rawText) return { cleanText: "", hashtags: [] };
-    const text = String(rawText).replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ");
+    const text = String(rawText)
+      .replace(/<br\s*\/?\s*>/gi, "\n")
+      .replace(/<\/(?:p|div|li|h[1-6])>/gi, "\n")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&nbsp;/gi, " ");
     const hashtagRegex = /#([A-Za-z0-9_\u00C0-\u024F\u1E00-\u1EFF\-]+)/g;
     const matches = [...text.matchAll(hashtagRegex)];
     const hashtags = Array.from(new Set(matches.map((m) => m[1].toLowerCase())));
-    const cleanText = text.replace(hashtagRegex, "").replace(/\s+/g, " ").trim();
+    const cleanText = text
+      .replace(hashtagRegex, "")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n[ \t]+/g, "\n")
+      .replace(/[ \t]{2,}/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
     return { cleanText, hashtags };
+  }
+
+  /*
+   * Converts the seller's free-form Shopee description into readable blocks.
+   * The original wording stays untouched; only the display structure changes.
+   */
+  function formatProductDescription(text = "") {
+    const lines = String(text)
+      .normalize("NFC")
+      .split(/\r?\n/)
+      .map((line) => line.replace(/\s+/g, " ").trim())
+      .filter((line, index, all) => line || (index > 0 && all[index - 1]));
+    const blocks = [];
+    let paragraph = [];
+    let list = [];
+    let listType = "bullet";
+
+    const flushParagraph = () => {
+      if (!paragraph.length) return;
+      blocks.push(`<p class="leading-7 text-stone-600">${escapeHtml(paragraph.join(" "))}</p>`);
+      paragraph = [];
+    };
+    const flushList = () => {
+      if (!list.length) return;
+      const isOrdered = listType === "ordered";
+      blocks.push(`<${isOrdered ? "ol" : "ul"} class="space-y-3 ${isOrdered ? "" : ""}">${list.map((item, index) => `<li class="flex gap-3 items-start"><span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-[#264332]/10 text-[#264332] inline-flex items-center justify-center text-[10px] font-bold">${isOrdered ? escapeHtml(item.marker || String(index + 1)) : '<span class="material-symbols-outlined text-sm">check</span>'}</span><span class="flex-1 leading-6 text-stone-600">${escapeHtml(item.text)}</span></li>`).join("")}</${isOrdered ? "ol" : "ul"}>`);
+      list = [];
+    };
+    const flushContent = () => { flushParagraph(); flushList(); };
+    const isDivider = (line) => /^[-–—_]{3,}$/.test(line);
+    const getOrderedItem = (line) => line.match(/^(\d+)[.)]\s*(.+)$/);
+    const getBulletItem = (line) => {
+      const plainBullet = line.match(/^[-+•●▪◦]\s*(.+)$/);
+      if (plainBullet) return plainBullet[1];
+      const emojiBullet = line.match(/^\p{Extended_Pictographic}\s*(.+)$/u);
+      return emojiBullet ? emojiBullet[1] : "";
+    };
+    const isHeading = (line) => {
+      const letters = line.replace(/[^\p{L}]/gu, "");
+      const upperCase = letters.length >= 4 && letters === letters.toLocaleUpperCase("vi-VN");
+      return upperCase || (/^[^.!?]{3,72}:$/.test(line) && !getOrderedItem(line) && !getBulletItem(line));
+    };
+
+    for (const line of lines) {
+      if (!line) { flushContent(); continue; }
+      if (isDivider(line)) { flushContent(); continue; }
+
+      const included = line.match(/^sản phẩm bao gồm\s*:\s*(.+)$/i);
+      if (included) {
+        flushContent();
+        blocks.push(`<aside class="rounded-2xl border border-[#264332]/15 bg-[#F5F4EF] px-4 py-3.5 flex gap-3 items-start"><span class="material-symbols-outlined text-[#264332] mt-0.5">inventory_2</span><div><p class="text-xs font-bold uppercase tracking-wider text-[#264332]">Sản phẩm bao gồm</p><p class="mt-1 text-sm leading-6 text-stone-600">${escapeHtml(included[1])}</p></div></aside>`);
+        continue;
+      }
+
+      const ordered = getOrderedItem(line);
+      if (ordered) {
+        flushParagraph();
+        if (list.length && listType !== "ordered") flushList();
+        listType = "ordered";
+        list.push({ marker: ordered[1], text: ordered[2] });
+        continue;
+      }
+
+      const bullet = getBulletItem(line);
+      if (bullet) {
+        flushParagraph();
+        if (list.length && listType !== "bullet") flushList();
+        listType = "bullet";
+        list.push({ text: bullet });
+        continue;
+      }
+
+      if (isHeading(line)) {
+        flushContent();
+        blocks.push(`<h3 class="font-serif-title text-lg sm:text-xl text-primary pt-2">${escapeHtml(line.replace(/:$/, ""))}</h3>`);
+        continue;
+      }
+
+      if (list.length) flushList();
+      paragraph.push(line);
+    }
+    flushContent();
+    return blocks.join("");
   }
 
   function renderDetail(catalog) {
@@ -581,6 +695,7 @@
 
     const rawDesc = data.description?.longDescription || "";
     const { cleanText: cleanLongDescription, hashtags } = extractHashtagsAndCleanText(rawDesc);
+    const descriptionMarkup = formatProductDescription(cleanLongDescription);
     const hasShortDesc = Boolean(data.description?.shortDescription && data.description.shortDescription.trim() !== data.description.longDescription?.trim());
     const shortDescText = hasShortDesc 
       ? extractHashtagsAndCleanText(data.description.shortDescription).cleanText
@@ -653,7 +768,7 @@
       </section>
     `;
 
-    root.innerHTML = `<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8"><nav class="text-xs text-stone-500 flex gap-2 mb-6"><a href="index.html">Trang chủ</a><span>/</span><a href="san-pham.html">Sản phẩm</a><span>/</span><span class="text-primary">${escapeHtml(categoryName)}</span></nav><div class="grid grid-cols-1 lg:grid-cols-12 gap-10"><div class="lg:col-span-6 space-y-3"><div class="aspect-square bg-white rounded-3xl p-4 border border-stone-200 overflow-hidden"><img id="detail-image" src="${escapeHtml(data.image)}" alt="${escapeHtml(data.name)}" class="w-full h-full object-cover rounded-2xl" onerror="this.onerror=null; this.src='assets/image/logo.png';"></div><div id="detail-gallery" class="flex gap-3 overflow-x-auto pb-1">${gallery}</div></div><div class="lg:col-span-6 space-y-6"><div><span class="inline-flex text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">${data.variantCount} phiên bản</span><h1 class="font-serif-title text-3xl sm:text-4xl font-normal text-primary mt-3 mb-3">${escapeHtml(data.name)}</h1><p class="text-xs text-stone-500">Danh mục: ${escapeHtml(categoryName)}</p></div><div class="bg-[#F5F4EF] p-4 rounded-2xl"><span id="detail-price" class="text-3xl font-bold text-primary"></span></div>${shortDescMarkup}${hashtagPills}<div><p class="text-xs font-bold text-primary uppercase tracking-wider mb-3">Chọn phân loại</p><div class="flex flex-wrap gap-2" id="variant-choices">${variantsMarkup}</div></div><div class="flex flex-wrap items-center gap-3 pt-1"><div class="flex items-center border border-stone-300 rounded-xl overflow-hidden"><button data-quantity="-1" class="w-10 h-10 text-lg hover:bg-stone-50">−</button><span id="detail-quantity" class="w-10 text-center text-sm font-bold">1</span><button data-quantity="1" class="w-10 h-10 text-lg hover:bg-stone-50">+</button></div><button data-add-cart class="flex-1 min-w-40 border border-primary text-primary hover:bg-primary hover:text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider">Thêm vào giỏ hàng</button><button data-buy-now class="flex-1 min-w-32 bg-primary text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider">Mua ngay</button></div></div></div><section class="mt-16 bg-white rounded-3xl p-7 sm:p-8 border border-stone-200/80"><h2 class="font-serif-title text-2xl text-primary mb-5">Mô tả sản phẩm</h2><div class="text-sm text-stone-600 leading-7 whitespace-pre-line">${escapeHtml(cleanLongDescription || "Chưa có mô tả chi tiết.")}</div>${hashtags.length ? `<div class="mt-8 pt-6 border-t border-stone-100"><div class="flex items-center gap-2 mb-3 text-xs font-bold text-stone-400 uppercase tracking-widest"><span class="material-symbols-outlined text-base text-primary">tag</span><span>Từ khóa liên quan (Hashtags)</span></div><div class="flex flex-wrap gap-2">${hashtags.map((tag) => `<a href="san-pham.html?q=${encodeURIComponent(tag)}" class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#F5F4EF] border border-stone-200/80 text-[#264332] hover:bg-[#264332] hover:text-[#264332] transition-all shadow-2xs group"><span class="text-emerald-600 font-black">#</span><span>${escapeHtml(tag)}</span></a>`).join("")}</div></div>` : ""}</section><section class="mt-10 bg-white rounded-3xl overflow-hidden border border-stone-200/80"><div class="p-7 sm:p-8 border-b border-stone-100"><p class="text-xs font-bold uppercase tracking-[.15em] text-secondary">Đánh giá & nhận xét</p><div class="grid grid-cols-1 md:grid-cols-[15rem_1fr] gap-8 items-center mt-5 rounded-2xl bg-[#F8F9F6] p-6"><div class="text-center md:border-r md:border-stone-200"><p class="text-5xl font-serif-title text-primary">4.7</p><p class="text-amber-400 text-xl tracking-widest mt-2">★★★★<span class="text-stone-200">★</span></p><p class="text-xs text-stone-500 mt-2">3 đánh giá & nhận xét</p></div><div class="space-y-2 text-xs">${[5,4,3,2,1].map((star, index) => `<div class="flex items-center gap-3"><span class="w-6">${star} ★</span><span class="h-2 flex-1 max-w-xs rounded-full bg-stone-200 overflow-hidden"><i class="block h-full bg-amber-400" style="width:${[70,30,0,0,0][index]}%"></i></span><span>${[70,30,0,0,0][index]}%</span></div>`).join("")}</div></div></div><div class="p-7 sm:p-8"><form id="review-form" class="rounded-2xl border border-dashed border-stone-300 bg-[#FAFBF8] p-5 mb-2"><h3 class="font-bold text-sm text-primary">Chia sẻ trải nghiệm của bạn</h3><div class="flex gap-1 text-amber-400 text-xl mt-2">★★★★★</div><textarea required placeholder="Viết đánh giá về sản phẩm..." class="w-full mt-3 h-24 rounded-xl border border-stone-200 bg-white p-3 text-sm focus:outline-primary"></textarea><div class="flex flex-wrap justify-between items-center gap-3 mt-3"><label class="cursor-pointer border border-stone-200 bg-white px-3 py-2 rounded-xl text-xs font-semibold text-stone-600"><span class="material-symbols-outlined text-base align-middle">perm_media</span> Thêm ảnh / video<input id="review-media" type="file" accept="image/*,video/*" multiple class="hidden"></label><span id="review-upload-state" class="text-xs text-stone-400">Tối đa 5 ảnh hoặc video</span><button class="bg-primary text-white px-4 py-2.5 rounded-xl text-xs font-bold">GỬI ĐÁNH GIÁ</button></div></form>${reviewMarkup}</div></section>${relatedSection}</div>`;
+    root.innerHTML = `<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8"><nav class="text-xs text-stone-500 flex gap-2 mb-6"><a href="index.html">Trang chủ</a><span>/</span><a href="san-pham.html">Sản phẩm</a><span>/</span><span class="text-primary">${escapeHtml(categoryName)}</span></nav><div class="grid grid-cols-1 lg:grid-cols-12 gap-10"><div class="lg:col-span-6 space-y-3"><div class="aspect-square bg-white rounded-3xl p-4 border border-stone-200 overflow-hidden"><img id="detail-image" src="${escapeHtml(data.image)}" alt="${escapeHtml(data.name)}" class="w-full h-full object-cover rounded-2xl" onerror="this.onerror=null; this.src='assets/image/logo.png';"></div><div id="detail-gallery" class="flex gap-3 overflow-x-auto pb-1">${gallery}</div></div><div class="lg:col-span-6 space-y-6"><div><span class="inline-flex text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">${data.variantCount} phiên bản</span><h1 class="font-serif-title text-3xl sm:text-4xl font-normal text-primary mt-3 mb-3">${escapeHtml(data.name)}</h1><p class="text-xs text-stone-500">Danh mục: ${escapeHtml(categoryName)}</p></div><div class="bg-[#F5F4EF] p-4 rounded-2xl"><span id="detail-price" class="text-3xl font-bold text-primary"></span></div>${shortDescMarkup}${hashtagPills}<div><p class="text-xs font-bold text-primary uppercase tracking-wider mb-3">Chọn phân loại</p><div class="flex flex-wrap gap-2" id="variant-choices">${variantsMarkup}</div></div><div class="flex flex-wrap items-center gap-3 pt-1"><div class="flex items-center border border-stone-300 rounded-xl overflow-hidden"><button data-quantity="-1" class="w-10 h-10 text-lg hover:bg-stone-50">−</button><span id="detail-quantity" class="w-10 text-center text-sm font-bold">1</span><button data-quantity="1" class="w-10 h-10 text-lg hover:bg-stone-50">+</button></div><button data-add-cart class="flex-1 min-w-40 border border-primary text-primary hover:bg-primary hover:text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider">Thêm vào giỏ hàng</button><button data-buy-now class="flex-1 min-w-32 bg-primary text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider">Mua ngay</button></div></div></div><section class="mt-16 bg-white rounded-3xl p-7 sm:p-8 border border-stone-200/80"><h2 class="font-serif-title text-2xl text-primary mb-5">Mô tả sản phẩm</h2><div class="space-y-5 text-sm">${descriptionMarkup || '<p class="leading-7 text-stone-600">Chưa có mô tả chi tiết.</p>'}</div>${hashtags.length ? `<div class="mt-8 pt-6 border-t border-stone-100"><div class="flex items-center gap-2 mb-3 text-xs font-bold text-stone-400 uppercase tracking-widest"><span class="material-symbols-outlined text-base text-primary">tag</span><span>Từ khóa liên quan (Hashtags)</span></div><div class="flex flex-wrap gap-2">${hashtags.map((tag) => `<a href="san-pham.html?q=${encodeURIComponent(tag)}" class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#F5F4EF] border border-stone-200/80 text-[#264332] hover:bg-[#264332] hover:text-[#264332] transition-all shadow-2xs group"><span class="text-emerald-600 font-black">#</span><span>${escapeHtml(tag)}</span></a>`).join("")}</div></div>` : ""}</section><section class="mt-10 bg-white rounded-3xl overflow-hidden border border-stone-200/80"><div class="p-7 sm:p-8 border-b border-stone-100"><p class="text-xs font-bold uppercase tracking-[.15em] text-secondary">Đánh giá & nhận xét</p><div class="grid grid-cols-1 md:grid-cols-[15rem_1fr] gap-8 items-center mt-5 rounded-2xl bg-[#F8F9F6] p-6"><div class="text-center md:border-r md:border-stone-200"><p class="text-5xl font-serif-title text-primary">4.7</p><p class="text-amber-400 text-xl tracking-widest mt-2">★★★★<span class="text-stone-200">★</span></p><p class="text-xs text-stone-500 mt-2">3 đánh giá & nhận xét</p></div><div class="space-y-2 text-xs">${[5,4,3,2,1].map((star, index) => `<div class="flex items-center gap-3"><span class="w-6">${star} ★</span><span class="h-2 flex-1 max-w-xs rounded-full bg-stone-200 overflow-hidden"><i class="block h-full bg-amber-400" style="width:${[70,30,0,0,0][index]}%"></i></span><span>${[70,30,0,0,0][index]}%</span></div>`).join("")}</div></div></div><div class="p-7 sm:p-8"><form id="review-form" class="rounded-2xl border border-dashed border-stone-300 bg-[#FAFBF8] p-5 mb-2"><h3 class="font-bold text-sm text-primary">Chia sẻ trải nghiệm của bạn</h3><div class="flex gap-1 text-amber-400 text-xl mt-2">★★★★★</div><textarea required placeholder="Viết đánh giá về sản phẩm..." class="w-full mt-3 h-24 rounded-xl border border-stone-200 bg-white p-3 text-sm focus:outline-primary"></textarea><div class="flex flex-wrap justify-between items-center gap-3 mt-3"><label class="cursor-pointer border border-stone-200 bg-white px-3 py-2 rounded-xl text-xs font-semibold text-stone-600"><span class="material-symbols-outlined text-base align-middle">perm_media</span> Thêm ảnh / video<input id="review-media" type="file" accept="image/*,video/*" multiple class="hidden"></label><span id="review-upload-state" class="text-xs text-stone-400">Tối đa 5 ảnh hoặc video</span><button class="bg-primary text-white px-4 py-2.5 rounded-xl text-xs font-bold">GỬI ĐÁNH GIÁ</button></div></form>${reviewMarkup}</div></section>${relatedSection}</div>`;
     const price = root.querySelector("#detail-price");
     const choices = root.querySelectorAll(".variant-choice");
     const galleryChoices = root.querySelectorAll(".gallery-choice");

@@ -127,13 +127,18 @@
   --theme-page-bg-mobile: #FAF9F6;
   --theme-surface-bg-mobile: #FAF9F6;
   --theme-card-bg-mobile: #FFFFFF;
+  --theme-card-text-mobile: #1C3A27;
+  --theme-card-muted-text-mobile: #78716C;
   --theme-text-mobile: #1C3A27;
   --theme-muted-text-mobile: #78716C;
   --theme-border-mobile: #E7E5E4;
 
   --theme-page-bg-desktop: #000000;
   --theme-surface-bg-desktop: #000000;
-  --theme-card-bg-desktop: #000000;
+  /* Keep the page canvas black, while content cards stay warm and readable. */
+  --theme-card-bg-desktop: #FAF9F6;
+  --theme-card-text-desktop: #1C3A27;
+  --theme-card-muted-text-desktop: #57534E;
   --theme-text-desktop: #F7F6F2;
   --theme-muted-text-desktop: #C9C5BD;
   --theme-border-desktop: #343434;
@@ -142,6 +147,8 @@
   --theme-page-bg: var(--theme-page-bg-mobile);
   --theme-surface-bg: var(--theme-surface-bg-mobile);
   --theme-card-bg: var(--theme-card-bg-mobile);
+  --theme-card-text: var(--theme-card-text-mobile);
+  --theme-card-muted-text: var(--theme-card-muted-text-mobile);
   --theme-text: var(--theme-text-mobile);
   --theme-muted-text: var(--theme-muted-text-mobile);
   --theme-border: var(--theme-border-mobile);
@@ -177,6 +184,8 @@ body {
     --theme-page-bg: var(--theme-page-bg-desktop);
     --theme-surface-bg: var(--theme-surface-bg-desktop);
     --theme-card-bg: var(--theme-card-bg-desktop);
+    --theme-card-text: var(--theme-card-text-desktop);
+    --theme-card-muted-text: var(--theme-card-muted-text-desktop);
     --theme-text: var(--theme-text-desktop);
     --theme-muted-text: var(--theme-muted-text-desktop);
     --theme-border: var(--theme-border-desktop);
@@ -254,6 +263,24 @@ body {
   body > main .border-stone-300,
   body > footer .border-stone-300 {
     border-color: var(--theme-border) !important;
+  }
+
+  /* Light cards sit on the black canvas, so their copy switches back to dark. */
+  body > header :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]) :is(.text-primary, .text-text-main, .text-\[\#264332\], .text-\[\#1C3A27\]),
+  body > main :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]):not(main > section) :is(.text-primary, .text-text-main, .text-\[\#264332\], .text-\[\#1C3A27\]),
+  body > footer :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]) :is(.text-primary, .text-text-main, .text-\[\#264332\], .text-\[\#1C3A27\]) {
+    color: var(--theme-card-text) !important;
+  }
+
+  body > header :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]) :is(.text-stone-400, .text-stone-500, .text-stone-600, .text-stone-700),
+  body > main :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]):not(main > section) :is(.text-stone-400, .text-stone-500, .text-stone-600, .text-stone-700),
+  body > footer :is(.bg-white, .bg-\[\#FAF9F6\], .bg-\[\#F7F6F2\], .bg-\[\#F5F4EF\], .bg-\[\#F3F2ED\], .bg-\[\#F2F1EC\]) :is(.text-stone-400, .text-stone-500, .text-stone-600, .text-stone-700) {
+    color: var(--theme-card-muted-text) !important;
+  }
+
+  /* Reassert the black page canvas after individual utility backgrounds. */
+  body > main > section[class] {
+    background-color: var(--theme-surface-bg) !important;
   }
 }
 
