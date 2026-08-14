@@ -9,6 +9,7 @@
   - `data/product-media.json`: 230 bản ghi media hình ảnh.
   - `data/product-variants.json`: 1,115 bản ghi biến thể.
   - `data/categories.json`, `data/category-products.json`.
+- **Hệ thống Backend Core (matbaows-core-admin)**: Project cũng chứa một core Backend viết bằng Laravel 12 tích hợp sẵn tại `matbaows-core-admin`. Chứa REST API, Admin UI, xử lý thanh toán, giỏ hàng, và phân quyền.
 - **Tài nguyên Hình ảnh**: 724 hình ảnh sản phẩm đã được tải về cục bộ và lưu trữ tại `assets/product/`. Không sử dụng link ảnh từ Shopee CDN (`cf.shopee.vn`).
 
 ---

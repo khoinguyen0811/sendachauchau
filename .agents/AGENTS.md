@@ -20,3 +20,12 @@
   1. Kéo mã nguồn mới nhất về: `git pull origin main`
   2. Tạo một nhánh mới riêng biệt: `git checkout -b feature/<ten-tinh-nang>` hoặc `fix/<ten-bug>`
   3. Commit và đẩy code lên nhánh mới vừa tạo: `git push origin <ten-nhanh-moi>`
+
+## 5. Ràng Buộc Đặc Biệt Khi Thao Tác Backend (matbaows-core-admin)
+- **Kiến trúc hệ thống**: Đây là Laravel 12 Ecommerce Core (1 database độc lập). Tuyệt đối **KHÔNG** thêm multi-tenant, **KHÔNG** tự ý cài thêm React/Vue/Livewire nếu không có yêu cầu.
+- **Storefront & Theme**: Nếu cắt HTML vào theme, giữ nguyên kiến trúc Laravel Blade component + Vanilla JS. Không dựng lại frontend bằng framework riêng. Không tự tạo page-builder kéo thả (sử dụng inline editing `contenteditable`).
+- **Lưu trữ Media**: Lưu file ảnh với **đường dẫn tương đối** (relative path), KHÔNG lưu URL tuyệt đối (http...) vào Database.
+- **Kiểm chứng nghiêm ngặt (Lệnh bắt buộc)**:
+  - Khi sửa backend, bắt buộc phải chạy `php artisan test` và `php -l`.
+  - **Tối kỵ**: Tuyệt đối không chạy lệnh `migrate:fresh`, `migrate:reset`, `db:wipe` trên database thật. Không để lộ `.env` secrets, access token ra console hay log.
+- **Nguồn chân lý (Source of Truth)**: Code thực tế (Migration > Route > Service) có độ tin cậy cao hơn tài liệu. Phải đọc `matbaows-core-admin/AI_BUILD_PROMPT.md` chi tiết nếu làm task về Backend.
